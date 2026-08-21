@@ -1024,6 +1024,51 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
   .btn:active{transform:none}
   .nav-toggle::after{transition:none}
 }
+
+/* ---------- 24. COSTUME BLOCK (nested in Saturday's Beer Olympics) ---- */
+.costume{
+  margin-top:var(--s-3);padding:var(--s-3);
+  background:var(--night-700);border:1px solid var(--line-strong);
+  border-left:4px solid var(--blue-400);
+}
+.costume > * + *{margin-top:var(--s-2)}
+.costume-head{
+  font-family:var(--font-display);font-size:var(--step-1);font-weight:700;
+  text-transform:uppercase;letter-spacing:.02em;line-height:1.1;color:var(--cream-100);
+}
+.costume-grid{display:grid;gap:var(--s-2);margin-top:var(--s-3)}
+@media (min-width:46rem){.costume-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.costume-offer{
+  display:flex;flex-direction:column;
+  background:var(--night-600);border:1px solid var(--line);
+  border-top:3px solid var(--amber-400);padding:var(--s-3);
+}
+.costume-offer > * + *{margin-top:var(--s-1)}
+.costume-lane{
+  font-family:var(--font-mono);font-size:var(--step--2);font-weight:700;
+  text-transform:uppercase;letter-spacing:.18em;color:var(--amber-400);
+}
+.costume-name{
+  font-family:var(--font-display);font-size:var(--step-0);font-weight:700;
+  text-transform:uppercase;letter-spacing:.02em;line-height:1.1;color:var(--cream-100);
+}
+.costume-copy{font-size:var(--step--1);line-height:1.45;color:var(--cream-400)}
+.costume-offer .btn{margin-top:auto;text-wrap:balance}
+.costume-alt{
+  display:flex;flex-direction:column;justify-content:center;gap:.15rem;
+  min-height:var(--tap);padding:.55rem 0;font-size:var(--step--1);line-height:1.3;
+  color:var(--cream-300);text-decoration:underline;text-underline-offset:.18em;
+}
+.costume-alt + .costume-alt{border-top:1px solid var(--line)}
+.costume-alt:hover{color:var(--cream-100)}
+.costume-kind{
+  font-family:var(--font-mono);font-size:var(--step--2);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--cream-500);text-decoration:none;
+}
+.costume-honest{
+  font-size:var(--step--2);line-height:1.5;color:var(--cream-500);
+  border-top:1px solid var(--line);padding-top:var(--s-2);
+}
 </style>
 </head>
 <body>
@@ -1487,6 +1532,45 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
                 <span class="chip chip--blue chip--wear" data-attire-slot="sat-pm" data-attire-col="ladies"><span class="wear-key">Ladies</span><span class="attire-chip-val">Dirndl in blue (purchased costume)</span></span>
               </p>
               <a class="btn btn--block" href="#tap">Pour my fate &amp; read my trial</a>
+
+              <div class="costume" id="costume">
+                <p class="eyebrow">The one thing you buy</p>
+                <p class="costume-head">Need a costume?</p>
+                <p class="itin-note">Three ways to land it, none of which require you to know a word of German. Order early &mdash; this stuff is seasonal, and the sizes at both ends go first.</p>
+
+                <div class="costume-grid">
+
+                  <div class="costume-offer">
+                    <p class="costume-lane">The Lads</p>
+                    <p class="costume-name">Dark brown <span class="de">Lederhosen</span></p>
+                    <span class="gloss">Lederhosen &mdash; leather knee-breeches. Say it &ldquo;LAY-der-hoh-zen.&rdquo;</span>
+                    <p class="costume-copy">A full set &mdash; shorts, shirt, socks, little hat &mdash; is better value than buying the pieces apart. Fourteen of you, one silhouette, no committee meeting.</p>
+                    <a class="btn btn--block" href="https://www.amazon.com/dp/B07H44M9CV" target="_blank" rel="noopener noreferrer">Spooktacular Creations brown set on Amazon</a>
+                    <a class="costume-alt" href="https://www.amazon.com/s?k=mens+lederhosen+dark+brown+oktoberfest+costume+set" target="_blank" rel="noopener noreferrer">Browse all dark brown lederhosen on Amazon<span class="costume-kind">search &mdash; more sizes, including big and tall</span></a>
+                  </div>
+
+                  <div class="costume-offer">
+                    <p class="costume-lane">The Ladies &middot; dress</p>
+                    <p class="costume-name">Blue <span class="de">Dirndl</span></p>
+                    <span class="gloss">Dirndl &mdash; the dress-blouse-apron outfit. Say it &ldquo;DEERN-dl.&rdquo;</span>
+                    <p class="costume-copy">Dress, blouse and apron together. Blue is the rule; which blue is your business. Every size is often its own listing, so open the search if yours isn&rsquo;t there.</p>
+                    <a class="btn btn--block" href="https://www.amazon.com/dp/B0D9455WRH" target="_blank" rel="noopener noreferrer">Scarlet Darkness bright blue dirndl on Amazon</a>
+                    <a class="costume-alt" href="https://www.amazon.com/dp/B0C6XF6PZ3" target="_blank" rel="noopener noreferrer">A blue-and-gold dirndl on Amazon<span class="costume-kind">second option, same idea</span></a>
+                    <a class="costume-alt" href="https://www.amazon.com/s?k=blue+dirndl+dress+3+piece+set+women" target="_blank" rel="noopener noreferrer">Browse all blue dirndls on Amazon<span class="costume-kind">search &mdash; sort by price, low to high</span></a>
+                  </div>
+
+                  <div class="costume-offer">
+                    <p class="costume-lane">The Ladies &middot; pants</p>
+                    <p class="costume-name">Shorts and a blue blouse</p>
+                    <p class="costume-copy">Every bit as correct, and considerably easier to play Beer Olympics in. Buy the shorts in brown or black &mdash; blue leather shorts have never existed &mdash; and let a blue plaid blouse carry the colour.</p>
+                    <a class="btn btn--block" href="https://www.amazon.com/s?k=womens+oktoberfest+lederhosen+shorts" target="_blank" rel="noopener noreferrer">Browse women&rsquo;s lederhosen shorts on Amazon</a>
+                    <a class="costume-alt" href="https://www.amazon.com/s?k=womens+blue+plaid+dirndl+blouse+oktoberfest" target="_blank" rel="noopener noreferrer">Browse blue plaid blouses on Amazon<span class="costume-kind">search &mdash; this is the piece that carries the blue</span></a>
+                  </div>
+
+                </div>
+
+                <p class="costume-honest">Suggestions, not assignments &mdash; and we&rsquo;ve deliberately not printed prices, because Amazon&rsquo;s move around and a stale number is worse than none. Check the listing you actually buy from; sizes run strange in both directions. Any dark brown lederhosen and any blue dirndl works. The grid cares about the colour, not the receipt.</p>
+              </div>
             </div>
           </li>
 
@@ -1606,8 +1690,8 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 
     <div class="card card--accent attire-note">
       <h3 class="card-title">Where to buy the costume</h3>
-      <p class="itin-note">The Saturday costumes are purchased, not improvised. The store link isn&rsquo;t settled yet &mdash; it lands here the moment it is, and this page is the place to check.</p>
-      <p class="tbd tbd--block">Costume store link &mdash; TBD</p>
+      <p class="itin-note">The Saturday costumes are purchased, not improvised. There&rsquo;s no single official store &mdash; but there are picked-out options, including a pants option for the ladies, over in Saturday&rsquo;s plan.</p>
+      <p><a class="btn btn--block" href="#costume">Need a costume? See the options</a></p>
     </div>
 
   </div>
@@ -2071,7 +2155,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 
       <article class="card card--alert">
         <h3 class="card-title">Separate from all of the above</h3>
-        <p>Bring your own money for public outings &mdash; lunch, Topgolf, the Friday morning plan the lads are still voting on, and anything the market tempts you with on Saturday. Your purchased costume is on you too.</p>
+        <p>Bring your own money for public outings &mdash; Topgolf bays, lunch at Lua, the taprooms, dinner at Rube&rsquo;s, the bakery crawl, and anything the market tempts you with on Saturday. Your purchased costume is on you too.</p>
         <p class="btn-row">
           <a class="btn btn--ghost" href="#bring">Things to bring</a>
         </p>
