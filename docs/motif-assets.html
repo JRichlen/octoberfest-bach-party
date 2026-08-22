@@ -381,7 +381,7 @@ table{border-collapse:collapse;width:100%}
 }
 .bottomline > span{
   display:inline-flex;align-items:center;white-space:nowrap;
-  min-height:2.5rem;padding:0 .9rem;
+  min-height:var(--tap);padding:0 .9rem;
   border-right:1px solid var(--line);color:var(--text-dim);
 }
 .bottomline > .bottomline-flag{
@@ -949,15 +949,16 @@ table{border-collapse:collapse;width:100%}
 </footer>
 
 <style>
-/* 1-bit test — demo only, but ship this snippet in the repo as the gate. */
-html.bit,html.bit body{background:#fff !important}
-html.bit .seal *,html.bit .picto *,html.bit .lebkuchen *,html.bit .mark::before{
-  fill:#000 !important;stroke:#000 !important;opacity:1 !important;
-}
-html.bit .mark{border-color:#000 !important}
-html.bit *{color:#000 !important;border-color:#000 !important}
-html.bit .bug-code,html.bit .bring-n,html.bit .bottomline-flag{background:#000 !important;color:#fff !important}
-html.bit .bottomline,html.bit .sheet-demo,html.bit .card{background:#fff !important}
+/* ============================================================================
+   THE 1-BIT GATE — ship this snippet; run it before any motif change merges.
+   It removes hue and pushes everything to pure black and white WITHOUT
+   touching geometry, so stroke-only art keeps its fill="none". Do NOT gate by
+   forcing fill:#000 — that solid-fills every open pictogram and the seal, and
+   tells you a component failed when it did not.
+   The definitive version of this test is a raster threshold of a real
+   screenshot; this CSS is the fast in-browser approximation.
+   ========================================================================== */
+html.bit{filter:grayscale(1) contrast(8)}
 </style>
 
 <script>

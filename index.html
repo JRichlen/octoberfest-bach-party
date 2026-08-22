@@ -947,37 +947,6 @@ body[data-side] .grid--pair:has([data-friday]){grid-template-columns:1fr}
 body[data-side="lads"]   #attire td[data-col="ladies"],
 body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
 
-/* ---------- gutter rails ---------- */
-.rail{display:none}
-@media (min-width:76rem){
-  .rail{
-    display:block;position:fixed;top:calc(var(--nav-h) + 1rem);bottom:0;z-index:5;
-    width:7.5rem;overflow:hidden;pointer-events:none;
-    -webkit-mask-image:linear-gradient(to bottom,transparent,#000 8%,#000 88%,transparent);
-    mask-image:linear-gradient(to bottom,transparent,#000 8%,#000 88%,transparent);
-  }
-  .rail--left{left:max(.75rem, calc((100vw - var(--wrap)) / 2 - 8.75rem))}
-  .rail--right{right:max(.75rem, calc((100vw - var(--wrap)) / 2 - 8.75rem))}
-  .rail-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.6rem}
-  .rail-list{will-change:transform}
-  .rail-card{background:var(--night-700);border:1px solid var(--line);padding:.4rem;text-align:center}
-  .rail-card .roster-media{display:block;aspect-ratio:1;background:var(--night-600);overflow:hidden}
-  .rail-card .roster-photo{width:100%;height:100%;object-fit:cover}
-  .rail-card .roster-monogram{
-    display:flex;align-items:center;justify-content:center;height:100%;
-    font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--cream-500);
-  }
-  .rail-card .roster-name{
-    display:block;margin-top:.3rem;font-size:.62rem;line-height:1.15;
-    font-weight:600;color:var(--cream-300);
-  }
-  .rail-card .roster-role{
-    display:block;font-family:var(--font-mono);font-size:.52rem;letter-spacing:.08em;
-    text-transform:uppercase;color:var(--cream-500);
-  }
-}
-/* rails never overlap: they live in the viewport margin outside --wrap, and
-   only render at >=76rem where that margin is at least 8.5rem per side. */
 
 /* =====================================================================
    PART 6 — MOTION (last, so it wins over every animation above)
@@ -1135,274 +1104,6 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
 </div>
 
 <main id="main">
-<aside class="rail rail--left" aria-hidden="true"><ul class="rail-list">
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Megan Elgersma" alt="Megan Elgersma" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">ME</span>
-          </span>
-          <span class="roster-name">Megan Elgersma</span>
-          <span class="roster-role">Bride</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Kendra Hatcher" alt="Kendra Hatcher" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">KH</span>
-          </span>
-          <span class="roster-name">Kendra Hatcher</span>
-          <span class="roster-role">Maid of Honor</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Kailey Elgersma" alt="Kailey Elgersma" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">KE</span>
-          </span>
-          <span class="roster-name">Kailey Elgersma</span>
-          <span class="roster-role">Bridesmaid</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Tori Elgersma" alt="Tori Elgersma" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">TE</span>
-          </span>
-          <span class="roster-name">Tori Elgersma</span>
-          <span class="roster-role">Bridesmaid</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Karissa Fleming" alt="Karissa Fleming" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">KF</span>
-          </span>
-          <span class="roster-name">Karissa Fleming</span>
-          <span class="roster-role">Bridesmaid</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Kim Martens" alt="Kim Martens" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">KM</span>
-          </span>
-          <span class="roster-name">Kim Martens</span>
-          <span class="roster-role">Bridesmaid</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Kenzie Nilles" alt="Kenzie Nilles" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">KN</span>
-          </span>
-          <span class="roster-name">Kenzie Nilles</span>
-          <span class="roster-role">Bridesmaid</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Damiana Perkins" alt="Damiana Perkins" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">DP</span>
-          </span>
-          <span class="roster-name">Damiana Perkins</span>
-          <span class="roster-role">Bridesmaid</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Cindy Elgersma" alt="Cindy Elgersma" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">CE</span>
-          </span>
-          <span class="roster-name">Cindy Elgersma</span>
-          <span class="roster-role">Mother of Bride</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Peggy Elgersma" alt="Peggy Elgersma" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">PE</span>
-          </span>
-          <span class="roster-name">Peggy Elgersma</span>
-          <span class="roster-role">Step Mother of Bride</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Julie Richlen" alt="Julie Richlen" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">JR</span>
-          </span>
-          <span class="roster-name">Julie Richlen</span>
-          <span class="roster-role">Mother of Groom</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Rachel Gruetzmacher" alt="Rachel Gruetzmacher" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">RG</span>
-          </span>
-          <span class="roster-name">Rachel Gruetzmacher</span>
-          <span class="roster-role">Personal Attendant</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Margie Powers" alt="Margie Powers" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">MP</span>
-          </span>
-          <span class="roster-name">Margie Powers</span>
-          <span class="roster-role">Personal Attendant</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Morgan Elgersma" alt="Morgan Elgersma" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">ME</span>
-          </span>
-          <span class="roster-name">Morgan Elgersma</span>
-          <span class="roster-role">Flower Mama</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Lindsay Richlen" alt="Lindsay Richlen" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">LR</span>
-          </span>
-          <span class="roster-name">Lindsay Richlen</span>
-          <span class="roster-role">Flower Mama</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Anessa Schoo" alt="Anessa Schoo" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">AS</span>
-          </span>
-          <span class="roster-name">Anessa Schoo</span>
-          <span class="roster-role">Family</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Lindsey Shannon" alt="Lindsey Shannon" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">LS</span>
-          </span>
-          <span class="roster-name">Lindsey Shannon</span>
-          <span class="roster-role">Cousin</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Liz Johnson" alt="Liz Johnson" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">LJ</span>
-          </span>
-          <span class="roster-name">Liz Johnson</span>
-          <span class="roster-role">Friend</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Amy Schroeder" alt="Amy Schroeder" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">AS</span>
-          </span>
-          <span class="roster-name">Amy Schroeder</span>
-          <span class="roster-role">Friend</span>
-        </li>
-      </ul></aside>
-<aside class="rail rail--right" aria-hidden="true"><ul class="rail-list">
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Andrew Richlen" alt="Andrew Richlen" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">AR</span>
-          </span>
-          <span class="roster-name">Andrew Richlen</span>
-          <span class="roster-role">Groom</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Tim Cornelisen" alt="Tim Cornelisen" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">TC</span>
-          </span>
-          <span class="roster-name">Tim Cornelisen</span>
-          <span class="roster-role">Groomsmen</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Dustin Elgerma" alt="Dustin Elgerma" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">DE</span>
-          </span>
-          <span class="roster-name">Dustin Elgerma</span>
-          <span class="roster-role">Groomsmen</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Quinten Wynia" alt="Quinten Wynia" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">QW</span>
-          </span>
-          <span class="roster-name">Quinten Wynia</span>
-          <span class="roster-role">Groomsmen</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Jamie Elgersma" alt="Jamie Elgersma" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">JE</span>
-          </span>
-          <span class="roster-name">Jamie Elgersma</span>
-          <span class="roster-role">Father of Bride</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Kendel Richlen" alt="Kendel Richlen" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">KR</span>
-          </span>
-          <span class="roster-name">Kendel Richlen</span>
-          <span class="roster-role">Father of Groom</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Brady Richlen" alt="Brady Richlen" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">BR</span>
-          </span>
-          <span class="roster-name">Brady Richlen</span>
-          <span class="roster-role">Head Usher</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Brian Cervantes" alt="Brian Cervantes" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">BC</span>
-          </span>
-          <span class="roster-name">Brian Cervantes</span>
-          <span class="roster-role">Usher</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Chris Nicolet" alt="Chris Nicolet" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">CN</span>
-          </span>
-          <span class="roster-name">Chris Nicolet</span>
-          <span class="roster-role">Usher</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Noah Haynes" alt="Noah Haynes" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">NH</span>
-          </span>
-          <span class="roster-name">Noah Haynes</span>
-          <span class="roster-role">Usher</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Nick Brooks" alt="Nick Brooks" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">NB</span>
-          </span>
-          <span class="roster-name">Nick Brooks</span>
-          <span class="roster-role">Usher</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Jackson Agey" alt="Jackson Agey" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">JA</span>
-          </span>
-          <span class="roster-name">Jackson Agey</span>
-          <span class="roster-role">Friend</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Tyler Johnsrud" alt="Tyler Johnsrud" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">TJ</span>
-          </span>
-          <span class="roster-name">Tyler Johnsrud</span>
-          <span class="roster-role">Friend</span>
-        </li>
-        <li class="rail-card">
-          <span class="roster-media">
-            <img class="roster-photo" data-person="Landon Baugh" alt="Landon Baugh" src="" hidden>
-            <span class="roster-monogram" aria-hidden="true">LB</span>
-          </span>
-          <span class="roster-name">Landon Baugh</span>
-          <span class="roster-role">Friend</span>
-        </li>
-      </ul></aside>
 
 
 
@@ -1446,7 +1147,7 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
               <p class="itin-where"><span class="addr">7680 Coachlight Dr</span></p>
               <p class="itin-note">Opens 9&nbsp;AM sharp &mdash; cheapest bay rate of the day.</p>
               <p class="chip-row">
-                <span class="chip chip--amber chip--wear" data-attire-slot="fri-day" data-attire-col="lads"><span class="wear-key">Wear</span><span class="sr-only">: </span><span class="attire-chip-val">Flannel &amp; jeans</span></span>
+                <span class="chip chip--amber chip--wear" data-attire-slot="fri-day" data-attire-col="lads"><span class="wear-key">Wear</span><span class="sr-only">: </span><span class="attire-chip-val">Dress for the weather</span></span>
               </p>
             </li>
 
@@ -1475,7 +1176,7 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
               <p class="itin-title">VRBO check-in</p>
               <p class="itin-note">Shower, change into flannel and jeans. Stagger the showers.</p>
               <p class="chip-row">
-                <span class="chip chip--amber chip--wear" data-attire-slot="fri-eve" data-attire-col="lads"><span class="wear-key">Wear</span><span class="sr-only">: </span><span class="attire-chip-val">Polos &amp; khaki</span></span>
+                <span class="chip chip--amber chip--wear" data-attire-slot="fri-eve" data-attire-col="lads"><span class="wear-key">Wear</span><span class="sr-only">: </span><span class="attire-chip-val">Flannel &amp; jeans</span></span>
               </p>
             </li>
 
@@ -1623,6 +1324,8 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
                     <p class="costume-name">Dark brown <span class="de">Lederhosen</span></p>
                     <span class="gloss">Lederhosen &mdash; leather knee-breeches. Say it &ldquo;LAY-der-hoh-zen.&rdquo;</span>
                     <p class="costume-copy">Search for a full set &mdash; shorts, shirt, socks, little hat &mdash; rather than buying the pieces apart. Fourteen of you, one silhouette, no committee meeting. Dark brown is the rule; which dark brown is your business.</p>
+                    <a class="btn btn--block" href="https://www.amazon.com/dp/B07H44M9CV" target="_blank" rel="noopener noreferrer">A brown set on Amazon</a>
+                    <a class="costume-alt" href="https://www.amazon.com/s?k=mens+lederhosen+dark+brown+oktoberfest+costume+set" target="_blank" rel="noopener noreferrer">Browse all dark brown lederhosen on Amazon<span class="costume-kind">search &mdash; more sizes, including big and tall</span></a>
                   </div>
 
                   <div class="costume-offer">
@@ -1630,12 +1333,17 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
                     <p class="costume-name">Blue <span class="de">Dirndl</span></p>
                     <span class="gloss">Dirndl &mdash; the dress-blouse-apron outfit. Say it &ldquo;DEERN-dl.&rdquo;</span>
                     <p class="costume-copy">Search for a three-piece set &mdash; dress, blouse and apron together. Blue is the rule; which blue is your business. Every size is often its own listing, so widen the search if yours isn&rsquo;t showing.</p>
+                    <a class="btn btn--block" href="https://www.amazon.com/dp/B0D9455WRH" target="_blank" rel="noopener noreferrer">A bright blue dirndl on Amazon</a>
+                    <a class="costume-alt" href="https://www.amazon.com/dp/B0C6XF6PZ3" target="_blank" rel="noopener noreferrer">A blue-and-gold dirndl on Amazon<span class="costume-kind">second option, same idea</span></a>
+                    <a class="costume-alt" href="https://www.amazon.com/s?k=blue+dirndl+dress+3+piece+set+women" target="_blank" rel="noopener noreferrer">Browse all blue dirndls on Amazon<span class="costume-kind">search &mdash; sort by price, low to high</span></a>
                   </div>
 
                   <div class="costume-offer">
                     <p class="costume-lane">The Ladies &middot; if you&rsquo;d rather not wear a dress</p>
                     <p class="costume-name">Shorts and a blue blouse</p>
                     <p class="costume-copy">The grid says dirndl in blue, and the grid wins on the colour &mdash; but nobody is going to police the silhouette. Buy the shorts in brown or black &mdash; blue leather shorts have never existed &mdash; and let a blue plaid blouse carry the blue.</p>
+                    <a class="btn btn--block" href="https://www.amazon.com/s?k=womens+oktoberfest+lederhosen+shorts" target="_blank" rel="noopener noreferrer">Browse women&rsquo;s lederhosen shorts on Amazon</a>
+                    <a class="costume-alt" href="https://www.amazon.com/s?k=womens+blue+plaid+dirndl+blouse+oktoberfest" target="_blank" rel="noopener noreferrer">Browse blue plaid blouses on Amazon<span class="costume-kind">search &mdash; this is the piece that carries the blue</span></a>
                   </div>
 
                 </div>
@@ -1716,12 +1424,12 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
         <tbody>
           <tr data-slot="fri-day">
             <th scope="row">Friday day</th>
-            <td data-col="lads"><span class="attire-val">Flannel &amp; jeans</span></td>
+            <td data-col="lads"><span class="attire-val">Dress for the weather</span></td>
             <td data-col="ladies"><span class="attire-val">Florals &amp; jeans</span></td>
           </tr>
           <tr data-slot="fri-eve">
             <th scope="row">Friday evening</th>
-            <td data-col="lads"><span class="attire-val">Polos &amp; khaki</span></td>
+            <td data-col="lads"><span class="attire-val">Flannel &amp; jeans</span></td>
             <td data-col="ladies"><span class="attire-val">Black dresses</span></td>
           </tr>
           <tr data-slot="fri-late">
@@ -2444,16 +2152,8 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
       var l = 1 - ((progress() * SIPS) - drunk0);
       return Math.max(0, Math.min(1, l));
     }
-    var rails = document.querySelectorAll('.rail-list');
-    function shiftRails(pr){
-      Array.prototype.forEach.call(rails, function(list){
-        var over = list.scrollHeight - (list.parentNode.clientHeight || 0);
-        if(over > 0) list.style.transform = 'translateY(' + (-pr * over).toFixed(0) + 'px)';
-      });
-    }
     function render(){
       ticking = false;
-      shiftRails(progress());
       if(pouring) return;
       var l = level();
       if(reduced) l = Math.round(l * 4) / 4; /* stepped, no transitions (CSS kills them too) */
