@@ -65,17 +65,13 @@ Intro notes, all three required:
 - Subject to change.
 
 ### Friday — TWO COLUMNS
-**The Lads** — SETTLED SCHEDULE. This is decided; present it as fact, with times.
-- 9:00 AM — **Topgolf**, 7680 Coachlight Dr. Opens 9 AM sharp — cheapest bay rate of the day.
-- 11:30 AM — **Drive downtown.** 20 min east. Park once — you won't move the cars again until 4.
-- 12:00 PM — **Lunch at Lua Brewing**, 1525 High St. Opens at 11.
-- 1:45 PM — **Big Grove Taproom**, 555 17th St — a two-block walk. Nobody drives.
-- 4:00 PM — **VRBO check-in.** Shower, change into flannel and jeans. Stagger the showers.
-- 4:50 PM — **Roll out to Waukee.** Sober drivers only. 25–30 min west.
-- 5:30 PM — **Dinner at Rube's**, 3309 Ute Ave. Grill your own. Closes at 9 — don't be late.
-- 7:45 PM — **Barn Town Brewing**, 9500 University Ave, WDM. Twelve min from Rube's, open till 11.
-- 9:30 PM — **The Flying Moose**, 8980 Hickman Rd, Clive. Pool, darts, karaoke, open till 2 AM.
-- Whenever — **Home.** Beer Olympics starts tomorrow. Somebody has to be upright.
+**The Lads** — SETTLED SCHEDULE (revised 2026-08-21 evening).
+- Morning — **Golf**, tentatively Toad Valley, 237 NE 80th St, Pleasant Hill. Dress for the weather.
+- 12–4 PM — **Downtown Bar Crawl**: lunch at Lua Brewing (1525 High St), Big Grove Taproom (555 17th St), Exile Brewing (1514 Walnut St). Park once.
+- 4:00 PM — VRBO check-in. Shower, change into flannel & jeans.
+- 6:00 PM — Dinner at Rube's, 3309 Ute Ave, Waukee. Grill your own. Sober drivers only.
+- 8:00 PM on — Dive bars.
+- Whenever — Home. Beer Olympics starts tomorrow.
 
 **The Ladies**
 - Bakery Crawl & Crawl Bingo, starting at La Mie Bakery, 841 42nd St
@@ -107,7 +103,7 @@ Intro notes, all three required:
 | Bonfire | Cozy clothes | Cozy clothes |
 | Sunday morning | Cozy clothes | Cozy clothes |
 
-- Costume store link: **[PENDING]** — must render as a visibly TBD placeholder, not a live link.
+- Costume links (SETTLED — recovered from the incumbent site itself): lads https://www.amazon.com/dp/B0D1CLJTYQ (Spooktacular Creations, dark brown) · ladies https://www.amazon.com/dp/B0FN3NKFJS (Mepase 5-pc blue dirndl set). Both verified live 2026-08-21.
 
 ## Things to Bring (six items, verbatim in substance)
 1. Lawn chairs / blankets
