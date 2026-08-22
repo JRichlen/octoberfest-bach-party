@@ -70,7 +70,7 @@ Intro notes, all three required:
 - 11:30 AM — **Drive downtown.** 20 min east. Park once — you won't move the cars again until 4.
 - 12:00 PM — **Lunch at Lua Brewing**, 1525 High St. Opens at 11.
 - 1:45 PM — **Big Grove Taproom**, 555 17th St — a two-block walk. Nobody drives.
-- 4:00 PM — **VRBO check-in.** Shower, change into polos and khakis. Stagger the showers.
+- 4:00 PM — **VRBO check-in.** Shower, change into flannel and jeans. Stagger the showers.
 - 4:50 PM — **Roll out to Waukee.** Sober drivers only. 25–30 min west.
 - 5:30 PM — **Dinner at Rube's**, 3309 Ute Ave. Grill your own. Closes at 9 — don't be late.
 - 7:45 PM — **Barn Town Brewing**, 9500 University Ave, WDM. Twelve min from Rube's, open till 11.
@@ -99,8 +99,8 @@ Intro notes, all three required:
 ## Weekend Attire (locked grid)
 | Slot | The Lads | The Ladies |
 |---|---|---|
-| Friday day | Flannel & jeans | Florals & jeans |
-| Friday evening | Polos & khaki | Black dresses |
+| Friday day | Dress for the weather | Florals & jeans |
+| Friday evening (dinner) | Flannel & jeans | Black dresses |
 | Friday late night | Whatever you want | Whatever you want |
 | Saturday morning | Whatever you want | Whatever you want |
 | Saturday afternoon–evening | Lederhosen in dark brown (purchased costume) | Dirndl in blue (purchased costume) |

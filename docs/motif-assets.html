@@ -1,0 +1,989 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE 1810 COMMITTEE — motif asset sheet</title>
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&amp;family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<style>
+/* ============================================================================
+   PASTE-SOURCE SHEET — THE 1810 COMMITTEE
+   Every block marked  [EXISTING]  is already in index.html. Do NOT re-paste it;
+   it is reproduced here only so this file renders standalone from file://.
+   Every block marked  [MOTIF]  is new. Those are the blocks you paste, in order,
+   as a new "PART 8 — THE 1810 COMMITTEE" section at the END of index.html's
+   <style>, AFTER the reduced-motion block.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------- [EXISTING]
+   Tokens, reset and utilities lifted verbatim from index.html.
+   ------------------------------------------------------------------------- */
+:root{
+  --night-950:#070c16; --night-900:#0b1220; --night-800:#101a2e;
+  --night-700:#16223a; --night-600:#1e2e4c; --night-500:#283c62;
+  --blue-700:#13417d; --blue-600:#2a5ca8; --blue-400:#3d87c3; --blue-300:#7fb2dd;
+  --cream-100:#f7f3e9; --cream-200:#f4efe2; --cream-300:#ddd6c4;
+  --cream-400:#b3ab98; --cream-500:#8a836f;
+  --amber-600:#a86a12; --amber-500:#d99527; --amber-400:#f0b445; --amber-300:#ffd27a;
+  --red-600:#8e281f; --red-500:#b0342a; --red-400:#d1584b;
+  --day-100:#faf5ea; --day-200:#eee2cd; --day-300:#e0d0b3; --day-400:#c2ae8b;
+  --day-ink:#12233d; --day-ink-dim:#4a5468;
+  --day-accent:#13417d; --day-accent-soft:#3d87c3;
+
+  --bg:var(--night-800); --bg-deep:var(--night-900);
+  --surface:var(--night-700); --surface-2:var(--night-600);
+  --text:var(--cream-200); --text-dim:var(--cream-400); --text-faint:var(--cream-500);
+  --line:rgba(244,239,226,.16); --line-strong:rgba(244,239,226,.34);
+  --accent:var(--amber-400); --accent-deep:var(--amber-600); --accent-ink:#1b1205;
+  --link:var(--amber-300); --link-hover:var(--cream-100);
+  --alert:var(--red-400); --focus:var(--amber-300); --focus-halo:rgba(16,26,46,.9);
+  --tbd-ink:var(--amber-300); --tbd-bg:rgba(217,149,39,.10); --tbd-line:rgba(240,180,69,.62);
+  --loz-ink:var(--cream-200); --loz-opacity:.06; --loz-step:26px; --loz-angle:63deg;
+
+  --font-fraktur:"UnifrakturMaguntia","Luminari",serif;
+  --font-display:"Barlow Condensed","Arial Narrow","Helvetica Neue",system-ui,sans-serif;
+  --font-text:var(--font-display);
+  --font-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+
+  --step--2:clamp(0.75rem, 0.735rem + 0.08vw, 0.8125rem);
+  --step--1:clamp(0.875rem, 0.85rem + 0.13vw, 0.9375rem);
+  --step-0: clamp(1.1875rem, 1.15rem + 0.19vw, 1.3125rem);
+  --step-1: clamp(1.375rem, 1.31rem + 0.32vw, 1.5625rem);
+  --step-2: clamp(1.625rem, 1.5rem + 0.63vw, 2rem);
+  --step-3: clamp(2rem, 1.79rem + 1.05vw, 2.75rem);
+  --step-4: clamp(2.5rem, 2.1rem + 2vw, 3.75rem);
+  --step-5: clamp(3rem, 2.3rem + 3.5vw, 5.25rem);
+  --lh-tight:1.04; --lh-head:1.12; --lh-body:1.5;
+  --s-0:0.25rem; --s-1:0.5rem; --s-2:0.75rem; --s-3:1rem;
+  --s-4:1.5rem;  --s-5:2rem;   --s-6:2.75rem; --s-7:3.5rem; --s-8:5rem;
+  --tap:44px; --nav-h:3.25rem; --wrap:68rem; --gutter:1rem;
+}
+.day{
+  --bg:var(--day-200); --bg-deep:var(--day-300);
+  --surface:var(--day-100); --surface-2:var(--day-300);
+  --text:var(--day-ink); --text-dim:var(--day-ink-dim); --text-faint:#6b7285;
+  --line:rgba(18,35,61,.18); --line-strong:rgba(18,35,61,.38);
+  --accent:var(--day-accent); --accent-ink:#f7f3e9;
+  --link:var(--day-accent); --tbd-ink:#8a5a10; --tbd-bg:rgba(217,149,39,.14);
+  --tbd-line:rgba(168,106,18,.6); --loz-ink:var(--day-ink); --loz-opacity:.05;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--font-text);font-size:var(--step-0);line-height:var(--lh-body);
+  font-weight:400;
+}
+h1,h2,h3,h4,.display{font-family:var(--font-display);font-weight:700;line-height:var(--lh-head);letter-spacing:.005em;text-wrap:balance}
+h2{font-size:var(--step-2)} h3{font-size:var(--step-1)} h4{font-size:var(--step-0)}
+p{margin:0;text-wrap:pretty}
+ul,ol{margin:0;padding:0;list-style:none}
+img,svg{display:block;max-width:100%}
+table{border-collapse:collapse;width:100%}
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+.eyebrow{font-family:var(--font-mono);font-size:var(--step--2);font-weight:500;text-transform:uppercase;letter-spacing:.22em;color:var(--accent)}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.de{font-style:normal;font-weight:600;color:var(--accent);letter-spacing:.01em}
+.gloss{display:block;font-family:var(--font-mono);font-size:var(--step--2);line-height:1.45;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:0;padding:var(--s-4);color:var(--text)}
+.card--tight{padding:var(--s-3)}
+.card--raised{border-color:var(--line-strong);box-shadow:4px 4px 0 0 rgba(0,0,0,.28)}
+.day .card--raised{box-shadow:4px 4px 0 0 rgba(18,35,61,.14)}
+.card-title{font-size:var(--step-1);text-transform:uppercase;letter-spacing:.02em;margin-bottom:var(--s-1)}
+.card-meta{font-family:var(--font-mono);font-size:var(--step--2);letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim)}
+.card > * + *{margin-top:var(--s-2)}
+.section-head{margin-bottom:var(--s-5)}
+.section-title{font-size:var(--step-3);line-height:var(--lh-tight);text-transform:uppercase;letter-spacing:.01em;margin:0}
+.section-title::after{content:"";display:block;width:3.5rem;height:3px;margin-top:var(--s-2);background:var(--accent)}
+.section-lede{margin-top:var(--s-3);font-size:var(--step-1);line-height:1.36;color:var(--text-dim)}
+.rule{border:0;border-top:1px solid var(--line);margin-block:var(--s-5)}
+.tbd{display:inline-flex;align-items:center;gap:.55em;min-height:2rem;padding:.3rem .6rem;font-family:var(--font-mono);font-size:var(--step--1);font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tbd-ink);background:var(--tbd-bg);border:1px dashed var(--tbd-line);border-radius:0}
+.tbd::before{content:"";flex:none;width:.5em;height:.5em;background:currentColor;transform:rotate(45deg)}
+.tbd--sm{font-size:var(--step--2);min-height:1.6rem;padding:.15rem .45rem}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line)}
+.table{font-size:var(--step--1);min-width:32rem}
+.table caption{text-align:left;padding:var(--s-2) var(--s-3);font-family:var(--font-mono);font-size:var(--step--2);text-transform:uppercase;letter-spacing:.14em;color:var(--text-dim)}
+.table th,.table td{padding:.7rem var(--s-3);text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.table thead th{font-family:var(--font-mono);font-size:var(--step--2);font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);background:var(--surface);border-bottom:2px solid var(--line-strong)}
+.table tbody th{font-weight:700;color:var(--text);white-space:nowrap}
+.table tbody tr:last-child td,.table tbody tr:last-child th{border-bottom:0}
+.grid{display:grid;gap:var(--s-4);grid-template-columns:repeat(auto-fit,minmax(min(100%,var(--grid-min,14rem)),1fr))}
+.grid--tight{gap:var(--s-2)}
+.grid--4{--grid-min:8rem}
+.bring-item{display:flex;gap:var(--s-2);align-items:flex-start}
+.bring-n{flex:none;display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;font-family:var(--font-mono);font-size:var(--step--1);font-weight:700;color:var(--accent-ink);background:var(--accent)}
+.bring-text{font-size:var(--step--1);line-height:1.35;font-weight:600;color:var(--text)}
+.bring-sub{display:block;margin-top:.2rem;font-weight:400;color:var(--text-dim)}
+.navbar{position:sticky;top:0;z-index:40;background:var(--night-900);border-bottom:1px solid var(--line-strong)}
+.navbar-inner{display:flex;align-items:center;gap:var(--s-2);min-height:var(--nav-h)}
+.navbar-mark{font-family:var(--font-display);font-weight:700;font-size:var(--step--1);text-transform:uppercase;letter-spacing:.18em;color:var(--cream-300);text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;min-height:var(--tap)}
+.footer{background:var(--night-950);border-top:1px solid var(--line-strong);padding-block:var(--s-6);text-align:center}
+.footer-lock{margin-top:var(--s-5);padding-top:var(--s-4);border-top:1px solid var(--line);font-family:var(--font-display);font-size:var(--step-1);font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--amber-400)}
+:where(a,button):focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+
+
+/* ============================================================================
+   [MOTIF]  PART 8 — THE 1810 COMMITTEE
+   ----------------------------------------------------------------------------
+   MOTIF BUDGET. These counts ARE the design. Exceeding them is how this
+   collapses from an institution into wallpaper. Verify with the greps in
+   docs/MOTIF.md before shipping.
+       .seal            1      footer only
+       .dateline        1      masthead only (carries the .lebkuchen)
+       .lebkuchen       1      masthead only, inside the dateline
+       .bulletin        7      one per numbered section, NEVER nested
+       .mark           12 max  (7 bulletins, 3 official cards, 2 seal flanks)
+       .card--official  3      medal table, oath, stay hero
+       .picto           4      Saturday block only, never decoration elsewhere
+       .oath            1      .medals 1     .bottomline 1     .bug 1
+       Fraktur          0      already spent on .masthead-wordmark
+   ========================================================================== */
+
+/* --- the one added token, and it re-points under .day like every other ---
+   --registry is DOCUMENT FURNITURE ONLY: bulletin separators, the empty medal
+   cells, the seal legend, the manifest boxes. It never sets a sentence and it
+   is never a CTA. Night #8b9cb4 = 6.21:1 on --night-800, 4.85:1 on --night-600.
+   Day  #4f5b70 = 5.35:1 on --day-200. Both clear AA for the small mono it
+   carries. A single flat value would have failed the .day sections at 2.6:1. */
+:root{ --registry:#8b9cb4; }
+.day{  --registry:#4f5b70; }
+
+/* --- THE FLAT GUARD. Heraldry, seals and pictograms are FLAT. Nothing in this
+   system gets depth. This is a stylesheet rail, not a grep a reviewer has to
+   remember: it makes the bevel/gradient/skew collapse impossible to add by
+   accident. The hard 4px 4px 0 shadow stays on .card--raised — that is a
+   print artifact on paper stock, a different and legitimate register.
+   A seal never casts a shadow. ------------------------------------------- */
+.mark,.seal,.picto,.lebkuchen,.bulletin,.bug,.oath,.medals,
+.mark *,.seal *,.picto *,.lebkuchen *,.bug *{
+  filter:none !important;
+  box-shadow:none !important;
+  text-shadow:none !important;
+  border-radius:0 !important;
+}
+.seal *,.picto *,.lebkuchen *{ stroke-linejoin:miter; stroke-linecap:square; }
+
+/* --- A. .mark — the Sanction Mark. An 18px hairline square holding one solid
+   amber fusil (a diamond TALLER than it is wide — the correct Bavarian form,
+   not a square on point). Deliberately the same 45deg geometry as the page's
+   own .lozenge texture and .tbd::before, so the committee's mark and the
+   ambient paper are one shape at two scales. Pure CSS. ------------------- */
+.mark{
+  display:inline-grid;place-items:center;flex:none;
+  width:18px;height:18px;
+  border:1px solid var(--line-strong);
+  vertical-align:-3px;
+}
+.mark::before{
+  content:"";width:6px;height:11px;background:var(--accent);
+  clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);
+}
+/* degrade to a lozenge, never to a blob */
+@supports not (clip-path:polygon(0 0,1px 0,0 1px)){
+  .mark::before{width:8px;height:8px;transform:rotate(45deg)}
+}
+.mark--quiet::before{background:var(--registry)}
+.mark--lg{width:26px;height:26px}
+.mark--lg::before{width:9px;height:16px}
+
+/* --- B. .bulletin — the Bulletin line. REPLACES .section-num AND
+   .section-kicker in each of the seven section heads: the number moves into
+   .bulletin-n, the kicker's plain-English wayfinding moves into .bulletin-read.
+   Net result is THREE layers in the head instead of four, so the apparatus
+   costs no vertical space on a 380px phone — it pays for itself. --------- */
+.bulletin{
+  margin-bottom:var(--s-3);
+  padding-bottom:var(--s-1);
+  border-bottom:1px solid var(--line);
+}
+.bulletin-line{
+  display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;
+  font-family:var(--font-mono);font-size:var(--step--2);font-weight:500;
+  text-transform:uppercase;letter-spacing:.18em;color:var(--text-faint);
+}
+.bulletin-n{color:var(--accent);font-weight:700;font-variant-numeric:tabular-nums}
+.bulletin-sep{color:var(--registry)}
+.bulletin-status{color:var(--registry);font-weight:700}
+/* the service line: the reader who wants dinner time reads THIS, and it sits
+   below the officialdom, in plain sentence case, never abbreviated. */
+.bulletin-read{
+  margin-top:.35rem;
+  font-family:var(--font-mono);font-size:var(--step--2);
+  letter-spacing:.06em;line-height:1.45;color:var(--text-dim);
+}
+
+/* --- C. .dateline — the Games Dateline. Masthead only, immediately after
+   .masthead-where. Carries no crest: the Fraktur wordmark keeps the masthead
+   to itself. Roman-numeral month appears ONLY here — the plain date sits
+   directly above it, so the page never makes a guest do arithmetic. ------ */
+.dateline{
+  margin-top:var(--s-5);padding-top:var(--s-4);
+  border-top:1px solid var(--line);
+}
+.dateline-main{
+  font-family:var(--font-display);font-weight:700;font-size:var(--step-0);
+  text-transform:uppercase;letter-spacing:.14em;color:var(--cream-300);
+  text-wrap:balance;
+}
+.dateline-sub{
+  margin-top:.35rem;
+  font-family:var(--font-mono);font-size:var(--step--2);
+  text-transform:uppercase;letter-spacing:.2em;color:var(--registry);
+  text-wrap:balance;
+}
+
+/* --- D. .lebkuchen — the gingerbread heart. EXACTLY ONCE, inside the
+   dateline, and nowhere else ever. This is the Committee's founding artifact:
+   the proof of "Founded at a Wedding" that the footer seal claims. It is the
+   one warm, sincere, unironic object on the page, and it buys the other 2,600
+   lines the right to stay deadpan.
+   SANCTIONED CURVE CARVE-OUT: the heart's two arcs are the page's ONE
+   permitted curve, exactly as .tap-stamp's rotate(-8deg) was its one permitted
+   tilt. Everything else in this motif is 0/45/90 only. Do not add a second. */
+.lebkuchen{
+  position:relative;
+  width:132px;margin:var(--s-4) auto 0;
+}
+.lebkuchen svg{width:100%;height:auto}
+.lebkuchen-text{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding-top:6%;
+  font-family:var(--font-display);font-weight:700;
+  font-size:var(--step--1);line-height:1.15;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--cream-200);text-align:center;
+  pointer-events:none;
+}
+.lebkuchen-gloss{margin-top:var(--s-2);text-align:center;color:var(--text-dim)}
+
+/* --- E. .seal — the Committee Seal. ONE instance, in the footer, between
+   .footer-top and .footer-lock, so the seal signs the document and the locked
+   motto sits beneath it in the motto position of a real achievement.
+   Obeys the rule of tincture: metals (cream, amber) never touch metals,
+   colours (blue) never touch colours. Two tinctures, one charge, 0/45/90
+   edges only, no gradient, no bevel. ------------------------------------ */
+.seal-block{margin-top:var(--s-5);padding-top:var(--s-4);border-top:1px solid var(--line)}
+.seal{display:block;margin:0 auto var(--s-2)}
+.seal-legend{
+  display:flex;align-items:center;justify-content:center;gap:.6rem;
+  font-family:var(--font-mono);font-size:var(--step--2);text-transform:uppercase;
+  letter-spacing:.2em;color:var(--registry);
+}
+
+/* --- F. .picto — the discipline pictograms. FOUR, Saturday block only.
+   Aicher/Paris-2024 grammar: ground rule + object + axis, no faces, no motion
+   lines, so they cannot go corny. Construction is identical across all four —
+   viewBox 0 0 64 64, fill none, stroke currentColor, stroke-width 4,
+   linecap square, linejoin miter, edges at 0/45/90 ONLY, shared ground rule
+   M6 56 H58. Every one depicts a fact the page already asserts; there is no
+   invented event list, because the event slate genuinely is not settled. -- */
+.picto{width:56px;height:56px;color:var(--accent);flex:none}
+.day .picto{color:var(--day-accent)}
+.picto-cell{display:grid;gap:.35rem;justify-items:center;text-align:center}
+.picto-name{
+  font-family:var(--font-mono);font-size:var(--step--2);font-weight:700;
+  text-transform:uppercase;letter-spacing:.14em;color:var(--text);
+}
+.picto-note{font-size:var(--step--2);line-height:1.35;color:var(--text-dim)}
+
+/* --- G. .medals — the Medal Table. A .card--official placed immediately
+   AFTER the Saturday itinerary card. Every cell is a visible TBD: empty
+   ceremonial furniture is grander, funnier and more honest than invented
+   results, and it satisfies the spec's "every [PENDING] is a visible TBD". */
+.medals td,.medals th{font-variant-numeric:tabular-nums}
+.medals .rank{color:var(--accent);font-weight:700;font-family:var(--font-mono)}
+.medals .empty{color:var(--registry)}
+
+/* --- H. .oath — the Competitor's Oath. Three articles, inside the Saturday
+   block beneath the pictogram row. Ceremonial register: declarations, not
+   instructions, between protocol rules. --------------------------------- */
+.rule--protocol{
+  border:0;border-top:1px solid var(--line-strong);
+  position:relative;margin-block:var(--s-4);
+}
+.rule--protocol::after{
+  content:"";position:absolute;left:0;top:4px;
+  width:3.5rem;height:3px;background:var(--accent);
+}
+.oath{margin-block:var(--s-3)}
+.oath-title{
+  font-family:var(--font-mono);font-size:var(--step--2);font-weight:700;
+  text-transform:uppercase;letter-spacing:.2em;color:var(--registry);
+  text-align:center;margin-bottom:var(--s-3);
+}
+.oath-list{display:grid;gap:var(--s-3)}
+.oath-list > li{display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:baseline}
+.oath-n{
+  font-family:var(--font-mono);font-size:var(--step--2);font-weight:700;
+  letter-spacing:.1em;color:var(--accent);white-space:nowrap;
+}
+.oath-text{
+  font-family:var(--font-display);font-weight:600;font-size:var(--step-0);
+  line-height:1.25;letter-spacing:.02em;color:var(--text);text-wrap:pretty;
+}
+
+/* --- I. .bug — the countdown bug, in the sticky navbar after .navbar-mark.
+   The one forward-pointing device in the whole motif: every other element is
+   retrospective apparatus (bulletins, forms, an empty medal table). Costs six
+   lines of JS, no storage, no network. Resolves to IN PROGRESS during the
+   weekend and FINAL after it — someone opening the link in October gets a
+   page that knows it is over. ------------------------------------------- */
+.bug{
+  display:inline-flex;align-items:center;flex:none;
+  height:1.75rem;border:1px solid var(--line-strong);
+  font-family:var(--font-mono);font-size:var(--step--2);
+  letter-spacing:.14em;font-variant-numeric:tabular-nums;
+}
+.bug-code{
+  display:inline-flex;align-items:center;height:100%;padding:0 .45rem;
+  background:var(--blue-600);color:var(--cream-100);font-weight:700;
+}
+.bug-clock{padding:0 .5rem;color:var(--amber-300)}
+@media (max-width:24rem){ .bug-clock{display:none} }
+
+/* --- J. .manifest — Section 03 as a filed form. An empty check box drawn in
+   CSS before each .bring-n. Nothing to tick: it is a manifest, not a to-do. */
+.manifest .bring-item::before{
+  content:"";flex:none;
+  width:16px;height:16px;margin-top:.45rem;
+  border:1px solid var(--registry);
+}
+.manifest-close{
+  margin-top:var(--s-4);padding-top:var(--s-2);
+  border-top:1px solid var(--line);
+  font-family:var(--font-mono);font-size:var(--step--2);
+  text-transform:uppercase;letter-spacing:.14em;color:var(--text-faint);
+}
+
+/* --- K. .card--official — the corner treatment. THREE cards only. Not every
+   card: a mark on all thirty-odd cards is precisely how the frame stops being
+   an institution and becomes texture. ------------------------------------ */
+.card--official{position:relative;padding-top:var(--s-5)}
+.card--official > .mark{position:absolute;top:.7rem;right:.7rem}
+.card--official > .card-meta{position:absolute;top:.85rem;left:var(--s-4);margin:0}
+
+/* --- L. .bottomline — the facts strip, one row above the footer. The six
+   things a person scanning from a group text actually wants. Pulled only from
+   locked CONTENT facts. It scrolls; nothing animates. ------------------- */
+.bottomline{
+  display:flex;align-items:stretch;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  background:var(--night-900);
+  border-top:1px solid var(--line-strong);
+  border-bottom:1px solid var(--line-strong);
+  font-family:var(--font-mono);font-size:var(--step--2);
+  text-transform:uppercase;letter-spacing:.14em;
+  scrollbar-width:thin;
+}
+.bottomline > span{
+  display:inline-flex;align-items:center;white-space:nowrap;
+  min-height:2.5rem;padding:0 .9rem;
+  border-right:1px solid var(--line);color:var(--text-dim);
+}
+.bottomline > .bottomline-flag{
+  background:var(--accent);color:var(--accent-ink);font-weight:700;
+  position:sticky;left:0;z-index:1;border-right:1px solid var(--accent-deep);
+}
+
+/* --- MOTION. This motif animates NOTHING. The stein is the page's only
+   moving part and it stays that way. This block exists so that if a future
+   editor adds a transition to a motif element, reduced motion still wins. - */
+@media (prefers-reduced-motion:reduce){
+  .mark,.seal,.picto,.lebkuchen,.bug,.bottomline,.bulletin,
+  .mark *,.seal *,.picto *,.lebkuchen *{
+    animation:none !important;transition:none !important;
+  }
+  .bottomline{scroll-behavior:auto}
+}
+
+
+/* ============================================================================
+   SHEET CHROME — demo page only. Do NOT paste anything below this line.
+   ========================================================================== */
+.sheet{padding-block:var(--s-5)}
+.sheet-h{
+  margin-top:var(--s-8);padding-top:var(--s-3);
+  border-top:3px solid var(--accent);
+}
+.sheet-h:first-of-type{margin-top:var(--s-5)}
+.sheet-k{font-family:var(--font-mono);font-size:var(--step--2);font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.sheet-t{font-size:var(--step-2);text-transform:uppercase;letter-spacing:.02em;margin-top:.2rem}
+.sheet-where{margin-top:.35rem;font-size:var(--step--1);line-height:1.4;color:var(--text-dim);max-width:52rem}
+.sheet-demo{margin-top:var(--s-4);padding:var(--s-4);border:1px dashed var(--line-strong);background:var(--bg-deep)}
+.sheet-demo.day{background:var(--day-200);color:var(--text)}
+.sheet-demo.day .section-title,.sheet-demo.day .bring-text{color:var(--text)}
+.sheet-note{margin-top:var(--s-2);font-family:var(--font-mono);font-size:var(--step--2);line-height:1.5;letter-spacing:.04em;color:var(--text-faint)}
+.sheet-lead{max-width:52rem;margin-top:var(--s-3);color:var(--text-dim);font-size:var(--step--1);line-height:1.5}
+</style>
+</head>
+<body>
+
+<nav class="navbar" aria-label="Demo navigation">
+  <div class="wrap navbar-inner">
+    <a class="navbar-mark" href="#top">Final Prost</a>
+
+    <!-- ===== COMPONENT I · .bug — paste into .navbar-inner, right after .navbar-mark ===== -->
+    <span class="bug mono" id="bug">
+      <span class="bug-code">1810</span>
+      <span class="bug-clock" id="bug-clock">T&#8211;000 D</span>
+    </span>
+  </div>
+</nav>
+
+<main class="wrap sheet" id="top">
+
+  <p class="eyebrow">Motif asset sheet &middot; paste source</p>
+  <h1 class="sheet-t" style="font-size:var(--step-3)">The 1810 Committee</h1>
+  <p class="sheet-lead">
+    Every component below is finished, copy-pasteable markup. The CSS is in the
+    <code>[MOTIF]</code> block of this file&rsquo;s <code>&lt;style&gt;</code> &mdash; paste it as
+    <strong>PART 8</strong> at the end of <code>index.html</code>&rsquo;s stylesheet, after the
+    reduced-motion block. Nothing here is an image, an icon font or an external request:
+    it is inline SVG and pure CSS only.
+  </p>
+  <p class="sheet-note">
+    BLOCKER &mdash; index.html lines 858&ndash;887 are orphaned declaration blocks left by the removed
+    persona section. They currently swallow <code>.stein</code> and <code>.input[aria-invalid]</code>.
+    Fix that first; see docs/MOTIF.md &sect; Landing order.
+  </p>
+
+  <!-- ================================================================= -->
+  <div class="sheet-h">
+    <p class="sheet-k">Component A</p>
+    <h2 class="sheet-t">.mark &mdash; the Sanction Mark</h2>
+    <p class="sheet-where">
+      The page&rsquo;s heartbeat, and the only thing that repeats often. An 18px hairline square
+      holding one amber <em>fusil</em> &mdash; a diamond taller than it is wide, the correct Bavarian
+      form. It is deliberately the same 45&deg; geometry as the existing <code>.lozenge</code> texture
+      and <code>.tbd::before</code>, so the mark and the ambient paper are one shape at two scales.
+      <strong>Goes:</strong> first child of every <code>.bulletin</code> (7), top-right of every
+      <code>.card--official</code> (3), flanking the footer seal legend (2). Twelve total, hard cap.
+    </p>
+    <div class="sheet-demo">
+      <p style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+        <span class="mark" aria-hidden="true"></span>
+        <span class="mark mark--quiet" aria-hidden="true"></span>
+        <span class="mark mark--lg" aria-hidden="true"></span>
+        <span class="mono" style="font-size:var(--step--2);letter-spacing:.14em;color:var(--text-dim)">
+          DEFAULT &middot; QUIET (SEPARATOR) &middot; LARGE (SEAL FLANK)
+        </span>
+      </p>
+      <p class="sheet-note">
+        Always <code>aria-hidden="true"</code>. It is ornament with a job, never content.
+      </p>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <div class="sheet-h">
+    <p class="sheet-k">Component B</p>
+    <h2 class="sheet-t">.bulletin &mdash; the Bulletin line</h2>
+    <p class="sheet-where">
+      <strong>Goes:</strong> inside each of the seven <code>.section-head</code> blocks, as the first
+      child. It <strong>replaces</strong> both <code>.section-num</code> and
+      <code>.section-kicker</code> &mdash; delete those two elements. The number moves into
+      <code>.bulletin-n</code>; the kicker&rsquo;s plain-English wayfinding moves down into
+      <code>.bulletin-read</code>, where the reader who just wants dinner time hits it faster than
+      before. Four stacked label layers become three, so the apparatus costs no height at 380px.
+    </p>
+    <div class="sheet-demo">
+      <div class="section-head">
+        <!-- ===== paste, section 01 ===== -->
+        <p class="bulletin">
+          <span class="bulletin-line">
+            <span class="mark" aria-hidden="true"></span>
+            <span class="bulletin-n">Bulletin 01</span>
+            <span class="bulletin-sep" aria-hidden="true">&middot;</span>
+            <span>Order of Ceremony</span>
+            <span class="bulletin-sep" aria-hidden="true">&middot;</span>
+            <span class="bulletin-status">In Force</span>
+          </span>
+          <span class="bulletin-read">Friday splits &middot; Saturday and Sunday are everyone</span>
+        </p>
+        <h2 class="section-title">The Weekend</h2>
+        <p class="section-lede">Two parties, three days, one long table at the end of it.</p>
+      </div>
+      <p class="sheet-note">
+        STATUS VOCABULARY IS LOAD-BEARING. Settled sections read IN FORCE or FINAL &mdash; never
+        PROVISIONAL, never REV. 3. A mother reading &ldquo;ACCOMMODATION &middot; PROVISIONAL&rdquo;
+        on a phone does not read wit, she reads &ldquo;is the house not booked?&rdquo; Only the
+        budget, whose figures genuinely are open, is allowed to say PENDING.
+      </p>
+    </div>
+
+    <div class="sheet-demo day">
+      <div class="section-head">
+        <!-- ===== paste, section 04 — .day scope, re-skins automatically ===== -->
+        <p class="bulletin">
+          <span class="bulletin-line">
+            <span class="mark" aria-hidden="true"></span>
+            <span class="bulletin-n">Bulletin 04</span>
+            <span class="bulletin-sep" aria-hidden="true">&middot;</span>
+            <span>Village &amp; Accommodation</span>
+            <span class="bulletin-sep" aria-hidden="true">&middot;</span>
+            <span class="bulletin-status">In Force</span>
+          </span>
+          <span class="bulletin-read">Where we all land</span>
+        </p>
+        <h2 class="section-title">The Stay</h2>
+        <p class="section-lede">One house. Two parties. Six bedrooms and a fire pit on a couple of acres of quiet Iowa nothing.</p>
+      </div>
+      <p class="sheet-note">
+        The <code>.day</code> sections (02 Attire, 04 The Stay) need no extra markup: the bulletin is
+        built entirely from <code>--accent</code>, <code>--line</code> and <code>--registry</code>,
+        all of which re-point inside <code>.day</code>.
+      </p>
+    </div>
+
+    <div class="sheet-demo">
+      <p class="card-meta" style="margin-bottom:var(--s-2)">The seven exact strings</p>
+      <div class="table-scroll">
+        <table class="table">
+          <thead><tr><th>&sect;</th><th>Bulletin line</th><th>Read line (from the old kicker)</th></tr></thead>
+          <tbody>
+            <tr><th>01</th><td>Bulletin 01 &middot; Order of Ceremony &middot; In Force</td><td>Friday splits &middot; Saturday and Sunday are everyone</td></tr>
+            <tr><th>02</th><td>Appendix A &middot; Equipment Regulations &middot; In Force</td><td>Seven slots &middot; two columns &middot; no guessing</td></tr>
+            <tr><th>03</th><td>Form 03 &middot; Competitor Kit Manifest &middot; In Force</td><td>Pack once &middot; six things</td></tr>
+            <tr><th>04</th><td>Bulletin 04 &middot; Village &amp; Accommodation &middot; In Force</td><td>Where we all land</td></tr>
+            <tr><th>05</th><td>Bulletin 05 &middot; Register of Competitors &middot; Final</td><td>Thirty-three names, one weekend</td></tr>
+            <tr><th>06</th><td>Form 06 &middot; Schedule of Fees &middot; Figures Pending</td><td>What it costs, honestly</td></tr>
+            <tr><th>07</th><td>Appendix 07 &middot; Language &amp; Pronunciation &middot; Advisory</td><td>15 words, one weekend</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="sheet-note">
+        THE REGISTER SWITCH IS VOCABULARY, NOT DECORATION. Ceremonial sections are BULLETINS;
+        clerical sections are FORMS and APPENDICES. The apparatus never changes &mdash; same mono,
+        same rule, same mark. Only the noun does. The committee that stages the ceremony also
+        files the paperwork, and the paperwork is deliberately flatter.
+      </p>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <div class="sheet-h">
+    <p class="sheet-k">Components C + D</p>
+    <h2 class="sheet-t">.dateline &mdash; the Games Dateline, carrying the Lebkuchenherz</h2>
+    <p class="sheet-where">
+      <strong>Goes:</strong> in the masthead, immediately after <code>.masthead-where</code>. This is
+      the block that tells the reader the whole page is a document packet. The gingerbread heart
+      lives inside it &mdash; not as decoration, but as the Committee&rsquo;s founding artifact: the
+      proof of &ldquo;founded at a wedding&rdquo; that the footer seal claims. One warm, sincere,
+      openly corny object buys the other 2,600 lines the right to stay deadpan.
+    </p>
+    <div class="sheet-demo" style="text-align:center">
+      <!-- ===== paste into .masthead .wrap, after <p class="masthead-where"> ===== -->
+      <div class="dateline">
+        <p class="dateline-main">Games of the First Oktoberfest Olympiad</p>
+        <p class="dateline-sub">Des Moines &middot; 19.IX.2026 &middot; Sanctioned by the 1810 Committee</p>
+
+        <div class="lebkuchen">
+          <svg viewBox="0 0 132 118" width="132" height="118" role="img" aria-label="A gingerbread heart lettered Andrew and Megan">
+            <!-- heart: two arcs of one radius, two straight edges to a point -->
+            <path d="M66 114 L9 57 A28.5 28.5 0 0 1 66 28 A28.5 28.5 0 0 1 123 57 Z" fill="#b0342a"/>
+            <!-- piped icing: the same path inset, dashed so the dashes read as dots -->
+            <path d="M66 114 L9 57 A28.5 28.5 0 0 1 66 28 A28.5 28.5 0 0 1 123 57 Z"
+                  transform="translate(66 64) scale(.84) translate(-66 -64)"
+                  fill="none" stroke="#f4efe2" stroke-width="2.5"
+                  stroke-dasharray="3 7" stroke-linecap="round"/>
+          </svg>
+          <span class="lebkuchen-text" aria-hidden="true">Andrew<br>&amp; Megan</span>
+        </div>
+        <p class="gloss lebkuchen-gloss">
+          Lebkuchenherz &mdash; gingerbread heart. Say it &ldquo;LAYP-koo-khen-hairts.&rdquo;
+          In Munich you buy one for someone you like.
+        </p>
+      </div>
+      <p class="sheet-note" style="text-align:left">
+        THE SANCTIONED CURVE. The heart&rsquo;s two arcs and its round-capped icing dots are the
+        page&rsquo;s ONE permitted curve, in the same way the old rubber stamp was its one permitted
+        tilt. Everything else in this motif is 0/45/90 only. Write that down, or the next editor
+        either deletes the heart for breaking the rule or starts adding curves elsewhere.
+        The name is set in Barlow Condensed as HTML over the SVG &mdash; no script face, no SVG text,
+        no second Fraktur.
+      </p>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <div class="sheet-h">
+    <p class="sheet-k">Component F</p>
+    <h2 class="sheet-t">.picto &mdash; the discipline pictograms</h2>
+    <p class="sheet-where">
+      <strong>Goes:</strong> a 4-up row inside the Saturday <code>.tap-tie</code> block, above the
+      oath. <strong>Four only, and never anywhere else on the page.</strong>
+      Each depicts a fact the page already asserts &mdash; the Ma&szlig;, the root beer keg, the
+      Schuhplattler, the currywurst caterer. There is deliberately <em>no</em> named event list,
+      because the slate genuinely is not settled: naming six events would invent values the
+      content authority does not have.
+    </p>
+    <div class="sheet-demo">
+      <!-- ===== paste into .tap-tie, after the .itin-note ===== -->
+      <div class="grid grid--4 grid--tight">
+
+        <div class="picto-cell">
+          <svg class="picto" viewBox="0 0 64 64" role="img" aria-label="A one-litre stein">
+            <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter">
+              <path d="M22 16 H44 V52 H22 Z"/>
+              <path d="M22 26 H44"/>
+              <path d="M44 24 H54 V40 H44"/>
+              <path d="M6 56 H58"/>
+            </g>
+          </svg>
+          <p class="picto-name">Ma&szlig;</p>
+          <p class="picto-note">The one-litre mug.</p>
+        </div>
+
+        <div class="picto-cell">
+          <svg class="picto" viewBox="0 0 64 64" role="img" aria-label="The same stein, with a straw">
+            <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter">
+              <path d="M22 16 H44 V52 H22 Z"/>
+              <path d="M22 26 H44"/>
+              <path d="M44 24 H54 V40 H44"/>
+              <path d="M38 16 L50 4"/>
+              <path d="M6 56 H58"/>
+            </g>
+          </svg>
+          <p class="picto-name">Root beer</p>
+          <p class="picto-note">The same mug. There is a keg of it.</p>
+        </div>
+
+        <div class="picto-cell">
+          <svg class="picto" viewBox="0 0 64 64" role="img" aria-label="A shoe and a striking hand">
+            <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter">
+              <path d="M10 44 H36 L44 52 H10 Z"/>
+              <path d="M40 12 L58 30 L46 42 L28 24 Z"/>
+              <path d="M6 56 H58"/>
+            </g>
+          </svg>
+          <p class="picto-name">Shoe-slap</p>
+          <p class="picto-note">Schuhplattler. Say it &ldquo;SHOO-platt-ler.&rdquo;</p>
+        </div>
+
+        <div class="picto-cell">
+          <svg class="picto" viewBox="0 0 64 64" role="img" aria-label="A plate of sliced sausage">
+            <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter">
+              <path d="M10 46 H54"/>
+              <path d="M16 28 H24 V38 H16 Z"/>
+              <path d="M28 28 H36 V38 H28 Z"/>
+              <path d="M40 28 H48 V38 H40 Z"/>
+              <path d="M6 56 H58"/>
+            </g>
+          </svg>
+          <p class="picto-name">Currywurst</p>
+          <p class="picto-note">Catered. Say it &ldquo;KUH-ree-voorst.&rdquo;</p>
+        </div>
+
+      </div>
+      <p class="mono" style="margin-top:var(--s-3);font-size:var(--step--2);letter-spacing:.14em;color:var(--text-faint)">
+        DISCIPLINES &middot; FOUR SHOWN &middot; FULL SLATE
+        <span class="tbd tbd--sm">TBD</span>
+      </p>
+      <p class="sheet-note">
+        PICTOGRAM 02 IS THE INCLUSION DEVICE AND IT IS LOAD-BEARING. The root beer mug is the
+        <em>identical path</em> to the Ma&szlig; &mdash; same body, same handle, same stroke weight,
+        same colour &mdash; plus a straw. The system cannot tell the two mugs apart, so neither can
+        the medal table. That is inclusion delivered as geometry rather than as a sentence, which is
+        exactly what &ldquo;a running joke, never a disclaimer&rdquo; asks for. Never give this cell
+        a qualifier, an asterisk, or a softer colour.
+      </p>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <div class="sheet-h">
+    <p class="sheet-k">Component H</p>
+    <h2 class="sheet-t">.oath &mdash; the Competitor&rsquo;s Oath</h2>
+    <p class="sheet-where">
+      <strong>Goes:</strong> inside the Saturday <code>.tap-tie</code>, directly beneath the
+      pictogram row. Three articles between protocol rules. This is the page&rsquo;s ceremonial
+      high point, and every article is a restatement of something the page already says &mdash;
+      the oath declares facts, it does not invent rules.
+    </p>
+    <div class="sheet-demo">
+      <!-- ===== paste into .tap-tie, after the pictogram grid ===== -->
+      <div class="oath">
+        <hr class="rule--protocol">
+        <p class="oath-title">The Competitor&rsquo;s Oath</p>
+        <ol class="oath-list">
+          <li><span class="oath-n">Art. I</span><span class="oath-text">Every trial is winnable stone-cold sober.</span></li>
+          <li><span class="oath-n">Art. II</span><span class="oath-text">The Committee scores the mug, not its contents.</span></li>
+          <li><span class="oath-n">Art. III</span><span class="oath-text">Root beer is entered, scored and engraved on the same table as everything else.</span></li>
+        </ol>
+        <hr class="rule--protocol">
+      </div>
+      <p class="sheet-note">
+        No exclamation marks. No scare quotes. No sentence that describes the joke. Every article
+        is literally true, which is the entire mechanism: the frame does the joking and the copy
+        stays dead straight.
+      </p>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <div class="sheet-h">
+    <p class="sheet-k">Components G + K</p>
+    <h2 class="sheet-t">.medals &mdash; the Medal Table, in a .card--official</h2>
+    <p class="sheet-where">
+      <strong>Goes:</strong> immediately after the Saturday itinerary card&rsquo;s closing
+      <code>&lt;/article&gt;</code> &mdash; a sibling card, so it never crowds the Beer Olympics block.
+      Every cell is a visible TBD. Empty ceremonial furniture is grander and funnier than invented
+      results, and it is the honest rendering of a slate that genuinely is not settled.
+    </p>
+    <div class="sheet-demo">
+      <!-- ===== paste after the Saturday </article> ===== -->
+      <article class="card card--raised card--official">
+        <span class="mark" aria-hidden="true"></span>
+        <p class="card-meta">Medal Table</p>
+        <div class="table-scroll">
+          <table class="table medals">
+            <caption>All columns empty by design &middot; results to be engraved Saturday, after dark</caption>
+            <thead>
+              <tr><th scope="col">Rank</th><th scope="col">Team</th><th scope="col">Discipline</th><th scope="col">Mark</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row" class="rank">01</th><td><span class="tbd tbd--sm">TBD</span></td><td><span class="tbd tbd--sm">TBD</span></td><td class="empty">&mdash;</td></tr>
+              <tr><th scope="row" class="rank">02</th><td><span class="tbd tbd--sm">TBD</span></td><td><span class="tbd tbd--sm">TBD</span></td><td class="empty">&mdash;</td></tr>
+              <tr><th scope="row" class="rank">03</th><td><span class="tbd tbd--sm">TBD</span></td><td><span class="tbd tbd--sm">TBD</span></td><td class="empty">&mdash;</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mono" style="font-size:var(--step--2);letter-spacing:.12em;color:var(--text-faint)">
+          Teams are drawn across both parties on the day. The root beer keg is an official supply of these games.
+        </p>
+      </article>
+      <p class="sheet-note">
+        <code>.card--official</code> is applied to THREE cards on the whole page &mdash; this one,
+        the oath&rsquo;s host block, and the Stay hero. Putting the mark on all thirty-odd cards is
+        exactly how the frame stops being an institution and turns into wallpaper.
+      </p>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <div class="sheet-h">
+    <p class="sheet-k">Component J</p>
+    <h2 class="sheet-t">.manifest &mdash; Section 03 as a filed form</h2>
+    <p class="sheet-where">
+      <strong>Goes:</strong> add <code>class="manifest"</code> to the existing
+      <code>.bring-list</code> wrapper in section 03. Each item gains an empty box drawn in CSS.
+      There is nothing to tick &mdash; it is a manifest, not a to-do list. This is the clerical
+      register: flat, instructional, no ceremony. Do not make it funnier to compensate.
+    </p>
+    <div class="sheet-demo">
+      <!-- ===== add class="manifest" to the existing .bring-list ===== -->
+      <div class="grid grid--tight manifest" style="--grid-min:13rem">
+        <div class="bring-item">
+          <span class="bring-n">01</span>
+          <p class="bring-text">A lawn chair
+            <span class="bring-sub">Yard games, fire pit, and there are more of us than there are chairs.</span></p>
+        </div>
+        <div class="bring-item">
+          <span class="bring-n">02</span>
+          <p class="bring-text">Your costume
+            <span class="bring-sub">Lederhosen or dirndl, per the attire grid.</span></p>
+        </div>
+      </div>
+      <p class="manifest-close">
+        Form 03 &middot; Six (6) items &middot; No substitutions &middot; A competitor arriving without a lawn chair competes standing
+      </p>
+      <p class="sheet-note">
+        The box is <code>--registry</code>, never amber: amber is the committee&rsquo;s authority and
+        it already owns the CTAs. Document furniture must not compete with it.
+      </p>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <div class="sheet-h">
+    <p class="sheet-k">Component L</p>
+    <h2 class="sheet-t">.bottomline &mdash; the facts strip</h2>
+    <p class="sheet-where">
+      <strong>Goes:</strong> full-bleed, as the last element before <code>&lt;footer&gt;</code>
+      (outside <code>.wrap</code>). The six things a person scanning from a group text actually
+      wants, in one scrollable row. Every item is a locked CONTENT fact; nothing here is invented
+      and nothing animates &mdash; the reader scrolls it with a thumb.
+    </p>
+    <div class="sheet-demo" style="padding-inline:0">
+      <!-- ===== paste immediately before <footer> ===== -->
+      <div class="bottomline" role="group" aria-label="Weekend facts" tabindex="0">
+        <span class="bottomline-flag">Facts</span>
+        <span>Sep 18&ndash;20 2026</span>
+        <span>Des Moines, Iowa</span>
+        <span>Six bedrooms &middot; sleeps 17</span>
+        <span>Catered by German Taste Currywurst</span>
+        <span>Root beer keg on site</span>
+        <span>Arrivals staggered Friday</span>
+      </div>
+      <p class="sheet-note" style="padding-inline:var(--s-4)">
+        <code>tabindex="0"</code> is deliberate: a scrollable region must be reachable and scrollable
+        by keyboard. The FACTS flag is <code>position:sticky;left:0</code> so it stays visible as the
+        row scrolls, which is what tells the reader the row scrolls at all.
+      </p>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <div class="sheet-h">
+    <p class="sheet-k">Component I</p>
+    <h2 class="sheet-t">.bug &mdash; the countdown</h2>
+    <p class="sheet-where">
+      <strong>Goes:</strong> in <code>.navbar-inner</code>, immediately after
+      <code>.navbar-mark</code> &mdash; it is live at the top of this page right now.
+      Every other device in this motif is retrospective apparatus: bulletins, forms, an empty
+      medal table awaiting engraving. The bug is the only one that points forward, and it gives the
+      page a pulse for six lines of JS, no storage and no network.
+    </p>
+    <div class="sheet-demo">
+      <p style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center">
+        <span class="bug mono"><span class="bug-code">1810</span><span class="bug-clock">T&#8211;028 D</span></span>
+        <span class="bug mono"><span class="bug-code">1810</span><span class="bug-clock">IN PROGRESS</span></span>
+        <span class="bug mono"><span class="bug-code">1810</span><span class="bug-clock">FINAL</span></span>
+      </p>
+      <p class="sheet-note">
+        Three states, and the third is the quiet one worth keeping: someone who opens the link in
+        October gets a page that knows it is over. Leading zeros always, tabular figures always.
+        The clock hides below 24rem so it can never crowd the nav toggle on a small phone.
+      </p>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <div class="sheet-h">
+    <p class="sheet-k">Component E</p>
+    <h2 class="sheet-t">.seal &mdash; the Committee Seal</h2>
+    <p class="sheet-where">
+      <strong>Goes:</strong> in the footer, between <code>.footer-top</code> and
+      <code>.footer-lock</code>, so the seal signs the document and the locked motto sits beneath it
+      in the motto position of a real achievement. <strong>Exactly one instance on the page.</strong>
+      The charge is the Anstich mallet &mdash; the mayor&rsquo;s keg-tapping hammer &mdash; and it is
+      the only charge.
+    </p>
+    <div class="sheet-demo" style="text-align:center;background:var(--night-950)">
+      <!-- ===== paste into <footer>, between .footer-top and .footer-lock ===== -->
+      <div class="seal-block">
+        <svg class="seal" viewBox="0 0 96 116" width="96" height="116" role="img" aria-label="Seal of the 1810 Committee">
+          <!-- shield: square shoulders, chamfered point -->
+          <path d="M2 2 H94 V80 L48 114 L2 80 Z" fill="#2a5ca8" stroke="#f4efe2" stroke-width="2"/>
+          <!-- chief: a cream band (metal) -->
+          <path d="M2 2 H94 V30 H2 Z" fill="#f4efe2"/>
+          <!-- three blue fusils in the chief: colour on metal -->
+          <path d="M24 6 L32 16 L24 26 L16 16 Z M48 6 L56 16 L48 26 L40 16 Z M72 6 L80 16 L72 26 L64 16 Z" fill="#2a5ca8"/>
+          <!-- charge: the tapping mallet, amber on blue — metal on colour -->
+          <rect x="26" y="40" width="44" height="16" fill="#f0b445"/>
+          <rect x="42" y="56" width="12" height="38" fill="#f0b445"/>
+          <!-- two strike marks: the record tapping -->
+          <path d="M14 46 H22 M74 46 H82" stroke="#f0b445" stroke-width="3"/>
+        </svg>
+        <p class="seal-legend">
+          <span class="mark mark--quiet" aria-hidden="true"></span>
+          The 1810 Committee &middot; Founded at a Wedding
+          <span class="mark mark--quiet" aria-hidden="true"></span>
+        </p>
+      </div>
+      <p class="footer-lock">Root beer counts. It has always counted.</p>
+      <p class="sheet-note" style="text-align:left">
+        RULE OF TINCTURE, ENFORCED: metals (cream, amber) never touch metals; colours (blue) never
+        touch colours. The cream chief carries blue fusils; the blue field carries the amber mallet.
+        This 700-year-old rule is also a contrast guarantee, which is why the seal survives the
+        1-bit test by construction. Gingerbread red is deliberately NOT promoted to a heraldic
+        field &mdash; that is the one place this motif could go somewhere ugly.
+        &ldquo;1810&rdquo; is the year Oktoberfest was founded, as a wedding party: the
+        committee&rsquo;s jurisdiction over a bach party is genuinely correct, not a gag.
+      </p>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <div class="sheet-h">
+    <p class="sheet-k">Guard</p>
+    <h2 class="sheet-t">The 1-bit test</h2>
+    <p class="sheet-where">
+      Toggle this to strip every colour, fill and shadow from the motif. Every device &mdash; seal,
+      pictograms, mark, medal table, heart &mdash; must still read. If anything needs its colour or
+      its amber to look grand, it was never grand. All of the above pass by construction: single
+      stroke weight, flat fills, no bevels, no tonal steps.
+    </p>
+    <div class="sheet-demo">
+      <p><button type="button" id="bit" style="min-height:var(--tap);padding:.7rem 1.25rem;background:var(--amber-400);color:var(--accent-ink);border:1px solid var(--amber-600);font-family:var(--font-display);font-weight:700;font-size:var(--step--1);text-transform:uppercase;letter-spacing:.1em;cursor:pointer">Toggle 1-bit test</button></p>
+      <p class="sheet-note">Applies <code>html.bit</code>, which forces every motif fill and stroke to black on white.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- ===== COMPONENT L sits here on the real page: full-bleed, before <footer> ===== -->
+<div class="bottomline" role="group" aria-label="Weekend facts" tabindex="0">
+  <span class="bottomline-flag">Facts</span>
+  <span>Sep 18&ndash;20 2026</span>
+  <span>Des Moines, Iowa</span>
+  <span>Six bedrooms &middot; sleeps 17</span>
+  <span>Catered by German Taste Currywurst</span>
+  <span>Root beer keg on site</span>
+  <span>Arrivals staggered Friday</span>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="seal-block">
+      <svg class="seal" viewBox="0 0 96 116" width="96" height="116" role="img" aria-label="Seal of the 1810 Committee">
+        <path d="M2 2 H94 V80 L48 114 L2 80 Z" fill="#2a5ca8" stroke="#f4efe2" stroke-width="2"/>
+        <path d="M2 2 H94 V30 H2 Z" fill="#f4efe2"/>
+        <path d="M24 6 L32 16 L24 26 L16 16 Z M48 6 L56 16 L48 26 L40 16 Z M72 6 L80 16 L72 26 L64 16 Z" fill="#2a5ca8"/>
+        <rect x="26" y="40" width="44" height="16" fill="#f0b445"/>
+        <rect x="42" y="56" width="12" height="38" fill="#f0b445"/>
+        <path d="M14 46 H22 M74 46 H82" stroke="#f0b445" stroke-width="3"/>
+      </svg>
+      <p class="seal-legend">
+        <span class="mark mark--quiet" aria-hidden="true"></span>
+        The 1810 Committee &middot; Founded at a Wedding
+        <span class="mark mark--quiet" aria-hidden="true"></span>
+      </p>
+    </div>
+    <p class="footer-lock">Root beer counts. It has always counted.</p>
+  </div>
+</footer>
+
+<style>
+/* 1-bit test — demo only, but ship this snippet in the repo as the gate. */
+html.bit,html.bit body{background:#fff !important}
+html.bit .seal *,html.bit .picto *,html.bit .lebkuchen *,html.bit .mark::before{
+  fill:#000 !important;stroke:#000 !important;opacity:1 !important;
+}
+html.bit .mark{border-color:#000 !important}
+html.bit *{color:#000 !important;border-color:#000 !important}
+html.bit .bug-code,html.bit .bring-n,html.bit .bottomline-flag{background:#000 !important;color:#fff !important}
+html.bit .bottomline,html.bit .sheet-demo,html.bit .card{background:#fff !important}
+</style>
+
+<script>
+/* ===== COMPONENT I — the countdown bug. Paste into index.html's existing IIFE.
+   No storage, no network, six lines of arithmetic. ========================= */
+(function(){
+  var el = document.getElementById('bug-clock');
+  if(!el) return;
+  var start = new Date(2026, 8, 18, 9, 0, 0);    /* Fri Sep 18 2026, 09:00 local */
+  var end   = new Date(2026, 8, 21, 0, 0, 0);    /* end of Sun Sep 20 2026 */
+  var now   = new Date(), out;
+  if(now >= end)        out = 'FINAL';
+  else if(now >= start) out = 'IN PROGRESS';
+  else {
+    var d = Math.ceil((start - now) / 86400000);
+    out = 'T–' + (d < 100 ? ('00' + d).slice(-3) : d) + ' D';
+  }
+  el.textContent = out;
+})();
+
+/* demo-only: the 1-bit gate */
+(function(){
+  var b = document.getElementById('bit');
+  if(b) b.addEventListener('click', function(){ document.documentElement.classList.toggle('bit'); });
+})();
+</script>
+
+</body>
+</html>
