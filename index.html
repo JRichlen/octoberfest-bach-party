@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Andrew &amp; Megan&rsquo;s Final Prost</title>
-<meta name="description" content="Andrew &amp; Megan's joint bach party weekend — September 18–20, 2026, Des Moines, Iowa. Itinerary, attire, the Barndominium, and your Oktoberfest alter ego. For Better or for Wurst.">
+<meta name="description" content="Andrew &amp; Megan's joint bach party weekend — September 18–20, 2026, Des Moines, Iowa. Itinerary, attire, costumes, the Barndominium, and the Beer Olympics. For Better or for Wurst.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#101a2e">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -707,128 +707,6 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 .footer-top:hover{color:var(--cream-100)}
 
 /* =====================================================================
-   PART 2 — SECTION 01 · THE TAP
-   ===================================================================== */
-.tap-intake{max-width:34rem;margin-inline:auto}
-.tap-intake form{margin:0}
-.tap-lock{
-  margin-top:var(--s-3);padding-top:var(--s-3);border-top:1px solid var(--line);
-  font-size:var(--step--1);line-height:1.45;color:var(--text-dim);
-}
-.tap-lock strong{color:var(--accent)}
-
-.tap-stage{margin-top:var(--s-5);align-items:start}
-@media (min-width:44em){ .tap-stage{grid-template-columns:minmax(0,15rem) minmax(0,1fr)} }
-
-.tap-vessel{display:flex;flex-direction:column;align-items:center;gap:var(--s-2)}
-.tap-svg{width:min(100%,12.5rem);height:auto}
-.tap-fixture rect{fill:var(--cream-400)}
-.tap-glass{fill:none;stroke:var(--cream-200);stroke-width:3}
-.tap-handle{fill:none;stroke:var(--cream-200);stroke-width:5}
-.tap-base{fill:var(--cream-400)}
-.tap-ticks rect{fill:var(--cream-200);opacity:.22}
-.tap-beer{fill:var(--amber-500)}
-.tap-foam{fill:var(--cream-200)}
-.tap-bub{fill:var(--amber-300);opacity:.55}
-.tap-stream{fill:var(--amber-400);opacity:0;transform-box:fill-box;transform-origin:top center}
-.tap-liquid{transform:translateY(116px)}
-
-.tap-stage.is-poured .tap-liquid{animation:tapPour 1.5s cubic-bezier(.2,.78,.25,1) both}
-.tap-stage.is-poured .tap-stream{animation:tapStream 1.5s linear both}
-.tap-stage.is-poured .tap-bub{animation:tapBub 1.1s ease-out .55s 2 both}
-.tap-stage.is-poured .tap-bub--b{animation-delay:.75s}
-.tap-stage.is-poured .tap-bub--c{animation-delay:.95s}
-.tap-stage.is-poured .tap-mat{animation:tapMat .45s ease-out 1.05s both}
-.tap-stage.is-poured .tap-stamp{animation:tapStamp .3s cubic-bezier(.2,1.4,.4,1) 1.45s both}
-
-@keyframes tapPour{
-  from{transform:translateY(116px)}
-  to{transform:translateY(var(--pour-y,58px))}
-}
-@keyframes tapStream{
-  0%{transform:scaleY(0);opacity:0}
-  6%{opacity:1}
-  12%{transform:scaleY(1);opacity:1}
-  86%{transform:scaleY(1);opacity:1}
-  100%{transform:scaleY(1);opacity:0}
-}
-@keyframes tapBub{
-  from{transform:translateY(0);opacity:.55}
-  to{transform:translateY(-42px);opacity:0}
-}
-@keyframes tapMat{
-  from{opacity:0;transform:translateY(-10px) scale(1.02)}
-  to{opacity:1;transform:none}
-}
-@keyframes tapStamp{
-  from{opacity:0;transform:rotate(-26deg) scale(1.9)}
-  to{opacity:.92;transform:rotate(-8deg) scale(1)}
-}
-
-.tap-caption{text-align:center;line-height:1.2}
-.tap-caption .de{font-size:var(--step--1);letter-spacing:.14em;text-transform:uppercase}
-
-.tap-empty{
-  border:1px dashed var(--line-strong);padding:var(--s-3);
-  font-size:var(--step--1);color:var(--text-dim);
-}
-
-/* the beer mat itself — cream cardboard, double-ruled, stamped */
-.tap-mat{
-  position:relative;
-  border:2px solid var(--day-ink);
-  box-shadow:6px 6px 0 0 rgba(18,35,61,.22);
-  padding:var(--s-4);
-}
-.tap-mat::before{
-  content:"";position:absolute;inset:6px;
-  border:1px dashed rgba(18,35,61,.34);pointer-events:none;
-}
-.tap-mat > * + *{margin-top:var(--s-3)}
-.tap-rule{margin-block:var(--s-3)}
-.tap-mat-head{padding-right:6.5rem}
-.tap-rank{font-size:var(--step-2);text-transform:uppercase;letter-spacing:.01em;line-height:1.05}
-.tap-rank .de{color:var(--day-ink)}
-.tap-rank-en{
-  font-family:var(--font-mono);font-size:var(--step--1);font-weight:500;
-  text-transform:uppercase;letter-spacing:.12em;color:var(--accent-deep);
-}
-.tap-stamp{
-  position:absolute;top:.85rem;right:.85rem;z-index:2;
-  display:flex;flex-direction:column;align-items:center;
-  padding:.3rem .55rem;
-  border:2px solid var(--red-600);
-  box-shadow:inset 0 0 0 1px var(--red-600);
-  color:var(--red-600);opacity:.92;
-  font-family:var(--font-mono);font-size:var(--step--2);font-weight:700;
-  line-height:1.05;letter-spacing:.14em;text-transform:uppercase;
-  transform:rotate(-8deg);
-}
-.tap-fest{font-family:var(--font-display);font-size:var(--step-1);font-weight:700;line-height:1.1}
-.tap-epithet{margin-top:.35rem;font-style:italic;font-weight:600;color:var(--text-dim)}
-.tap-stats{margin-top:var(--s-3)}
-.tap-legend{margin-top:var(--s-3)}
-.tap-legend > dd{font-size:var(--step--1)}
-.tap-block > * + *{margin-top:.25rem}
-.tap-block--dare{border-left:4px solid var(--accent);padding-left:var(--s-2)}
-.tap-body{font-size:var(--step--1);line-height:1.45}
-.tap-toast{
-  font-family:var(--font-display);font-size:var(--step-1);font-weight:700;
-  line-height:1.15;color:var(--accent-deep);
-}
-.tap-copystatus{
-  min-height:1.2em;font-family:var(--font-mono);font-size:var(--step--2);
-  letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);
-}
-.tap-fallback{margin-top:var(--s-2);min-height:9rem;font-size:var(--step--1)}
-.tap-foot{
-  margin-top:var(--s-3);padding-top:var(--s-2);border-top:1px solid var(--line);
-  font-family:var(--font-mono);font-size:var(--step--2);letter-spacing:.08em;
-  text-transform:uppercase;color:var(--text-faint);
-}
-@media (max-width:24em){ .tap-mat-head{padding-right:5.5rem} }
-
-/* =====================================================================
    PART 3 — SECTIONS 02–04 · WEEKEND / ATTIRE / BRING
    ===================================================================== */
 .wknd-notes{margin-bottom:var(--s-5)}
@@ -1008,6 +886,121 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
   color:var(--text-dim);white-space:pre-wrap;overflow-wrap:anywhere;
 }
 
+
+/* =====================================================================
+   PART 7 — V2: STEIN / GATE / RAILS
+   ===================================================================== */
+/* ---------- stein fixture ---------- */
+.stein{
+  position:fixed;top:calc(var(--nav-h) + .6rem);right:.6rem;z-index:60;
+  pointer-events:none;opacity:.92;
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,.45));
+}
+.stein-beer{
+  transform-origin:50% 45px; /* bottom of the 11..45 beer rect */
+  transform:scaleY(var(--stein-level,1));
+  transition:transform .18s linear;
+}
+.stein-foam{
+  transform:translateY(calc((1 - var(--stein-level,1)) * 34px));
+  transition:transform .18s linear;opacity:calc(var(--stein-level,1) * 8);
+}
+.stein.pouring .stein-beer{transition:transform .9s cubic-bezier(.2,.7,.3,1)}
+.stein.pouring .stein-foam{transition:transform .9s cubic-bezier(.2,.7,.3,1)}
+.stein-count{
+  display:block;text-align:center;margin-top:.15rem;
+  font-size:var(--step--2);letter-spacing:.08em;color:var(--cream-400);
+}
+@media (max-width:29.99rem){
+  .stein{top:auto;bottom:.6rem;right:.6rem;transform:scale(.85);transform-origin:bottom right}
+}
+@media (prefers-reduced-motion:reduce){
+  .stein-beer,.stein-foam,.stein.pouring .stein-beer,.stein.pouring .stein-foam{transition:none}
+}
+
+/* ---------- gate ---------- */
+.gate{
+  position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;
+  padding:var(--gutter);background:rgba(11,17,31,.92);
+}
+.gate-card{
+  width:min(100%,26rem);background:var(--night-700);border:1px solid var(--line-strong);
+  border-top:4px solid var(--amber-400);padding:var(--s-5) var(--s-4);
+}
+.gate-card > * + *{margin-top:var(--s-2)}
+.gate-title{
+  font-family:var(--font-display);font-size:var(--step-3);font-weight:700;
+  text-transform:uppercase;letter-spacing:.02em;line-height:1.05;color:var(--cream-100);
+}
+.gate-note{color:var(--cream-400);font-size:var(--step--1);line-height:1.5}
+.gate-actions{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-2);margin-top:var(--s-4)}
+
+/* ---------- deep-link banner ---------- */
+.gate-banner{
+  position:sticky;top:var(--nav-h);z-index:50;display:flex;align-items:center;gap:.6rem;
+  padding:.5rem var(--gutter);background:var(--night-600);border-bottom:1px solid var(--line-strong);
+  font-size:var(--step--1);color:var(--cream-300);flex-wrap:wrap;
+}
+.gate-banner .btn{min-height:var(--tap);padding-block:.35rem}
+.gate-banner-x{
+  margin-left:auto;min-width:var(--tap);min-height:var(--tap);
+  background:none;border:1px solid var(--line);color:var(--cream-400);
+  font-size:1.2rem;line-height:1;cursor:pointer;
+}
+.gate-banner-x:hover{color:var(--cream-100);border-color:var(--line-strong)}
+
+/* ---------- header side toggle ---------- */
+.side-toggle{display:flex;gap:0;margin-left:.4rem}
+.side-btn{
+  min-height:var(--tap);padding:.3rem .7rem;cursor:pointer;
+  background:var(--night-700);border:1px solid var(--line-strong);color:var(--cream-400);
+  font-family:var(--font-mono);font-size:var(--step--2);letter-spacing:.12em;text-transform:uppercase;
+}
+.side-btn + .side-btn{border-left:0}
+.side-btn[aria-pressed="true"]{background:var(--amber-400);border-color:var(--amber-400);color:#241703}
+.side-btn:hover:not([aria-pressed="true"]){color:var(--cream-100)}
+
+/* ---------- Friday filtering ---------- */
+body[data-side="lads"]   [data-friday="ladies"]{display:none}
+body[data-side="ladies"] [data-friday="lads"]{display:none}
+body[data-side] .grid--pair:has([data-friday]){grid-template-columns:1fr}
+
+/* ---------- attire emphasis for the chosen side ---------- */
+body[data-side="lads"]   #attire td[data-col="ladies"],
+body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
+
+/* ---------- gutter rails ---------- */
+.rail{display:none}
+@media (min-width:76rem){
+  .rail{
+    display:block;position:fixed;top:calc(var(--nav-h) + 1rem);bottom:0;z-index:5;
+    width:7.5rem;overflow:hidden;pointer-events:none;
+    -webkit-mask-image:linear-gradient(to bottom,transparent,#000 8%,#000 88%,transparent);
+    mask-image:linear-gradient(to bottom,transparent,#000 8%,#000 88%,transparent);
+  }
+  .rail--left{left:max(.75rem, calc((100vw - var(--wrap)) / 2 - 8.75rem))}
+  .rail--right{right:max(.75rem, calc((100vw - var(--wrap)) / 2 - 8.75rem))}
+  .rail-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.6rem}
+  .rail-list{will-change:transform}
+  .rail-card{background:var(--night-700);border:1px solid var(--line);padding:.4rem;text-align:center}
+  .rail-card .roster-media{display:block;aspect-ratio:1;background:var(--night-600);overflow:hidden}
+  .rail-card .roster-photo{width:100%;height:100%;object-fit:cover}
+  .rail-card .roster-monogram{
+    display:flex;align-items:center;justify-content:center;height:100%;
+    font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--cream-500);
+  }
+  .rail-card .roster-name{
+    display:block;margin-top:.3rem;font-size:.62rem;line-height:1.15;
+    font-weight:600;color:var(--cream-300);
+  }
+  .rail-card .roster-role{
+    display:block;font-family:var(--font-mono);font-size:.52rem;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--cream-500);
+  }
+}
+/* rails never overlap: they live in the viewport margin outside --wrap, and
+   only render at >=76rem where that margin is at least 8.5rem per side. */
+
 /* =====================================================================
    PART 6 — MOTION (last, so it wins over every animation above)
    ===================================================================== */
@@ -1096,6 +1089,11 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
   <div class="wrap navbar-inner">
     <a class="navbar-mark" href="#top">Final Prost</a>
 
+    <div class="side-toggle" id="side-toggle" role="group" aria-label="Show Friday for">
+      <button class="side-btn" type="button" data-side="ladies" aria-pressed="false">Gals</button>
+      <button class="side-btn" type="button" data-side="lads" aria-pressed="false">Guys</button>
+    </div>
+
     <details class="nav" id="jumpnav">
       <summary aria-label="Jump to a section">
         <span class="nav-toggle">Jump to</span>
@@ -1103,34 +1101,27 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 
       <div class="nav-panel">
         <div class="nav-group">
-          <p class="nav-group-title">Start here</p>
-          <div class="nav-links nav-links--single">
-            <a class="nav-link" href="#tap"><span class="nav-n">01</span> The Tap</a>
-          </div>
-        </div>
-
-        <div class="nav-group">
           <p class="nav-group-title">The plan</p>
           <div class="nav-links">
-            <a class="nav-link" href="#weekend"><span class="nav-n">02</span> Weekend</a>
-            <a class="nav-link" href="#attire"><span class="nav-n">03</span> Attire</a>
-            <a class="nav-link" href="#bring"><span class="nav-n">04</span> Bring</a>
-            <a class="nav-link" href="#stay"><span class="nav-n">05</span> The Stay</a>
+            <a class="nav-link" href="#weekend"><span class="nav-n">01</span> Weekend</a>
+            <a class="nav-link" href="#attire"><span class="nav-n">02</span> Attire</a>
+            <a class="nav-link" href="#bring"><span class="nav-n">03</span> Bring</a>
+            <a class="nav-link" href="#stay"><span class="nav-n">04</span> The Stay</a>
           </div>
         </div>
 
         <div class="nav-group">
           <p class="nav-group-title">People &amp; picks</p>
           <div class="nav-links">
-            <a class="nav-link" href="#party"><span class="nav-n">06</span> The Party</a>
+            <a class="nav-link" href="#party"><span class="nav-n">05</span> The Party</a>
           </div>
         </div>
 
         <div class="nav-group">
           <p class="nav-group-title">Money &amp; words</p>
           <div class="nav-links">
-            <a class="nav-link" href="#budget"><span class="nav-n">07</span> Budget</a>
-            <a class="nav-link" href="#german"><span class="nav-n">08</span> German 101</a>
+            <a class="nav-link" href="#budget"><span class="nav-n">06</span> Budget</a>
+            <a class="nav-link" href="#german"><span class="nav-n">07</span> German 101</a>
           </div>
         </div>
       </div>
@@ -1138,204 +1129,322 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
   </div>
 </nav>
 
-<main id="main">
+<!-- The stein. Full when you arrive; you drink it by scrolling. -->
+<div class="stein" id="stein" aria-hidden="true">
+  <svg viewBox="0 0 44 52" width="44" height="52">
+    <!-- handle -->
+    <path d="M34 14 h5 a4 4 0 0 1 4 4 v14 a4 4 0 0 1-4 4 h-5" fill="none" stroke="var(--cream-300)" stroke-width="3"/>
+    <!-- glass -->
+    <rect x="6" y="8" width="28" height="40" fill="var(--night-600)" stroke="var(--cream-300)" stroke-width="3"/>
+    <!-- beer level (scaled from bottom via CSS var) -->
+    <g clip-path="url(#steinclip)">
+      <rect class="stein-beer" x="9" y="11" width="22" height="34" fill="var(--amber-400)"/>
+    </g>
+    <clipPath id="steinclip"><rect x="9" y="11" width="22" height="34"/></clipPath>
+    <!-- foam cap, visible only while there is beer -->
+    <rect class="stein-foam" x="9" y="9" width="22" height="4" fill="var(--cream-100)"/>
+  </svg>
+  <span class="stein-count mono" id="stein-count" hidden>Ma&szlig; #1</span>
+</div>
 
-<!-- ===================== 01 · THE TAP ===================== -->
-<section class="section section--tall lozenge lozenge--strong" id="tap" aria-labelledby="tap-title">
-  <div class="wrap">
-
-    <div class="section-head">
-      <span class="section-num">01</span>
-      <p class="section-kicker">The signature moment</p>
-      <h2 class="section-title" id="tap-title">The Tap</h2>
-      <p class="section-lede">
-        Put your name in. We pour you an Oktoberfest alter ego &mdash; a rank, a festival name,
-        three numbers you cannot argue with, an outfit, a challenge, and a toast.
-        Your challenge is live Saturday night at the Beer Olympics.
-      </p>
+<!-- Gals / Guys gate. JS-state only; every visit starts fresh. -->
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title" hidden>
+  <div class="gate-card">
+    <p class="eyebrow">First things first</p>
+    <h2 class="gate-title" id="gate-title">Whose weekend are you here for?</h2>
+    <p class="gate-note">Saturday and Sunday are everybody&rsquo;s. Friday splits &mdash; pick a side and we&rsquo;ll show you yours. You can switch any time up top.</p>
+    <div class="gate-actions">
+      <button class="btn btn--lg gate-btn" type="button" data-side="ladies">Gals</button>
+      <button class="btn btn--lg gate-btn" type="button" data-side="lads">Guys</button>
     </div>
-
-    <div class="tap-intake card card--accent">
-      <form id="tap-form" novalidate>
-        <div class="field">
-          <label class="field-label" for="tap-name">Your name</label>
-          <span class="field-hint" id="tap-hint">
-            However you&rsquo;d say it out loud. Spelling matters &mdash; the tap is fussy.
-          </span>
-          <input class="input" id="tap-name" name="tap-name" type="text"
-                 autocomplete="name" autocapitalize="words" spellcheck="false"
-                 maxlength="60" enterkeyhint="go" aria-describedby="tap-hint"
-                 placeholder="e.g. Andrew Richlen">
-        </div>
-
-        <div class="btn-row">
-          <button class="btn btn--lg btn--block" type="submit" id="tap-go">Pour my fate</button>
-        </div>
-
-        <p class="form-error" id="tap-error" role="alert" hidden></p>
-      </form>
-
-      <p class="tap-lock">
-        <strong>Same name, same fate, forever.</strong> Your persona is fixed &mdash; it is computed
-        from the letters of your name and nothing else. There is no reroll button, there will never
-        be a reroll button, and refreshing the page will not save you. You may pour someone else&rsquo;s
-        name to see theirs; yours does not change.
-      </p>
-    </div>
-
-    <div class="tap-stage grid grid--pair" id="tap-stage">
-
-      <div class="tap-vessel">
-        <svg class="tap-svg" viewBox="0 0 140 180" aria-hidden="true" focusable="false">
-          <defs>
-            <clipPath id="tapClip"><rect x="32" y="50" width="68" height="112"></rect></clipPath>
-          </defs>
-
-          <g class="tap-fixture">
-            <rect x="44" y="2" width="16" height="7"></rect>
-            <rect x="30" y="9" width="74" height="16"></rect>
-            <rect x="62" y="25" width="10" height="14"></rect>
-          </g>
-
-          <rect class="tap-stream" x="64" y="38" width="6" height="16"></rect>
-
-          <g clip-path="url(#tapClip)">
-            <g class="tap-liquid">
-              <rect class="tap-beer" x="32" y="60" width="68" height="130"></rect>
-              <rect class="tap-foam" x="32" y="50" width="68" height="11"></rect>
-              <rect class="tap-foam" x="35" y="44" width="13" height="7"></rect>
-              <rect class="tap-foam" x="53" y="41" width="16" height="10"></rect>
-              <rect class="tap-foam" x="74" y="45" width="12" height="6"></rect>
-              <rect class="tap-bub" x="42" y="120" width="5" height="5"></rect>
-              <rect class="tap-bub tap-bub--b" x="63" y="136" width="4" height="4"></rect>
-              <rect class="tap-bub tap-bub--c" x="82" y="112" width="6" height="6"></rect>
-            </g>
-          </g>
-
-          <g class="tap-ticks">
-            <rect x="34" y="72" width="9" height="2"></rect>
-            <rect x="34" y="102" width="9" height="2"></rect>
-            <rect x="34" y="132" width="9" height="2"></rect>
-          </g>
-
-          <rect class="tap-glass" x="28" y="46" width="76" height="120"></rect>
-          <rect class="tap-handle" x="104" y="76" width="26" height="52"></rect>
-          <rect class="tap-base" x="22" y="166" width="88" height="7"></rect>
-        </svg>
-
-        <p class="tap-caption">
-          <span class="de">Zapfhahn</span>
-          <span class="gloss">Zapfhahn &mdash; the tap itself. Say it &ldquo;TSAPF-hahn.&rdquo;</span>
-        </p>
-      </div>
-
-      <div class="tap-out" id="tap-result" aria-live="polite">
-
-        <p class="tap-empty" id="tap-empty">
-          Nothing poured yet. The keg is cold, the mat is blank, and somewhere in there is a rank
-          with your name on it.
-        </p>
-
-        <article class="card day tap-mat" id="tap-mat" hidden>
-          <p class="sr-only" id="tap-sr"></p>
-
-          <div class="tap-stamp" aria-hidden="true">
-            <span>O&rsquo;zapft</span>
-            <span>is</span>
-          </div>
-
-          <div class="tap-mat-head">
-            <p class="card-meta">Rank</p>
-            <h3 class="tap-rank"><span class="de" id="tap-rank-de">&mdash;</span></h3>
-            <p class="tap-rank-en" id="tap-rank-en">&mdash;</p>
-            <span class="gloss">O&rsquo;zapft is &mdash; &ldquo;it&rsquo;s tapped.&rdquo; Say it &ldquo;oh-TSAHPFT iss.&rdquo;</span>
-          </div>
-
-          <hr class="rule tap-rule">
-
-          <div class="tap-ident">
-            <p class="card-meta">Festival name</p>
-            <p class="tap-fest" id="tap-fest">&mdash;</p>
-            <span class="gloss">von / zu / aus &mdash; all of them just mean &ldquo;of.&rdquo; Say them &ldquo;fon,&rdquo; &ldquo;tsoo,&rdquo; &ldquo;owss.&rdquo;</span>
-            <p class="tap-epithet" id="tap-epithet">&mdash;</p>
-          </div>
-
-          <div class="grid grid--3 grid--tight tap-stats">
-            <div class="stat">
-              <span class="stat-value"><span id="tap-litres">&mdash;</span> <span class="stat-unit">L</span></span>
-              <span class="stat-label">Litres before wobble</span>
-              <span class="stat-sub">out of a possible 6.5</span>
-              <span class="stat-bar"><span id="tap-bar-litres" style="width:0%"></span></span>
-            </div>
-            <div class="stat">
-              <span class="stat-value"><span id="tap-slap">&mdash;</span> <span class="stat-unit">/ 10</span></span>
-              <span class="stat-label">Shoe-slap skill</span>
-              <span class="stat-sub">judged harshly</span>
-              <span class="stat-bar"><span id="tap-bar-slap" style="width:0%"></span></span>
-            </div>
-            <div class="stat">
-              <span class="stat-value"><span id="tap-db">&mdash;</span> <span class="stat-unit">dB</span></span>
-              <span class="stat-label">Cheers volume</span>
-              <span class="stat-sub">84 quiet &middot; 119 unwise</span>
-              <span class="stat-bar"><span id="tap-bar-db" style="width:0%"></span></span>
-            </div>
-          </div>
-
-          <dl class="kv kv--stack tap-legend">
-            <dt>Ma&szlig;festigkeit</dt>
-            <dd>Litres before wobble. <span class="gloss gloss--inline">Ma&szlig; (MAHSS) is a one-litre mug. Root beer fills one exactly as well.</span></dd>
-            <dt>Schuhplattler-K&ouml;nnen</dt>
-            <dd>Shoe-slap skill. <span class="gloss gloss--inline">Schuhplattler (SHOO-platt-ler) is the Bavarian shoe-slapping dance.</span></dd>
-            <dt>Prostlautst&auml;rke</dt>
-            <dd>Cheers volume, in decibels. <span class="gloss gloss--inline">Prost (PROHST) means cheers.</span></dd>
-          </dl>
-
-          <hr class="rule tap-rule">
-
-          <div class="tap-block">
-            <p class="card-meta">Your <span class="de">Tracht</span> &mdash; what you&rsquo;re wearing</p>
-            <p class="tap-body" id="tap-tracht">&mdash;</p>
-            <span class="gloss">Tracht &mdash; traditional festival dress. Say it &ldquo;TRAHKT.&rdquo;</span>
-          </div>
-
-          <div class="tap-block tap-block--dare">
-            <p class="card-meta">Your <span class="de">Pr&uuml;fung</span> &mdash; your challenge</p>
-            <p class="tap-body" id="tap-dare">&mdash;</p>
-            <span class="gloss">Pr&uuml;fung &mdash; a test or trial. Say it &ldquo;PROO-foong.&rdquo; Every challenge is doable stone-cold sober. Root beer counts.</span>
-          </div>
-
-          <div class="tap-block">
-            <p class="card-meta">Your toast</p>
-            <p class="tap-toast" id="tap-toast-de">&mdash;</p>
-            <p class="tap-body" id="tap-toast-en">&mdash;</p>
-            <span class="gloss" id="tap-toast-ph"></span>
-          </div>
-
-          <hr class="rule tap-rule">
-
-          <div class="btn-row tap-actions">
-            <button class="btn" type="button" id="tap-copy">Copy for the group chat</button>
-          </div>
-          <p class="tap-copystatus" id="tap-copystatus" role="status"></p>
-
-          <label class="sr-only" for="tap-fallback">Your persona, ready to select and copy</label>
-          <textarea class="textarea tap-fallback" id="tap-fallback" readonly hidden></textarea>
-
-          <p class="tap-foot" id="tap-foot"></p>
-        </article>
-
-      </div>
-    </div>
-
   </div>
-</section>
+</div>
+
+<div class="gate-banner" id="gate-banner" hidden>
+  <span>Seeing the whole weekend. Want just your Friday?</span>
+  <button class="btn gate-banner-btn" type="button" data-side="ladies">Gals</button>
+  <button class="btn gate-banner-btn" type="button" data-side="lads">Guys</button>
+  <button class="gate-banner-x" type="button" id="gate-dismiss" aria-label="Dismiss">&times;</button>
+</div>
+
+<main id="main">
+<aside class="rail rail--left" aria-hidden="true"><ul class="rail-list">
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Megan Elgersma" alt="Megan Elgersma" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">ME</span>
+          </span>
+          <span class="roster-name">Megan Elgersma</span>
+          <span class="roster-role">Bride</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Kendra Hatcher" alt="Kendra Hatcher" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">KH</span>
+          </span>
+          <span class="roster-name">Kendra Hatcher</span>
+          <span class="roster-role">Maid of Honor</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Kailey Elgersma" alt="Kailey Elgersma" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">KE</span>
+          </span>
+          <span class="roster-name">Kailey Elgersma</span>
+          <span class="roster-role">Bridesmaid</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Tori Elgersma" alt="Tori Elgersma" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">TE</span>
+          </span>
+          <span class="roster-name">Tori Elgersma</span>
+          <span class="roster-role">Bridesmaid</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Karissa Fleming" alt="Karissa Fleming" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">KF</span>
+          </span>
+          <span class="roster-name">Karissa Fleming</span>
+          <span class="roster-role">Bridesmaid</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Kim Martens" alt="Kim Martens" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">KM</span>
+          </span>
+          <span class="roster-name">Kim Martens</span>
+          <span class="roster-role">Bridesmaid</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Kenzie Nilles" alt="Kenzie Nilles" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">KN</span>
+          </span>
+          <span class="roster-name">Kenzie Nilles</span>
+          <span class="roster-role">Bridesmaid</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Damiana Perkins" alt="Damiana Perkins" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">DP</span>
+          </span>
+          <span class="roster-name">Damiana Perkins</span>
+          <span class="roster-role">Bridesmaid</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Cindy Elgersma" alt="Cindy Elgersma" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">CE</span>
+          </span>
+          <span class="roster-name">Cindy Elgersma</span>
+          <span class="roster-role">Mother of Bride</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Peggy Elgersma" alt="Peggy Elgersma" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">PE</span>
+          </span>
+          <span class="roster-name">Peggy Elgersma</span>
+          <span class="roster-role">Step Mother of Bride</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Julie Richlen" alt="Julie Richlen" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">JR</span>
+          </span>
+          <span class="roster-name">Julie Richlen</span>
+          <span class="roster-role">Mother of Groom</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Rachel Gruetzmacher" alt="Rachel Gruetzmacher" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">RG</span>
+          </span>
+          <span class="roster-name">Rachel Gruetzmacher</span>
+          <span class="roster-role">Personal Attendant</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Margie Powers" alt="Margie Powers" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">MP</span>
+          </span>
+          <span class="roster-name">Margie Powers</span>
+          <span class="roster-role">Personal Attendant</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Morgan Elgersma" alt="Morgan Elgersma" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">ME</span>
+          </span>
+          <span class="roster-name">Morgan Elgersma</span>
+          <span class="roster-role">Flower Mama</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Lindsay Richlen" alt="Lindsay Richlen" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">LR</span>
+          </span>
+          <span class="roster-name">Lindsay Richlen</span>
+          <span class="roster-role">Flower Mama</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Anessa Schoo" alt="Anessa Schoo" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">AS</span>
+          </span>
+          <span class="roster-name">Anessa Schoo</span>
+          <span class="roster-role">Family</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Lindsey Shannon" alt="Lindsey Shannon" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">LS</span>
+          </span>
+          <span class="roster-name">Lindsey Shannon</span>
+          <span class="roster-role">Cousin</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Liz Johnson" alt="Liz Johnson" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">LJ</span>
+          </span>
+          <span class="roster-name">Liz Johnson</span>
+          <span class="roster-role">Friend</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Amy Schroeder" alt="Amy Schroeder" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">AS</span>
+          </span>
+          <span class="roster-name">Amy Schroeder</span>
+          <span class="roster-role">Friend</span>
+        </li>
+      </ul></aside>
+<aside class="rail rail--right" aria-hidden="true"><ul class="rail-list">
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Andrew Richlen" alt="Andrew Richlen" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">AR</span>
+          </span>
+          <span class="roster-name">Andrew Richlen</span>
+          <span class="roster-role">Groom</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Tim Cornelisen" alt="Tim Cornelisen" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">TC</span>
+          </span>
+          <span class="roster-name">Tim Cornelisen</span>
+          <span class="roster-role">Groomsmen</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Dustin Elgerma" alt="Dustin Elgerma" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">DE</span>
+          </span>
+          <span class="roster-name">Dustin Elgerma</span>
+          <span class="roster-role">Groomsmen</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Quinten Wynia" alt="Quinten Wynia" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">QW</span>
+          </span>
+          <span class="roster-name">Quinten Wynia</span>
+          <span class="roster-role">Groomsmen</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Jamie Elgersma" alt="Jamie Elgersma" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">JE</span>
+          </span>
+          <span class="roster-name">Jamie Elgersma</span>
+          <span class="roster-role">Father of Bride</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Kendel Richlen" alt="Kendel Richlen" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">KR</span>
+          </span>
+          <span class="roster-name">Kendel Richlen</span>
+          <span class="roster-role">Father of Groom</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Brady Richlen" alt="Brady Richlen" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">BR</span>
+          </span>
+          <span class="roster-name">Brady Richlen</span>
+          <span class="roster-role">Head Usher</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Brian Cervantes" alt="Brian Cervantes" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">BC</span>
+          </span>
+          <span class="roster-name">Brian Cervantes</span>
+          <span class="roster-role">Usher</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Chris Nicolet" alt="Chris Nicolet" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">CN</span>
+          </span>
+          <span class="roster-name">Chris Nicolet</span>
+          <span class="roster-role">Usher</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Noah Haynes" alt="Noah Haynes" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">NH</span>
+          </span>
+          <span class="roster-name">Noah Haynes</span>
+          <span class="roster-role">Usher</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Nick Brooks" alt="Nick Brooks" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">NB</span>
+          </span>
+          <span class="roster-name">Nick Brooks</span>
+          <span class="roster-role">Usher</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Jackson Agey" alt="Jackson Agey" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">JA</span>
+          </span>
+          <span class="roster-name">Jackson Agey</span>
+          <span class="roster-role">Friend</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Tyler Johnsrud" alt="Tyler Johnsrud" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">TJ</span>
+          </span>
+          <span class="roster-name">Tyler Johnsrud</span>
+          <span class="roster-role">Friend</span>
+        </li>
+        <li class="rail-card">
+          <span class="roster-media">
+            <img class="roster-photo" data-person="Landon Baugh" alt="Landon Baugh" src="" hidden>
+            <span class="roster-monogram" aria-hidden="true">LB</span>
+          </span>
+          <span class="roster-name">Landon Baugh</span>
+          <span class="roster-role">Friend</span>
+        </li>
+      </ul></aside>
+
+
 
 <!-- ===================== 02 · THE WEEKEND ===================== -->
 <section class="section lozenge lozenge--flat" id="weekend" aria-labelledby="weekend-title">
   <div class="wrap">
 
     <div class="section-head">
-      <span class="section-num">02</span>
+      <span class="section-num">01</span>
       <p class="section-kicker">Friday splits &middot; Saturday and Sunday are everyone</p>
       <h2 class="section-title" id="weekend-title">The Weekend</h2>
       <p class="section-lede">Two parties, three days, one long table at the end of it.</p>
@@ -1357,7 +1466,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
       <div class="grid grid--pair">
 
         <!-- LADS (night) -->
-        <article class="card card--raised">
+        <article class="card card--raised" data-friday="lads">
           <header class="col-head">
             <h4 class="col-title">The Lads</h4>
             <span class="col-tag">14 strong</span>
@@ -1442,7 +1551,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
         </article>
 
         <!-- LADIES (daylight) -->
-        <article class="card card--raised day">
+        <article class="card card--raised day" data-friday="ladies">
           <header class="col-head">
             <h4 class="col-title">The Ladies</h4>
             <span class="col-tag">19 strong</span>
@@ -1521,17 +1630,15 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
           <li>
             <p class="itin-time">Afternoon into evening</p>
             <div class="tap-tie lozenge lozenge--flat">
-              <p class="eyebrow">Straight out of The Tap</p>
+              <p class="eyebrow">The main event</p>
               <p class="itin-title">Oktoberfest Beer Olympics</p>
               <p class="itin-where">Catered by <span class="caterer">German Taste Currywurst</span>, into Oktoberfest dinner.</p>
               <span class="gloss">Currywurst &mdash; bratwurst, sliced, drowned in curry ketchup. Say it &ldquo;KUH-ree-voorst.&rdquo;</span>
-              <p class="itin-note">This is the block your alter ego was poured for. Whatever <span class="de">Pr&uuml;fung</span> the tap handed you is in effect from the first event to the last plate &mdash; every one of them is doable stone-cold sober, and the root beer keg counts for all of it.</p>
-              <span class="gloss">Pr&uuml;fung &mdash; a test or trial. Say it &ldquo;PROO-foong.&rdquo;</span>
+              <p class="itin-note">Games in the yard, teams across both parties, a scoreboard nobody will agree with, and a currywurst dinner when the medals are settled. Every event is winnable stone-cold sober, and the root beer keg counts for all of it.</p>
               <p class="chip-row">
                 <span class="chip chip--amber chip--wear" data-attire-slot="sat-pm" data-attire-col="lads"><span class="wear-key">Lads</span><span class="attire-chip-val">Lederhosen in dark brown (purchased costume)</span></span>
                 <span class="chip chip--blue chip--wear" data-attire-slot="sat-pm" data-attire-col="ladies"><span class="wear-key">Ladies</span><span class="attire-chip-val">Dirndl in blue (purchased costume)</span></span>
               </p>
-              <a class="btn btn--block" href="#tap">Pour my fate &amp; read my trial</a>
 
               <div class="costume" id="costume">
                 <p class="eyebrow">The one thing you buy</p>
@@ -1626,7 +1733,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
   <div class="wrap">
 
     <div class="section-head">
-      <span class="section-num">03</span>
+      <span class="section-num">02</span>
       <p class="section-kicker">Seven slots &middot; two columns &middot; no guessing</p>
       <h2 class="section-title" id="attire-title">Weekend Attire</h2>
       <p class="section-lede">Every chip on the itinerary above is pulled straight out of this grid. This grid wins.</p>
@@ -1702,7 +1809,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
   <div class="wrap">
 
     <div class="section-head">
-      <span class="section-num">04</span>
+      <span class="section-num">03</span>
       <p class="section-kicker">Pack once &middot; six things</p>
       <h2 class="section-title" id="bring-title">Things to Bring</h2>
       <p class="section-lede">Six things. Bring all six and you are the most prepared person at the tent.</p>
@@ -1748,7 +1855,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 <section class="section day lozenge lozenge--flat" id="stay" aria-labelledby="stay-title">
   <div class="wrap">
     <header class="section-head">
-      <span class="section-num">05</span>
+      <span class="section-num">04</span>
       <p class="section-kicker">Where we all land</p>
       <h2 class="section-title" id="stay-title">The Stay</h2>
       <p class="section-lede">One house. Two parties. Six bedrooms and a fire pit on a couple of acres of quiet Iowa nothing.</p>
@@ -1817,7 +1924,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 <section class="section lozenge" id="party" aria-labelledby="party-title">
   <div class="wrap">
     <header class="section-head">
-      <span class="section-num">06</span>
+      <span class="section-num">05</span>
       <p class="section-kicker">Thirty&#8209;three names, one weekend</p>
       <h2 class="section-title" id="party-title">Meet the Party</h2>
       <p class="section-lede">Learn a couple of faces now so Saturday&rsquo;s introductions are shorter and the toasts start sooner.</p>
@@ -2113,7 +2220,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 <section class="section lozenge lozenge--flat" id="budget" aria-labelledby="budget-title">
   <div class="wrap">
     <header class="section-head">
-      <span class="section-num">07</span>
+      <span class="section-num">06</span>
       <p class="section-kicker">What it costs, honestly</p>
       <h2 class="section-title" id="budget-title">Budget &amp; Venmo</h2>
       <p class="section-lede">Here is the shape of the bill. None of the numbers exist yet, so none of them are printed here &mdash; a made-up number would be worse than no number.</p>
@@ -2169,7 +2276,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 <section class="section lozenge" id="german" aria-labelledby="german-title">
   <div class="wrap">
     <header class="section-head">
-      <span class="section-num">08</span>
+      <span class="section-num">07</span>
       <p class="section-kicker">15 words, one weekend</p>
       <h2 class="section-title" id="german-title">German 101</h2>
       <p class="section-lede">Nobody here speaks German. That is fine. Every word you&rsquo;ll hear this weekend is below, with what it means and how to say it out loud. Say it with confidence and the accent takes care of itself.</p>
@@ -2354,274 +2461,121 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
     });
   })();
 
+
   /* ------------------------------------------------------------------
-     SECTION 01 — THE TAP · deterministic persona generator
+     V2 — THE STEIN · full on arrival, drained by scroll, refills empty.
      ------------------------------------------------------------------ */
   (function(){
-    var form = document.getElementById('tap-form');
-    if(!form) return;
+    var stein = document.getElementById('stein');
+    if(!stein) return;
+    var countEl = document.getElementById('stein-count');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var mass = 1, pouring = false, ticking = false;
+    var SIPS = 3; /* page-lengths of scroll per stein */
+    var drunk0 = 0; /* progress already drunk from previous steins */
 
-    var elName   = document.getElementById('tap-name');
-    var elErr    = document.getElementById('tap-error');
-    var elStage  = document.getElementById('tap-stage');
-    var elEmpty  = document.getElementById('tap-empty');
-    var elMat    = document.getElementById('tap-mat');
-    var elCopy   = document.getElementById('tap-copy');
-    var elStatus = document.getElementById('tap-copystatus');
-    var elFall   = document.getElementById('tap-fallback');
-    var shareText = '';
-
-    /* xmur3 — avalanche-quality 32-bit hash. Each call to the returned
-       function advances the internal state, so every field is derived from a
-       different, uncorrelated slice of that state. */
-    function xmur3(str){
-      var h = 1779033703 ^ str.length, i;
-      for(i = 0; i < str.length; i++){
-        h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
-        h = (h << 13) | (h >>> 19);
-      }
-      return function(){
-        h = Math.imul(h ^ (h >>> 16), 2246822507);
-        h = Math.imul(h ^ (h >>> 13), 3266489909);
-        h ^= h >>> 16;
-        return h >>> 0;
-      };
+    function progress(){
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      return max > 0 ? (window.scrollY / max) : 0;
     }
-    function pick(arr, n){ return arr[n % arr.length]; }
-
-    var RANKS = [
-      ['Fassmeister','Master of the Barrel'],
-      ['Zapfhahnwart','Warden of the Tap'],
-      ['Schaumkommissar','Commissioner of Foam'],
-      ['Brezelbaron','Baron of the Pretzel'],
-      ['Krughüter','Guardian of the Mug'],
-      ['Tischkapitän','Captain of the Table'],
-      ['Wurstmarschall','Marshal of the Sausage'],
-      ['Oberprostler','Chief Cheers-Giver'],
-      ['Bierdeckelrichter','Judge of the Beer Mat'],
-      ['Schuhplattler-Feldwebel','Sergeant of the Shoe-Slap'],
-      ['Senfkanzler','Chancellor of the Mustard'],
-      ['Lederhosenleutnant','Lieutenant of the Leather Breeches'],
-      ['Kartoffelkurfürst','Prince-Elector of the Potato'],
-      ['Hopfenprofessor','Professor of Hops'],
-      ['Wurzelbiervogt','Reeve of the Root Beer'],
-      ['Zeltbürgermeister','Mayor of the Tent'],
-      ['Blaskapellendirigent','Conductor of the Brass Band'],
-      ['Prüfungsvollstrecker','Enforcer of the Challenge'],
-      ['Gemütlichkeitsbeauftragter','Officer of Cosy Belonging'],
-      ['Dirndlschleifenprüfer','Inspector of the Apron Knot']
-    ];
-
-    var NAMES = ['Klaus','Heidi','Otto','Greta','Fritz','Ingrid','Dieter','Ursula',
-      'Hans','Brunhilde','Wolfgang','Helga','Jürgen','Elke','Rainer','Sieglinde',
-      'Manfred','Gudrun','Horst','Annelise','Bernd','Roswitha','Günther','Lieselotte',
-      'Detlef','Waltraud','Uwe','Hannelore','Konrad','Petra','Ludwig','Frauke'];
-
-    var PARTICLES = ['von','zu','aus'];
-
-    /* The eight named Des Moines suburbs. Nothing else may appear here. */
-    var SUBURBS = ['Ankeny','Waukee','Grimes','Norwalk','Urbandale','Indianola','Johnston','Altoona'];
-
-    var EPITHETS = ['the Unhurried','the Bench-Stander','of the Second Pretzel',
-      'the Undefeated at Cards','who Never Spills','the Long-Table Diplomat',
-      'the Regrettably Early Riser','the Mustard Optimist','Keeper of the Aux Cord',
-      'the Slow Clapper','the Straight-Faced','who Brought Extra Chairs',
-      'the Two-Handed Toaster','the Last to Sit Down','the Quietly Competitive',
-      'of the Corner Booth','the Reluctant Dancer','who Reads the Rules Aloud',
-      'the Steady Pourer','the Marathon Talker','the First to the Fire Pit',
-      'who Knows the Way Back','the Deadpan Champion','of the Spare Sweatshirt'];
-
-    var TRACHT = [
-      'Dark brown leather knee-breeches, wool socks to the knee, and total conviction.',
-      'A blue dress with white blouse and apron, knot tied to send a message.',
-      'Checked shirt, leather knee-breeches, and a feathered hat you will defend all night.',
-      'Borrowed knee-breeches one size wrong, worn like they were tailored.',
-      'Blue apron dress, braided hair, and boots chosen for the yard rather than the photos.',
-      'Knee-breeches, a plain white shirt, and suspenders adjusted eleven times.',
-      'Blue apron dress and a cardigan for when the fire burns down.',
-      'Full costume from the waist up, cozy pants from the waist down. Nobody needs to know.',
-      'Leather knee-breeches with grass stains earned before dinner even starts.',
-      'Blue apron dress, gold hoops, and a lawn chair carried absolutely everywhere.',
-      'Green wool hat, feather at a hostile angle, everything else entirely sensible.',
-      'Knee-socks, buckled shoes, and a shirt ironed by somebody else.',
-      'Apron dress in blue with pockets you will fill with other people’s phones.',
-      'Costume as issued, plus a flannel thrown over the top by 9 PM.',
-      'Immaculate at 4 PM. Historic by 10.',
-      'Knee-breeches, sunglasses worn indoors, one sleeve rolled.',
-      'Blue apron dress and the only genuinely comfortable shoes in the county.',
-      'A hat, a shirt, and the loudest socks at the table.',
-      'The costume worn completely correctly, which somehow makes it funnier.',
-      'Everything in dark brown except the attitude.'
-    ];
-
-    /* Every challenge is completable stone-cold sober; five centre the root beer keg. */
-    var DARES = [
-      'Pour someone else a root beer from the keg before you pour yourself anything at all.',
-      'Take the root beer keg for one full round and hand a cup to every person who walks past.',
-      'Lead one toast from ground level, no chairs, both hands in the air.',
-      'Teach three people the apron-knot code before dinner is served.',
-      'Win one round of a card game without smiling once.',
-      'Carry three full cups across the yard without spilling. Root beer counts.',
-      'Get four people to say a toast in unison, on your count.',
-      'Slap your own shoes in rhythm for ten seconds while somebody films it.',
-      'Compliment the caterer’s curry ketchup out loud, in a full sentence, to a witness.',
-      'Take the group photo that nobody has thought to take yet.',
-      'Refill the first empty root beer cup you see, without being asked.',
-      'Start the s’more assembly line and hand the first one to a relative you barely know.',
-      'Name every person at your table, out loud, before the food lands. No peeking at a phone.',
-      'Hold a straight face for one full minute while the table tries to break you.',
-      'Attempt the first shoe-slapping dance of the night and refuse to explain yourself.',
-      'Give a 20-second speech about someone at the table who has no idea it is coming.',
-      'Keep the bonfire fed for twenty minutes and accept no help whatsoever.',
-      'Win one Beer Olympics event holding a root beer in your off hand the entire time.',
-      'Be the person who starts the clapping. Every single time. All night.',
-      'Ask two people what their alter ego is and remember both by breakfast.'
-    ];
-
-    var TOASTS = [
-      ['Prost!','Cheers!','PROHST'],
-      ['Ein Prosit der Gemütlichkeit!','A toast to warm, cosy belonging!','ine PROH-zit dair guh-MOOT-likh-kite'],
-      ['Zicke zacke, zicke zacke, hoi hoi hoi!','Means nothing. Genuinely nothing. Shout it anyway.','TSIK-uh TSAK-uh, TSIK-uh TSAK-uh, hoy hoy hoy'],
-      ['O’zapft is!','It’s tapped!','oh-TSAHPFT iss'],
-      ['Auf uns!','To us!','owf OONS'],
-      ['Auf die Braut und den Bräutigam!','To the bride and the groom!','owf dee BROWT oont dain BROY-tee-gahm'],
-      ['Auf das lange Wochenende!','To the long weekend!','owf dahs LAHNG-uh VOKH-en-end-uh'],
-      ['Trinkt aus, Freunde!','Drink up, friends!','TRINKT owss, FROYN-duh'],
-      ['Auf die Freundschaft!','To friendship!','owf dee FROYNT-shahft'],
-      ['Noch eine Runde!','Another round!','nokh INE-uh ROON-duh'],
-      ['Auf den langen Tisch!','To the long table!','owf dain LAHNG-en TISH'],
-      ['Auf gute Nachbarn!','To good neighbors!','owf GOO-tuh NAHKH-barn'],
-      ['Auf das Feuer und die Sterne!','To the fire and the stars!','owf dahs FOY-er oont dee SHTAIR-nuh'],
-      ['Auf morgen früh!','To tomorrow morning. Eventually.','owf MOR-gen FREE'],
-      ['Auf Wurzelbier!','To root beer!','owf VOOR-tsel-beer'],
-      ['Auf alle am Tisch!','To everyone at this table!','owf AH-luh ahm TISH']
-    ];
-
-    function persona(raw){
-      var key = raw.trim().toLowerCase().replace(/\s+/g,' ');
-      var next = xmur3(key);
-      var rank     = pick(RANKS, next());
-      var given    = pick(NAMES, next());
-      var particle = pick(PARTICLES, next());
-      var suburb   = pick(SUBURBS, next());
-      var epithet  = pick(EPITHETS, next());
-      var litres   = (1.0 + (next() % 56) / 10).toFixed(1);
-      var slap     = (1.0 + (next() % 19) / 2).toFixed(1);
-      var db       = 84 + (next() % 36);
-      var tracht   = pick(TRACHT, next());
-      var dare     = pick(DARES, next());
-      var toast    = pick(TOASTS, next());
-      return {
-        rankDe:rank[0], rankEn:rank[1],
-        given:given, particle:particle, suburb:suburb, epithet:epithet,
-        litres:litres, slap:slap, db:db,
-        tracht:tracht, dare:dare, toast:toast
-      };
+    function level(){
+      var l = 1 - ((progress() * SIPS) - drunk0);
+      return Math.max(0, Math.min(1, l));
     }
-
-    function set(id, txt){ var el = document.getElementById(id); if(el) el.textContent = txt; }
-    function bar(id, pct){ var el = document.getElementById(id); if(el) el.style.width = Math.max(4, Math.min(100, pct)) + '%'; }
-
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      var raw = elName.value || '';
-      if(!raw.trim()){
-        elErr.textContent = 'The tap needs one thing: your name. Type it in the Your name box, then pour.';
-        elErr.hidden = false;
-        elName.focus();
-        return;
+    var rails = document.querySelectorAll('.rail-list');
+    function shiftRails(pr){
+      Array.prototype.forEach.call(rails, function(list){
+        var over = list.scrollHeight - (list.parentNode.clientHeight || 0);
+        if(over > 0) list.style.transform = 'translateY(' + (-pr * over).toFixed(0) + 'px)';
+      });
+    }
+    function render(){
+      ticking = false;
+      shiftRails(progress());
+      if(pouring) return;
+      var l = level();
+      if(reduced) l = Math.round(l * 4) / 4; /* stepped, no transitions (CSS kills them too) */
+      stein.style.setProperty('--stein-level', l.toFixed(3));
+      if(l <= 0){
+        pouring = true;
+        mass += 1;
+        drunk0 = progress() * SIPS; /* new stein starts full from here */
+        if(countEl){
+          countEl.textContent = 'Ma\u00df #' + mass;
+          countEl.hidden = false;
+          countEl.setAttribute('title','Ma\u00df \u2014 a one-litre mug');
+        }
+        if(reduced){
+          stein.style.setProperty('--stein-level','1');
+          pouring = false;
+        }else{
+          stein.classList.add('pouring');
+          requestAnimationFrame(function(){
+            stein.style.setProperty('--stein-level','1');
+            setTimeout(function(){
+              stein.classList.remove('pouring');
+              pouring = false;
+            }, 950);
+          });
+        }
       }
-      elErr.hidden = true;
+    }
+    window.addEventListener('scroll', function(){
+      if(!ticking){ ticking = true; requestAnimationFrame(render); }
+    }, {passive:true});
+    render();
+  })();
 
-      var p = persona(raw);
-      var display = raw.trim().replace(/\s+/g,' ');
-      var fest = p.given + ' ' + p.particle + ' ' + p.suburb;
-      var festPlain = p.given + ' of ' + p.suburb;
+  /* ------------------------------------------------------------------
+     V2 — GALS / GUYS · JS state only; nothing stored, resets each visit.
+     ------------------------------------------------------------------ */
+  (function(){
+    var gate = document.getElementById('gate');
+    var banner = document.getElementById('gate-banner');
+    var toggle = document.getElementById('side-toggle');
+    if(!gate || !toggle) return;
 
-      set('tap-rank-de', p.rankDe);
-      set('tap-rank-en', p.rankEn);
-      set('tap-fest', fest);
-      set('tap-epithet', '“' + p.epithet + '”');
-      set('tap-litres', p.litres);
-      set('tap-slap', p.slap);
-      set('tap-db', String(p.db));
-      set('tap-tracht', p.tracht);
-      set('tap-dare', p.dare);
-      set('tap-toast-de', p.toast[0]);
-      set('tap-toast-en', '“' + p.toast[1] + '”');
-      set('tap-toast-ph', 'Say it “' + p.toast[2] + '.”');
-      set('tap-foot', 'Poured for ' + display + ' · fixed forever · no reroll');
-      set('tap-sr', display + ', your rank is ' + p.rankDe + ', ' + p.rankEn +
-        '. Festival name ' + festPlain + ', known as ' + p.epithet + '. This persona is fixed forever.');
-
-      bar('tap-bar-litres', (parseFloat(p.litres) / 6.5) * 100);
-      bar('tap-bar-slap', (parseFloat(p.slap) / 10) * 100);
-      bar('tap-bar-db', ((p.db - 84) / 35) * 100);
-
-      /* Plain English, zero German — this is what leaves the page. */
-      shareText =
-        'My alter ego for Andrew and Megan’s weekend — Des Moines, September 18–20, 2026\n' +
-        'Name poured: ' + display + '\n' +
-        'Rank: ' + p.rankEn + '\n' +
-        'Festival name: ' + festPlain + '\n' +
-        'Known as: ' + p.epithet + '\n' +
-        'Litres before wobble: ' + p.litres + ' out of 6.5\n' +
-        'Shoe-slap skill: ' + p.slap + ' out of 10\n' +
-        'Cheers volume: ' + p.db + ' decibels\n' +
-        'Wearing: ' + p.tracht + '\n' +
-        'My challenge: ' + p.dare + '\n' +
-        'My toast: “' + p.toast[1] + '”\n' +
-        'Same name, same fate, forever. There is no reroll.';
-      if(elFall) elFall.value = shareText;
-
-      if(elEmpty) elEmpty.hidden = true;
-      elMat.hidden = false;
-      if(elFall){ elFall.hidden = true; }
-      if(elStatus) elStatus.textContent = '';
-
-      var level = 0.42 + 0.5 * ((parseFloat(p.litres) - 1) / 5.5);
-      elStage.style.setProperty('--pour-y', ((1 - level) * 116).toFixed(1) + 'px');
-      elStage.classList.remove('is-poured');
-      void elStage.offsetWidth;           /* restart the pour for a second name */
-      elStage.classList.add('is-poured');
+    function apply(side){
+      if(side){ document.body.setAttribute('data-side', side); }
+      else{ document.body.removeAttribute('data-side'); }
+      Array.prototype.forEach.call(toggle.querySelectorAll('.side-btn'), function(b){
+        b.setAttribute('aria-pressed', String(b.getAttribute('data-side') === side));
+      });
+    }
+    function choose(side, from){
+      apply(side);
+      gate.hidden = true;
+      if(banner) banner.hidden = true;
+      if(from === 'gate'){
+        var wk = document.getElementById('weekend');
+        if(wk && !location.hash) wk.scrollIntoView();
+      }
+    }
+    document.addEventListener('click', function(e){
+      var b = e.target.closest('[data-side]');
+      if(b && b.tagName === 'BUTTON'){
+        var inGate = !!e.target.closest('#gate');
+        if(b.closest('#side-toggle') &&
+           b.getAttribute('aria-pressed') === 'true'){
+          apply(null); /* tap the active side again to see both */
+          return;
+        }
+        choose(b.getAttribute('data-side'), inGate ? 'gate' : 'other');
+      }
+    });
+    var dismiss = document.getElementById('gate-dismiss');
+    if(dismiss) dismiss.addEventListener('click', function(){ banner.hidden = true; });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && !gate.hidden){ gate.hidden = true; }
     });
 
-    function copyFallback(){
-      var ok = false;
-      try{
-        var ta = document.createElement('textarea');
-        ta.value = shareText;
-        ta.setAttribute('readonly','');
-        ta.style.position = 'fixed';
-        ta.style.top = '-1000px';
-        document.body.appendChild(ta);
-        ta.select();
-        ta.setSelectionRange(0, shareText.length);
-        ok = document.execCommand('copy');
-        document.body.removeChild(ta);
-      }catch(err){ ok = false; }
-      if(ok){
-        elStatus.textContent = 'Copied. Go paste it.';
-      }else{
-        elFall.hidden = false;
-        elFall.focus();
-        elFall.select();
-        elStatus.textContent = 'Copy blocked — select the text below and copy it by hand.';
-      }
-    }
-
-    if(elCopy){
-      elCopy.addEventListener('click', function(){
-        if(!shareText) return;
-        elStatus.textContent = '';
-        if(navigator.clipboard && navigator.clipboard.writeText){
-          navigator.clipboard.writeText(shareText).then(function(){
-            elStatus.textContent = 'Copied. Go paste it.';
-          }, copyFallback);
-        }else{
-          copyFallback();
-        }
-      });
+    /* Deep links read first, choose later. */
+    if(location.hash){
+      if(banner) banner.hidden = false;
+    }else{
+      gate.hidden = false;
+      var first = gate.querySelector('.gate-btn');
+      if(first) first.focus();
     }
   })();
 
