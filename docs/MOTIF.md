@@ -1,3 +1,8 @@
+> **ARCHIVED 2026-08-23 — decision: not applied.** The site's identity became
+> "the original Canva site, done right" (cream/blue re-theme, its type voices,
+> its card hierarchy). Layering the committee conceit over that would fight it.
+> Kept for the record; nothing below is live.
+
 # MOTIF — THE 1810 COMMITTEE
 ### The locked motif for Andrew & Megan's Final Prost. An overlay on the built page, not a redesign.
 

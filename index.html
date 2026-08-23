@@ -301,6 +301,10 @@ small{font-size:var(--step--1)}
   text-transform:uppercase;letter-spacing:.2em;color:var(--text-dim);
   margin-bottom:var(--s-1);
 }
+.section-title--script{
+  font-family:var(--font-script) !important;
+  font-size:var(--step-5);line-height:1.05;
+}
 .section-title{
   /* The incumbent's section-title voice: blackletter, navy, sentence case.
      Fraktur is illegible in all-caps, so the uppercase transform is dropped here. */
@@ -508,6 +512,16 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 }
 .list-plain{display:grid;gap:var(--s-1)}
 
+.friday-toggle{display:flex;gap:.45rem;margin-top:var(--s-2);flex-wrap:wrap}
+.friday-btn{
+  min-height:var(--tap);padding:.35rem 1rem;cursor:pointer;
+  font-family:var(--font-mono);font-size:var(--step--1);font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  background:var(--surface);color:var(--text);border:1px solid var(--line-strong);
+}
+.friday-btn[aria-pressed="true"]{background:var(--amber-face);border-color:var(--amber-face);color:#241703}
+.friday-btn:hover:not([aria-pressed="true"]){border-color:var(--text)}
+
 /* ---------- 16. FORMS ------------------------------------------------ */
 .field{display:block;margin-bottom:var(--s-3)}
 .field-label{
@@ -547,10 +561,14 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 }
 
 /* ---------- 17. ROSTER PHOTOS ---------------------------------------- */
+/* The incumbent renders the Bride and the Groom ~1.6x the standard card. */
 .roster-card{
   display:flex;flex-direction:column;gap:.4rem;
   background:var(--surface);border:1px solid var(--line);padding:var(--s-1);
 }
+.roster-card--featured{grid-column:span 2;border-color:var(--line-strong)}
+.roster-card--featured .roster-name{font-size:var(--step-1)}
+.roster-card--featured .roster-role{color:var(--accent-text);font-weight:700}
 .roster-media{
   /* 2px dusty-blue frame — the incumbent puts this on all 38 portraits and it is
      its single strongest identity marker. */
@@ -691,6 +709,12 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
   margin-top:var(--s-1);
   font-family:var(--font-display);font-size:var(--step-1);font-weight:600;
   text-transform:uppercase;letter-spacing:.26em;color:var(--ink-soft);
+}
+.masthead-script{
+  /* the incumbent's own flourish: Luxurious Script, dusty blue, oversized */
+  margin-top:var(--s-2);
+  font-family:var(--font-script);font-weight:400;font-size:var(--step-4);
+  line-height:1.15;color:var(--blue-light);text-wrap:balance;
 }
 .masthead-taglines{
   margin-top:var(--s-4);padding-block:var(--s-3);
@@ -839,6 +863,8 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
    PART 4 — SECTIONS 05, 06, 08, 09 · STAY / PARTY / BUDGET / GERMAN
    ===================================================================== */
 .stay-hero{border-left:4px solid var(--accent)}
+.stay-amenities > li{display:block;position:relative;padding-left:1.45rem}
+.stay-amenities > li::before{position:absolute;left:0;top:.5em;margin-top:0}
 .stay-amenities > li strong{display:block}
 .stay-pending dd{display:flex}
 .stay-pending dd .tbd{max-width:100%}
@@ -858,6 +884,10 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 .roster-card{justify-content:flex-start}
 .roster-card .roster-name{margin-top:.15rem}
 
+.cost-figure{
+  font-family:var(--font-mono);font-size:var(--step-1);font-weight:700;
+  color:var(--accent-text);letter-spacing:.02em;font-variant-numeric:tabular-nums;
+}
 .budget-note{font-size:var(--step--1);color:var(--text-dim)}
 .venmo-card .kv > dd{font-family:var(--font-mono)}
 
@@ -928,37 +958,6 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 @media (prefers-reduced-motion:reduce){
   .stein-beer,.stein-foam,.stein.pouring .stein-beer,.stein.pouring .stein-foam{transition:none}
 }
-
-/* ---------- gate ---------- */
-.gate{
-  position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;
-  padding:var(--gutter);background:var(--scrim);
-}
-.gate-card{
-  width:min(100%,26rem);background:var(--paper-hi);border:1px solid var(--line-strong);
-  border-top:4px solid var(--amber-400);padding:var(--s-5) var(--s-4);
-}
-.gate-card > * + *{margin-top:var(--s-2)}
-.gate-title{
-  font-family:var(--font-display);font-size:var(--step-3);font-weight:700;
-  text-transform:uppercase;letter-spacing:.02em;line-height:1.05;color:var(--ink);
-}
-.gate-note{color:var(--ink-soft);font-size:var(--step--1);line-height:1.5}
-.gate-actions{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-2);margin-top:var(--s-4)}
-
-/* ---------- deep-link banner ---------- */
-.gate-banner{
-  position:sticky;top:var(--nav-h);z-index:50;display:flex;align-items:center;gap:.6rem;
-  padding:.5rem var(--gutter);background:var(--paper-sunk);border-bottom:1px solid var(--line-strong);
-  font-size:var(--step--1);color:var(--ink-soft);flex-wrap:wrap;
-}
-.gate-banner .btn{min-height:var(--tap);padding-block:.35rem}
-.gate-banner-x{
-  margin-left:auto;min-width:var(--tap);min-height:var(--tap);
-  background:none;border:1px solid var(--line);color:var(--ink-soft);
-  font-size:1.2rem;line-height:1;cursor:pointer;
-}
-.gate-banner-x:hover{color:var(--ink);border-color:var(--line-strong)}
 
 /* ---------- header side toggle ---------- */
 .side-toggle{display:flex;gap:0;margin-left:.4rem}
@@ -1064,9 +1063,10 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
 
 <header class="masthead lozenge lozenge--strong" id="top">
   <div class="wrap">
-    <p class="masthead-eyebrow">Friday &ndash; Sunday &middot; Joint Bach Party Weekend</p>
+    <p class="masthead-eyebrow">Welcome to</p>
     <h1 class="masthead-wordmark">Andrew &amp; Megan</h1>
     <p class="masthead-sub">Final Prost</p>
+    <p class="masthead-script">Joint Bach Party Weekend</p>
 
     <div class="masthead-taglines">
       <p class="masthead-tagline">Andrew <span class="amp">&amp;</span> Megan&rsquo;s Final Prost</p>
@@ -1083,6 +1083,7 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
   <div class="wrap navbar-inner">
     <a class="navbar-mark" href="#top">Final Prost</a>
 
+    <span class="sr-only" id="side-status" aria-live="polite"></span>
     <div class="side-toggle" id="side-toggle" role="group" aria-label="Show Friday for">
       <button class="side-btn" type="button" data-side="ladies" aria-pressed="false">Gals</button>
       <button class="side-btn" type="button" data-side="lads" aria-pressed="false">Guys</button>
@@ -1141,25 +1142,9 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
   <span class="stein-count mono" id="stein-count" hidden>Ma&szlig; #1</span>
 </div>
 
-<!-- Gals / Guys gate. JS-state only; every visit starts fresh. -->
-<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title" hidden>
-  <div class="gate-card">
-    <p class="eyebrow">First things first</p>
-    <h2 class="gate-title" id="gate-title">Whose weekend are you here for?</h2>
-    <p class="gate-note">Saturday and Sunday are everybody&rsquo;s. Friday splits &mdash; pick a side and we&rsquo;ll show you yours. You can switch any time up top.</p>
-    <div class="gate-actions">
-      <button class="btn btn--lg gate-btn" type="button" data-side="ladies">Gals</button>
-      <button class="btn btn--lg gate-btn" type="button" data-side="lads">Guys</button>
-    </div>
-  </div>
-</div>
 
-<div class="gate-banner" id="gate-banner" hidden>
-  <span>Seeing the whole weekend. Want just your Friday?</span>
-  <button class="btn gate-banner-btn" type="button" data-side="ladies">Gals</button>
-  <button class="btn gate-banner-btn" type="button" data-side="lads">Guys</button>
-  <button class="gate-banner-x" type="button" id="gate-dismiss" aria-label="Dismiss">&times;</button>
-</div>
+
+
 
 <main id="main">
 
@@ -1187,6 +1172,11 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
       <div class="wknd-head">
         <h3 class="wknd-name">Friday</h3>
         <p class="wknd-date">September 18 &middot; Two columns, one check-in</p>
+        <div class="friday-toggle" role="group" aria-label="Show Friday for">
+          <button class="friday-btn" type="button" data-side="ladies" aria-pressed="false">Gals</button>
+          <button class="friday-btn" type="button" data-side="lads" aria-pressed="false">Guys</button>
+          <button class="friday-btn" type="button" data-side="" aria-pressed="true">Everyone</button>
+        </div>
       </div>
 
       <div class="grid grid--pair">
@@ -1548,7 +1538,7 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
     <header class="section-head">
       <span class="section-num">04</span>
       <p class="section-kicker">Where we all land</p>
-      <h2 class="section-title" id="stay-title">The Stay</h2>
+      <h2 class="section-title section-title--script" id="stay-title">The Stay</h2>
       <p class="section-lede">One house. Two parties. Six bedrooms and a fire pit on a couple of acres of quiet Iowa nothing.</p>
     </header>
 
@@ -1593,14 +1583,14 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
 
       <article class="card">
         <h3 class="card-title">The fine print</h3>
-        <p class="dim">The place is booked. Link and address get shared closer to the weekend; the split is the one number still moving.</p>
+        <p class="dim">The place is booked. Link and address get shared closer to the weekend.</p>
         <dl class="kv kv--stack stay-pending">
           <dt>VRBO listing</dt>
           <dd><span class="chip chip--amber">Booked &mdash; details coming</span></dd>
           <dt>Address</dt>
           <dd><span class="chip chip--amber">Booked &mdash; shared closer to the weekend</span></dd>
           <dt>Cost per person</dt>
-          <dd><span class="tbd tbd--block">TBD &mdash; see Budget &amp; Venmo</span></dd>
+          <dd><strong class="cost-figure">$200</strong> staying &middot; <strong class="cost-figure">$60</strong> not staying &mdash; <a href="#budget">details in Budget &amp; Venmo</a></dd>
         </dl>
         <p class="btn-row">
           <a class="btn btn--ghost" href="#budget">Jump to Budget &amp; Venmo</a>
@@ -1627,7 +1617,7 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
         <span class="roster-count">19 strong</span>
       </div>
       <ul class="grid grid--roster">
-        <li class="roster-card">
+        <li class="roster-card roster-card--featured">
           <span class="roster-media">
             <img class="roster-photo" data-person="Megan Elgersma" alt="Megan Elgersma" src="" hidden>
             <span class="roster-monogram" aria-hidden="true">ME</span>
@@ -1788,7 +1778,7 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
         <span class="roster-count">19 strong</span>
       </div>
       <ul class="grid grid--roster">
-        <li class="roster-card">
+        <li class="roster-card roster-card--featured">
           <span class="roster-media">
             <img class="roster-photo" data-person="Andrew Richlen" alt="Andrew Richlen" src="" hidden>
             <span class="roster-monogram" aria-hidden="true">AR</span>
@@ -1954,39 +1944,35 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
       <span class="section-num">06</span>
       <p class="section-kicker">What it costs, honestly</p>
       <h2 class="section-title" id="budget-title">Budget &amp; Venmo</h2>
-      <p class="section-lede">Here is the shape of the bill. None of the numbers exist yet, so none of them are printed here &mdash; a made-up number would be worse than no number.</p>
+      <p class="section-lede">Two flat rates cover the house, meals and drinks at the house. Public outings stay on your own card, and the Venmo details are the one thing still pending.</p>
     </header>
 
     <div class="stack-lg">
 
       <article class="card card--accent">
-        <h3 class="card-title">Per&#8209;person breakdown</h3>
-        <p class="card-meta">Four lines &middot; all pending</p>
+        <h3 class="card-title">Per&#8209;person cost</h3>
+        <p class="card-meta">Two flat rates &middot; pick the one that describes you</p>
         <dl class="kv kv--stack">
-          <dt>Accommodations</dt>
-          <dd><span class="tbd tbd--block">TBD per person</span></dd>
-          <dt>Alcohol</dt>
-          <dd><span class="tbd tbd--block">TBD per person</span></dd>
-          <dt>Food &amp; groceries</dt>
-          <dd><span class="tbd tbd--block">TBD per person</span></dd>
-          <dt>Activities</dt>
-          <dd><span class="tbd tbd--block">TBD per person</span></dd>
+          <dt>Staying at the VRBO</dt>
+          <dd><strong class="cost-figure">$200</strong></dd>
+          <dt>Not staying at the VRBO</dt>
+          <dd><strong class="cost-figure">$60</strong></dd>
         </dl>
-        <p class="budget-note">The alcohol line buys the shared supply, and the shared supply is two kegs &mdash; one of them root beer. Everybody chips in, everybody gets a tap. Water, beer and root beer are handled; anything past those three, you bring yourself.</p>
+        <p class="budget-note">That covers the house and every meal and drink <em>at</em> the house &mdash; including the shared supply, which is two kegs, one of them root beer. Everybody chips in, everybody gets a tap. Non&#8209;alcoholic options are stocked all weekend, and BYOB is welcome if you prefer your own.</p>
       </article>
 
       <article class="card card--raised venmo-card">
         <h3 class="card-title">Paying up</h3>
-        <p class="card-meta">Venmo &middot; details pending</p>
+        <p class="card-meta">Venmo &middot; live</p>
         <dl class="kv kv--stack">
           <dt>Venmo name</dt>
-          <dd><span class="tbd tbd--block">TBD &mdash; name not published yet</span></dd>
+          <dd><strong>Lindsay Richlen</strong></dd>
           <dt>Venmo account</dt>
-          <dd><span class="tbd tbd--block">TBD &mdash; handle not published yet</span></dd>
+          <dd><strong class="cost-figure">@LindsayRichlen</strong></dd>
           <dt>Due date</dt>
           <dd><span class="tbd tbd--block">TBD &mdash; no deadline set yet</span></dd>
         </dl>
-        <p class="budget-note">Don&rsquo;t send anything to anyone until this block has real values in it. When it does, it will say so plainly and the handle will be right here.</p>
+        <p class="budget-note">Send your rate &mdash; $200 if you&rsquo;re staying at the VRBO, $60 if you&rsquo;re not &mdash; to @LindsayRichlen. No deadline is set yet; when one exists it will be printed right here.</p>
       </article>
 
       <article class="card card--alert">
@@ -2248,88 +2234,33 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
   })();
 
   /* ------------------------------------------------------------------
-     V2 — GALS / GUYS · JS state only; nothing stored, resets each visit.
+     GALS / GUYS — inline toggle only, no modal. JS state, nothing stored.
+     Deep links #gals / #guys pre-pick a side.
      ------------------------------------------------------------------ */
   (function(){
-    var gate = document.getElementById('gate');
-    var banner = document.getElementById('gate-banner');
     var toggle = document.getElementById('side-toggle');
-    if(!gate || !toggle) return;
-
+    if(!toggle) return;
+    var status = document.getElementById('side-status');
     function apply(side){
       if(side){ document.body.setAttribute('data-side', side); }
       else{ document.body.removeAttribute('data-side'); }
-      Array.prototype.forEach.call(toggle.querySelectorAll('.side-btn'), function(b){
-        b.setAttribute('aria-pressed', String(b.getAttribute('data-side') === side));
+      Array.prototype.forEach.call(document.querySelectorAll('.side-btn, .friday-btn'), function(b){
+        b.setAttribute('aria-pressed', String((b.getAttribute('data-side') || '') === (side || '')));
       });
-    }
-    /* aria-modal only promises isolation; inert on everything else delivers it,
-       and the Tab trap below covers engines that ignore inert. */
-    var FOCUSABLE = 'a[href],button:not([disabled]),summary,input,select,textarea,[tabindex]:not([tabindex="-1"])';
-    function isolate(on){
-      Array.prototype.forEach.call(document.body.children, function(el){
-        if(el === gate) return;
-        if(on) el.setAttribute('inert', '');
-        else el.removeAttribute('inert');
-      });
-    }
-    function openGate(){
-      gate.hidden = false;
-      isolate(true);
-      var first = gate.querySelector('.gate-btn');
-      if(first) first.focus();
-    }
-    function closeGate(returnFocus){
-      gate.hidden = true;
-      isolate(false);
-      if(returnFocus){
-        var t = toggle.querySelector('.side-btn');
-        if(t) t.focus();
-      }
-    }
-    gate.addEventListener('keydown', function(e){
-      if(e.key !== 'Tab' || gate.hidden) return;
-      var f = gate.querySelectorAll(FOCUSABLE);
-      if(!f.length) return;
-      var first = f[0], last = f[f.length - 1];
-      if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
-      else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
-    });
-
-    function choose(side, from){
-      apply(side);
-      var wasGate = (from === 'gate');
-      closeGate(wasGate);
-      if(banner) banner.hidden = true;
-      if(wasGate){
-        var wk = document.getElementById('weekend');
-        if(wk && !location.hash) wk.scrollIntoView();
+      if(status){
+        status.textContent = side === 'ladies' ? 'Showing the gals\u2019 Friday only'
+          : side === 'lads' ? 'Showing the guys\u2019 Friday only'
+          : 'Showing both Fridays';
       }
     }
     document.addEventListener('click', function(e){
-      var b = e.target.closest('[data-side]');
-      if(b && b.tagName === 'BUTTON'){
-        var inGate = !!e.target.closest('#gate');
-        if(b.closest('#side-toggle') &&
-           b.getAttribute('aria-pressed') === 'true'){
-          apply(null); /* tap the active side again to see both */
-          return;
-        }
-        choose(b.getAttribute('data-side'), inGate ? 'gate' : 'other');
-      }
+      var b = e.target.closest('button[data-side]');
+      if(!b) return;
+      var v = b.getAttribute('data-side') || null;
+      apply(v && v === document.body.getAttribute('data-side') ? null : v);
     });
-    var dismiss = document.getElementById('gate-dismiss');
-    if(dismiss) dismiss.addEventListener('click', function(){ banner.hidden = true; });
-    document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape' && !gate.hidden){ closeGate(true); }
-    });
-
-    /* Deep links read first, choose later. */
-    if(location.hash){
-      if(banner) banner.hidden = false;
-    }else{
-      openGate();
-    }
+    var hash = (location.hash || '').toLowerCase();
+    apply(hash === '#gals' ? 'ladies' : hash === '#guys' ? 'lads' : null);
   })();
 
   /* ------------------------------------------------------------------
