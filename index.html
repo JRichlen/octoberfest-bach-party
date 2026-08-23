@@ -512,16 +512,6 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 }
 .list-plain{display:grid;gap:var(--s-1)}
 
-.friday-toggle{display:flex;gap:.45rem;margin-top:var(--s-2);flex-wrap:wrap}
-.friday-btn{
-  min-height:var(--tap);padding:.35rem 1rem;cursor:pointer;
-  font-family:var(--font-mono);font-size:var(--step--1);font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;
-  background:var(--surface);color:var(--text);border:1px solid var(--line-strong);
-}
-.friday-btn[aria-pressed="true"]{background:var(--amber-face);border-color:var(--amber-face);color:#241703}
-.friday-btn:hover:not([aria-pressed="true"]){border-color:var(--text)}
-
 /* ---------- 16. FORMS ------------------------------------------------ */
 .field{display:block;margin-bottom:var(--s-3)}
 .field-label{
@@ -959,26 +949,6 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
   .stein-beer,.stein-foam,.stein.pouring .stein-beer,.stein.pouring .stein-foam{transition:none}
 }
 
-/* ---------- header side toggle ---------- */
-.side-toggle{display:flex;gap:0;margin-left:.4rem}
-.side-btn{
-  min-height:var(--tap);padding:.3rem .7rem;cursor:pointer;
-  background:var(--paper-hi);border:1px solid var(--line-strong);color:var(--ink-soft);
-  font-family:var(--font-mono);font-size:var(--step--2);letter-spacing:.12em;text-transform:uppercase;
-}
-.side-btn + .side-btn{border-left:0}
-.side-btn[aria-pressed="true"]{background:var(--amber-400);border-color:var(--amber-400);color:#241703}
-.side-btn:hover:not([aria-pressed="true"]){color:var(--ink)}
-
-/* ---------- Friday filtering ---------- */
-body[data-side="lads"]   [data-friday="ladies"]{display:none}
-body[data-side="ladies"] [data-friday="lads"]{display:none}
-body[data-side] .grid--pair:has([data-friday]){grid-template-columns:1fr}
-
-/* ---------- attire emphasis for the chosen side ---------- */
-body[data-side="lads"]   #attire td[data-col="ladies"],
-body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
-
 
 /* =====================================================================
    PART 6 — MOTION (last, so it wins over every animation above)
@@ -1083,11 +1053,6 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
   <div class="wrap navbar-inner">
     <a class="navbar-mark" href="#top">Final Prost</a>
 
-    <span class="sr-only" id="side-status" aria-live="polite"></span>
-    <div class="side-toggle" id="side-toggle" role="group" aria-label="Show Friday for">
-      <button class="side-btn" type="button" data-side="ladies" aria-pressed="false">Gals</button>
-      <button class="side-btn" type="button" data-side="lads" aria-pressed="false">Guys</button>
-    </div>
 
     <details class="nav" id="jumpnav">
       <summary aria-label="Jump to a section">
@@ -1172,17 +1137,12 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
       <div class="wknd-head">
         <h3 class="wknd-name">Friday</h3>
         <p class="wknd-date">September 18 &middot; Two columns, one check-in</p>
-        <div class="friday-toggle" role="group" aria-label="Show Friday for">
-          <button class="friday-btn" type="button" data-side="ladies" aria-pressed="false">Gals</button>
-          <button class="friday-btn" type="button" data-side="lads" aria-pressed="false">Guys</button>
-          <button class="friday-btn" type="button" data-side="" aria-pressed="true">Everyone</button>
-        </div>
       </div>
 
       <div class="grid grid--pair">
 
         <!-- LADS (night) -->
-        <article class="card card--raised" data-friday="lads">
+        <article class="card card--raised">
           <header class="col-head">
             <h4 class="col-title">The Lads</h4>
             <span class="col-tag">19 strong</span>
@@ -1239,7 +1199,7 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
         </article>
 
         <!-- LADIES (daylight) -->
-        <article class="card card--raised" data-friday="ladies">
+        <article class="card card--raised">
           <header class="col-head">
             <h4 class="col-title">The Ladies</h4>
             <span class="col-tag">19 strong</span>
@@ -2233,35 +2193,8 @@ body[data-side="ladies"] #attire td[data-col="lads"]{opacity:.55}
     render();
   })();
 
-  /* ------------------------------------------------------------------
-     GALS / GUYS — inline toggle only, no modal. JS state, nothing stored.
-     Deep links #gals / #guys pre-pick a side.
-     ------------------------------------------------------------------ */
-  (function(){
-    var toggle = document.getElementById('side-toggle');
-    if(!toggle) return;
-    var status = document.getElementById('side-status');
-    function apply(side){
-      if(side){ document.body.setAttribute('data-side', side); }
-      else{ document.body.removeAttribute('data-side'); }
-      Array.prototype.forEach.call(document.querySelectorAll('.side-btn, .friday-btn'), function(b){
-        b.setAttribute('aria-pressed', String((b.getAttribute('data-side') || '') === (side || '')));
-      });
-      if(status){
-        status.textContent = side === 'ladies' ? 'Showing the gals\u2019 Friday only'
-          : side === 'lads' ? 'Showing the guys\u2019 Friday only'
-          : 'Showing both Fridays';
-      }
-    }
-    document.addEventListener('click', function(e){
-      var b = e.target.closest('button[data-side]');
-      if(!b) return;
-      var v = b.getAttribute('data-side') || null;
-      apply(v && v === document.body.getAttribute('data-side') ? null : v);
-    });
-    var hash = (location.hash || '').toLowerCase();
-    apply(hash === '#gals' ? 'ladies' : hash === '#guys' ? 'lads' : null);
-  })();
+  /* Friday renders both columns, always — the Gals/Guys selector was
+     removed by owner ruling 2026-08-23; two columns need no controls. */
 
   /* ------------------------------------------------------------------
      JUMP NAV — current-section indicator. The stylesheet has always had
