@@ -1260,7 +1260,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 
           <ol class="itin">
             <li>
-              <p class="itin-time">To start</p>
+              <p class="itin-time">9 AM</p>
               <p class="itin-title">Bakery Crawl &amp; Crawl Bingo</p>
               <p class="itin-where">Starting at La Mie Bakery &middot; <span class="addr">841 42nd St</span></p>
               <p class="chip-row">
@@ -1269,7 +1269,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
             </li>
 
             <li>
-              <p class="itin-time">Then &middot; until 3:15</p>
+              <p class="itin-time">12 PM</p>
               <p class="itin-title">Bridal games &amp; snacks at Lindsay&rsquo;s</p>
               <p class="itin-where"><span class="addr">911 NW Orchard Dr, Ankeny</span></p>
             </li>
@@ -1291,7 +1291,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
             </li>
 
             <li>
-              <p class="itin-time">Night</p>
+              <p class="itin-time">8 PM</p>
               <p class="itin-title">Game Tournament Night + ice cream bar</p>
               <p class="itin-where">Crowns, Dutch Blitz (Nertz), Garbage, Speed tiebreaker.</p>
               <p class="chip-row">
@@ -1314,7 +1314,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
       <article class="card card--raised">
         <ol class="itin">
           <li>
-            <p class="itin-time">Morning</p>
+            <p class="itin-time">10 AM &ndash; 12 PM</p>
             <p class="itin-title">Des Moines Farmers Market</p>
             <p class="itin-where">Brunch at the market.</p>
             <p class="chip-row">
@@ -1323,19 +1323,25 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
           </li>
 
           <li>
-            <p class="itin-time">Then</p>
+            <p class="itin-time">12 &ndash; 2 PM</p>
+            <p class="itin-title">Lunch at Hessen Haus</p>
+            <p class="itin-where"><span class="addr">101 4th St, Des Moines</span></p>
+            <p class="itin-note">A German beer hall, which is the correct place to eat before a Beer Olympics.</p>
+          </li>
+
+          <li>
+            <p class="itin-time">2 &ndash; 3 PM</p>
             <p class="itin-title">Back to the VRBO</p>
             <p class="itin-where">Relax, and get the <span class="de">Tracht</span> on.</p>
             <span class="gloss">Tracht &mdash; traditional festival dress. Say it &ldquo;TRAHKT.&rdquo;</span>
           </li>
 
           <li>
-            <p class="itin-time">Afternoon into evening</p>
+            <p class="itin-time">3 &ndash; 7 PM</p>
             <div class="tap-tie lozenge lozenge--flat">
               <p class="eyebrow">The main event</p>
               <p class="itin-title">Oktoberfest Beer Olympics</p>
-              <p class="itin-where">Catered group dinner from one of Megan &amp; Andrew&rsquo;s favorites.</p>
-              <p class="itin-note">Games in the yard, teams across both parties, a scoreboard nobody will agree with, and a catered dinner when the medals are settled. Every event is winnable stone-cold sober, and the root beer keg counts for all of it.</p>
+              <p class="itin-note">Games in the yard, teams across both parties, a scoreboard nobody will agree with, and a catered dinner right after. Every event is winnable stone-cold sober, and the root beer keg counts for all of it.</p>
               <p class="chip-row">
                 <span class="chip chip--amber chip--wear" data-attire-slot="sat-pm" data-attire-col="lads"><span class="wear-key">Lads</span><span class="sr-only">: </span><span class="attire-chip-val">Lederhosen in dark brown (purchased costume)</span></span>
                 <span class="chip chip--blue chip--wear" data-attire-slot="sat-pm" data-attire-col="ladies"><span class="wear-key">Ladies</span><span class="sr-only">: </span><span class="attire-chip-val">Dirndl in blue (purchased costume)</span></span>
@@ -1372,7 +1378,13 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
           </li>
 
           <li>
-            <p class="itin-time">Late</p>
+            <p class="itin-time">7 &ndash; 8 PM</p>
+            <p class="itin-title">Dinner</p>
+            <p class="itin-where">Catered group dinner from one of Megan &amp; Andrew&rsquo;s favorites.</p>
+          </li>
+
+          <li>
+            <p class="itin-time">8 PM &ndash; midnight</p>
             <p class="itin-title">Beerfest on the projector</p>
             <p class="itin-where">Movie, bonfire, s&rsquo;mores.</p>
             <p class="chip-row">
@@ -2247,9 +2259,12 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
     var VRBO = '5650 SE 56th St\\, Carlisle\\, IA 50047';
     /* [day, start, end, title, location, note] — day 18/19/20 Sept 2026 */
     var SHARED = [
-      [19,'0900','1100','Des Moines Farmers Market','Downtown Des Moines','Brunch at the market. Wear whatever you want.'],
-      [19,'1400','2000','Oktoberfest Beer Olympics',VRBO,'The main event. Costumes on: lederhosen in dark brown / dirndl in blue. Catered group dinner when the medals are settled. The root beer keg counts.'],
-      [19,'2100','2300','Beerfest on the projector',VRBO,'Movie\\, bonfire\\, s\'mores. Cozy clothes.'],
+      [19,'1000','1200','Des Moines Farmers Market','Downtown Des Moines','Brunch at the market. Wear whatever you want.'],
+      [19,'1200','1400','Lunch at Hessen Haus','101 4th St\\, Des Moines\\, IA','A German beer hall\\, which is the correct place to eat before a Beer Olympics.'],
+      [19,'1400','1500','Back to the VRBO',VRBO,'Relax\\, and get the Tracht on — costumes for the Olympics.'],
+      [19,'1900','2000','Dinner',VRBO,"Catered group dinner from one of Megan & Andrew's favorites."],
+      [19,'1500','1900','Oktoberfest Beer Olympics',VRBO,'The main event. Costumes on: lederhosen in dark brown / dirndl in blue. Catered group dinner when the medals are settled. The root beer keg counts.'],
+      [19,'2000','2359','Beerfest on the projector',VRBO,'Movie\\, bonfire\\, s\'mores. Cozy clothes.'],
       [20,'0900','1030','Breakfast at the VRBO',VRBO,'Bagels\\, muffins\\, egg bites\\, fruit. Say goodbye to the bride & groom.'],
       [20,'1100','1130','Check out\\, go home',VRBO,'Out the door by eleven. Hard stop.']
     ];
@@ -2262,8 +2277,8 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
         [18,'2000','2330','Dive bars','Des Moines\\, IA','Where the night goes is where it goes.']
       ],
       ladies: [
-        [18,'1000','1300','Bakery Crawl & Crawl Bingo','La Mie Bakery\\, 841 42nd St\\, Des Moines\\, IA','Florals & jeans.'],
-        [18,'1300','1515','Bridal Games & Snacks at Lindsay\'s','911 NW Orchard Dr\\, Ankeny\\, IA',''],
+        [18,'0900','1200','Bakery Crawl & Crawl Bingo','La Mie Bakery\\, 841 42nd St\\, Des Moines\\, IA','Florals & jeans.'],
+        [18,'1200','1600','Bridal Games & Snacks at Lindsay\'s','911 NW Orchard Dr\\, Ankeny\\, IA',''],
         [18,'1600','1800','Check-in\\, get ready',VRBO,''],
         [18,'1800','2000','Dinner at Fresko','909 Locust St\\, Des Moines\\, IA','Black dresses\\, Megan in white. Gluten-free is covered.'],
         [18,'2000','2300','Game Tournament Night + Ice Cream Bar',VRBO,'Crowns\\, Dutch Blitz (Nertz)\\, Garbage\\, Speed tiebreaker.']
