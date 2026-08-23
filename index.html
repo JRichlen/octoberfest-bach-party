@@ -2177,6 +2177,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
         }
         if(reduced){
           stein.style.setProperty('--stein-level','1');
+          traveled = 0;
           pouring = false;
         }else{
           stein.classList.add('pouring');
@@ -2184,6 +2185,8 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
             stein.style.setProperty('--stein-level','1');
             setTimeout(function(){
               stein.classList.remove('pouring');
+              traveled = 0;   /* zero at pour END — scrolls during the pour don't carry over */
+              lastY = window.scrollY;
               pouring = false;
             }, 950);
           });
@@ -2191,8 +2194,12 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
       }
     }
     window.addEventListener('scroll', function(){
-      var y = window.scrollY;
-      traveled += Math.abs(y - lastY);
+      /* clamp out iOS rubber-band overscroll */
+      var max = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+      var y = Math.max(0, Math.min(max, window.scrollY));
+      if(pouring){ lastY = y; return; }  /* a pour is a pause, not a debt */
+      /* cap one event's contribution: an anchor jump is one gulp, not a chug */
+      traveled += Math.min(Math.abs(y - lastY), window.innerHeight * 0.5);
       lastY = y;
       if(!ticking){ ticking = true; requestAnimationFrame(render); }
     }, {passive:true});
