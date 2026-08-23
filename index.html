@@ -841,10 +841,6 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 
 .tap-tie > * + *{margin-top:var(--s-2)}
 .tap-tie .btn{margin-top:var(--s-3)}
-.caterer{
-  display:inline-block;font-family:var(--font-display);font-weight:700;
-  text-transform:uppercase;letter-spacing:.04em;color:var(--text);
-}
 
 .attire-val{display:block;font-weight:600}
 .table td .gloss{margin-top:.2rem}
@@ -1306,9 +1302,8 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
             <div class="tap-tie lozenge lozenge--flat">
               <p class="eyebrow">The main event</p>
               <p class="itin-title">Oktoberfest Beer Olympics</p>
-              <p class="itin-where">Catered by <span class="caterer">German Taste Currywurst</span>, into Oktoberfest dinner.</p>
-              <span class="gloss">Currywurst &mdash; bratwurst, sliced, drowned in curry ketchup. Say it &ldquo;KUH-ree-voorst.&rdquo;</span>
-              <p class="itin-note">Games in the yard, teams across both parties, a scoreboard nobody will agree with, and a currywurst dinner when the medals are settled. Every event is winnable stone-cold sober, and the root beer keg counts for all of it.</p>
+              <p class="itin-where">Catered group dinner from one of Megan &amp; Andrew&rsquo;s favorites.</p>
+              <p class="itin-note">Games in the yard, teams across both parties, a scoreboard nobody will agree with, and a catered dinner when the medals are settled. Every event is winnable stone-cold sober, and the root beer keg counts for all of it.</p>
               <p class="chip-row">
                 <span class="chip chip--amber chip--wear" data-attire-slot="sat-pm" data-attire-col="lads"><span class="wear-key">Lads</span><span class="sr-only">: </span><span class="attire-chip-val">Lederhosen in dark brown (purchased costume)</span></span>
                 <span class="chip chip--blue chip--wear" data-attire-slot="sat-pm" data-attire-col="ladies"><span class="wear-key">Ladies</span><span class="sr-only">: </span><span class="attire-chip-val">Dirndl in blue (purchased costume)</span></span>
@@ -1965,7 +1960,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
   <div class="wrap">
     <header class="section-head">
       <span class="section-num">07</span>
-      <p class="section-kicker">15 words, one weekend</p>
+      <p class="section-kicker">14 words, one weekend</p>
       <h2 class="section-title" id="german-title">German 101</h2>
       <p class="section-lede">Nobody here speaks German. That is fine. Every word you&rsquo;ll hear this weekend is below, with what it means and how to say it out loud. Say it with confidence and the accent takes care of itself.</p>
     </header>
@@ -2094,14 +2089,6 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
         </dd>
       </div>
 
-      <div class="glos glos--wide">
-        <dt class="glos-term">Currywurst</dt>
-        <dd>
-          <p class="glos-mean">Bratwurst, sliced, drowned in curry ketchup. The caterer&rsquo;s whole thing &mdash; German Taste Currywurst is feeding us Saturday.</p>
-          <p class="glos-say">Say it: KUH&#8209;ree&#8209;voorst</p>
-        </dd>
-      </div>
-
     </dl>
 
     <p class="section-lede german-outro">That&rsquo;s the whole vocabulary &mdash; fifteen words, every one of them glossed and spelled out above. Nobody is going to test you. Learn <span class="de">Prost</span> and you&rsquo;ll get through the weekend on charm.</p>
@@ -2159,15 +2146,12 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
     var countEl = document.getElementById('stein-count');
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var mass = 1, pouring = false, ticking = false;
-    var SIPS = 3; /* page-lengths of scroll per stein */
-    var drunk0 = 0; /* progress already drunk from previous steins */
+    var SIP_SCREENS = 2.25; /* screen-heights of scroll per stein */
+    var drunkPx = 0; /* scroll position where the current stein was poured */
 
-    function progress(){
-      var max = document.documentElement.scrollHeight - window.innerHeight;
-      return max > 0 ? (window.scrollY / max) : 0;
-    }
     function level(){
-      var l = 1 - ((progress() * SIPS) - drunk0);
+      var span = Math.max(1, window.innerHeight * SIP_SCREENS);
+      var l = 1 - ((window.scrollY - drunkPx) / span);
       return Math.max(0, Math.min(1, l));
     }
     function render(){
@@ -2179,7 +2163,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
       if(l <= 0){
         pouring = true;
         mass += 1;
-        drunk0 = progress() * SIPS; /* new stein starts full from here */
+        drunkPx = window.scrollY; /* new stein starts full from here */
         if(countEl){
           countEl.textContent = 'Ma\u00df #' + mass;
           countEl.hidden = false;
