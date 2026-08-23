@@ -9,12 +9,13 @@
 <meta name="theme-color" content="#f4f0e6">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- UnifrakturMaguntia = Fraktur. The incumbent site sets EVERY section title in it
-     ("The Ladies", "The Lads", "Friday", "Saturday", "Weekend Attire"); we do the same.
+<!-- Grenze Gotisch = fraktur-roman hybrid: the incumbent set every section title in
+     true blackletter (UnifrakturMaguntia), which the owner ruled too hard to read;
+     Grenze keeps the gothic voice legible. Owner ruling 2026-08-23.
      Luxurious Script = the incumbent's flourish face, used twice, as it used it.
      Barlow Condensed = condensed grotesk (display + body + UI).
      JetBrains Mono = data, stats, TBD pills. -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&amp;family=Luxurious+Script&amp;family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500;600&amp;family=Luxurious+Script&amp;family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
 <style>
 /* =====================================================================
    ANDREW & MEGAN'S FINAL PROST
@@ -113,7 +114,7 @@
   --loz-angle:63deg;
 
   /* --- type --- */
-  --font-fraktur:"UnifrakturMaguntia","Luminari",serif;
+  --font-fraktur:"Grenze Gotisch","Luminari",serif;  /* gothic display (legible fraktur) */
   --font-script:"Luxurious Script","Snell Roundhand",cursive;
   --font-display:"Barlow Condensed","Arial Narrow","Helvetica Neue",system-ui,sans-serif;
   --font-text:var(--font-display);
@@ -308,7 +309,7 @@ small{font-size:var(--step--1)}
 .section-title{
   /* The incumbent's section-title voice: blackletter, navy, sentence case.
      Fraktur is illegible in all-caps, so the uppercase transform is dropped here. */
-  font-family:var(--font-fraktur);font-weight:400;
+  font-family:var(--font-fraktur);font-weight:600;
   font-size:var(--step-4);line-height:1.06;letter-spacing:0;margin:0;
   text-transform:none;
 }
@@ -688,7 +689,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 }
 .masthead-wordmark{
   font-family:var(--font-fraktur);
-  font-weight:400;
+  font-weight:600;
   font-size:var(--step-5);
   line-height:1.02;
   letter-spacing:.01em;
