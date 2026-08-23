@@ -430,6 +430,25 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 .grid--3{--grid-min:11rem}
 .grid--roster{--grid-min:6.25rem;gap:var(--s-2)}
 .grid--pair{grid-template-columns:1fr}          /* two locked columns, stacked on phone */
+.cal{margin-top:var(--s-3)}
+.cal summary{
+  display:inline-flex;align-items:center;justify-content:center;cursor:pointer;
+  min-height:var(--tap);padding:.45rem 1.1rem;
+  font-family:var(--font-mono);font-size:var(--step--1);font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  background:var(--surface);color:var(--text);border:1px solid var(--line-strong);
+  list-style:none;
+}
+.cal summary::-webkit-details-marker{display:none}
+.cal summary::after{content:"\25BE";margin-left:.5rem}
+.cal[open] summary::after{content:"\25B4"}
+.cal-panel{
+  margin-top:var(--s-2);padding:var(--s-3);
+  background:var(--surface);border:1px solid var(--line-strong);
+  max-width:34rem;
+}
+.cal-q{margin:0 0 var(--s-2);font-weight:700}
+.cal-note{margin:var(--s-2) 0 0;font-size:var(--step--1);color:var(--text-dim)}
 .friday-toggle{display:flex;gap:.45rem;margin-top:var(--s-2);flex-wrap:wrap}
 @media (min-width:44em){
   .grid--pair{grid-template-columns:1fr 1fr;gap:var(--s-4)}
@@ -1139,6 +1158,17 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
       <p class="section-kicker">Friday splits &middot; Saturday and Sunday are everyone</p>
       <h2 class="section-title" id="weekend-title">The Weekend</h2>
       <p class="section-lede">Two parties, three days, one long table at the end of it.</p>
+      <details class="cal">
+        <summary>Add the weekend to your calendar</summary>
+        <div class="cal-panel">
+          <p class="cal-q">Which Friday is yours?</p>
+          <p class="btn-row">
+            <button class="btn" type="button" data-cal="ladies">Gals &middot; download .ics</button>
+            <button class="btn" type="button" data-cal="lads">Guys &middot; download .ics</button>
+          </p>
+          <p class="cal-note">Saturday and Sunday are identical in both &mdash; only Friday differs. Works with Google Calendar, Apple Calendar, and Outlook.</p>
+        </div>
+      </details>
     </div>
 
     <ul class="list-check wknd-notes">
@@ -1171,7 +1201,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 
           <ol class="itin">
             <li>
-              <p class="itin-time">Morning</p>
+              <p class="itin-time">8:00 AM</p>
               <p class="itin-title">Golf</p>
               <p class="itin-where">Tentatively Toad Valley &middot; <span class="addr">237 NE 80th St, Pleasant Hill</span></p>
               <p class="chip-row">
@@ -2204,6 +2234,75 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
       if(!ticking){ ticking = true; requestAnimationFrame(render); }
     }, {passive:true});
     render();
+  })();
+
+
+  /* ------------------------------------------------------------------
+     CALENDAR EXPORT — builds a per-side .ics entirely client-side.
+     Times are America/Chicago; vague itinerary slots use the plan's
+     best-known reading.
+     ------------------------------------------------------------------ */
+  (function(){
+    var VRBO = '5650 SE 56th St\\, Carlisle\\, IA 50047';
+    /* [day, start, end, title, location, note] — day 18/19/20 Sept 2026 */
+    var SHARED = [
+      [19,'0900','1100','Des Moines Farmers Market','Downtown Des Moines','Brunch at the market. Wear whatever you want.'],
+      [19,'1400','2000','Oktoberfest Beer Olympics',VRBO,'The main event. Costumes on: lederhosen in dark brown / dirndl in blue. Catered group dinner when the medals are settled. The root beer keg counts.'],
+      [19,'2100','2300','Beerfest on the projector',VRBO,'Movie\\, bonfire\\, s\'mores. Cozy clothes.'],
+      [20,'0900','1030','Breakfast at the VRBO',VRBO,'Bagels\\, muffins\\, egg bites\\, fruit. Say goodbye to the bride & groom.'],
+      [20,'1100','1130','Check out\\, go home',VRBO,'Out the door by eleven. Hard stop.']
+    ];
+    var SIDES = {
+      lads: [
+        [18,'0800','1200','Golf','237 NE 80th St\\, Pleasant Hill\\, IA','Tentatively Toad Valley. Dress for the weather.'],
+        [18,'1200','1600','Downtown Bar Crawl','Lua Brewing\\, 1525 High St\\, Des Moines\\, IA','Lunch at Lua Brewing\\, then Big Grove Taproom (555 17th St) and Exile Brewing (1514 Walnut St). Park once.'],
+        [18,'1600','1800','VRBO check-in',VRBO,'Shower\\, change into flannel and jeans. Stagger the showers.'],
+        [18,'1800','2000','Dinner at Rube\'s','3309 Ute Ave\\, Waukee\\, IA','Grill your own. Sober drivers only — 25–30 min west.'],
+        [18,'2000','2330','Dive bars','Des Moines\\, IA','Where the night goes is where it goes.']
+      ],
+      ladies: [
+        [18,'1000','1300','Bakery Crawl & Crawl Bingo','La Mie Bakery\\, 841 42nd St\\, Des Moines\\, IA','Florals & jeans.'],
+        [18,'1300','1515','Bridal Games & Snacks at Lindsay\'s','911 NW Orchard Dr\\, Ankeny\\, IA',''],
+        [18,'1600','1800','Check-in\\, get ready',VRBO,''],
+        [18,'1800','2000','Dinner at Fresko','909 Locust St\\, Des Moines\\, IA','Black dresses\\, Megan in white. Gluten-free is covered.'],
+        [18,'2000','2300','Game Tournament Night + Ice Cream Bar',VRBO,'Crowns\\, Dutch Blitz (Nertz)\\, Garbage\\, Speed tiebreaker.']
+      ]
+    };
+    function ics(side){
+      var ev = SIDES[side].concat(SHARED);
+      var L = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Final Prost//Bach Weekend//EN',
+        'CALSCALE:GREGORIAN','METHOD:PUBLISH',
+        'BEGIN:VTIMEZONE','TZID:America/Chicago',
+        'BEGIN:DAYLIGHT','TZOFFSETFROM:-0600','TZOFFSETTO:-0500','TZNAME:CDT','DTSTART:19700308T020000','RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU','END:DAYLIGHT',
+        'BEGIN:STANDARD','TZOFFSETFROM:-0500','TZOFFSETTO:-0600','TZNAME:CST','DTSTART:19701101T020000','RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU','END:STANDARD',
+        'END:VTIMEZONE'];
+      ev.forEach(function(e,i){
+        L.push('BEGIN:VEVENT',
+          'UID:finalprost-'+side+'-'+i+'@finalprost.vercel.app',
+          'DTSTAMP:20260823T000000Z',
+          'DTSTART;TZID=America/Chicago:202609'+e[0]+'T'+e[1]+'00',
+          'DTEND;TZID=America/Chicago:202609'+e[0]+'T'+e[2]+'00',
+          'SUMMARY:'+e[3],
+          'LOCATION:'+e[4],
+          'DESCRIPTION:'+(e[5]?e[5]+'\\n\\n':'')+'Full plan: https://finalprost.vercel.app',
+          'URL:https://finalprost.vercel.app',
+          'END:VEVENT');
+      });
+      L.push('END:VCALENDAR');
+      return L.join('\r\n');
+    }
+    document.addEventListener('click', function(e){
+      var b = e.target.closest('button[data-cal]');
+      if(!b) return;
+      var side = b.getAttribute('data-cal');
+      var blob = new Blob([ics(side)], {type:'text/calendar;charset=utf-8'});
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'final-prost-' + (side === 'ladies' ? 'gals' : 'guys') + '.ics';
+      document.body.appendChild(a); a.click();
+      setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 2000);
+      var d = b.closest('details'); if(d) d.open = false;
+    });
   })();
 
   /* ------------------------------------------------------------------
