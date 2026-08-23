@@ -853,7 +853,9 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
   flex:none;display:inline-flex;align-items:center;justify-content:center;
   width:2rem;height:2rem;
   font-family:var(--font-mono);font-size:var(--step--1);font-weight:700;
-  color:var(--accent-ink);background:var(--accent);
+  /* --accent is navy since the cream re-theme; the old dark accent-ink
+     text vanished against it. Paper-white numerals read on the navy tile. */
+  color:var(--paper-hi);background:var(--accent);
 }
 .bring-text{font-size:var(--step--1);line-height:1.35;font-weight:600;color:var(--text)}
 .bring-sub{display:block;margin-top:.2rem;font-weight:400;color:var(--text-dim)}
