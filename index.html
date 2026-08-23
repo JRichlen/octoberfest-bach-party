@@ -893,6 +893,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
   font-family:var(--font-mono);font-size:var(--step-1);font-weight:700;
   color:var(--accent-text);letter-spacing:.02em;font-variant-numeric:tabular-nums;
 }
+.btn-row--stack{display:flex;flex-direction:column;gap:.6rem;align-items:stretch}
 .budget-note{font-size:var(--step--1);color:var(--text-dim)}
 .venmo-card .kv > dd{font-family:var(--font-mono)}
 
@@ -1939,16 +1940,12 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 
       <article class="card card--raised venmo-card">
         <h3 class="card-title">Paying up</h3>
-        <p class="card-meta">Venmo &middot; due September 11</p>
-        <dl class="kv kv--stack">
-          <dt>Venmo name</dt>
-          <dd><strong>Lindsay Richlen</strong></dd>
-          <dt>Venmo account</dt>
-          <dd><strong class="cost-figure">@LindsayRichlen</strong></dd>
-          <dt>Due date</dt>
-          <dd><strong class="cost-figure">September 11, 2026</strong></dd>
-        </dl>
-        <p class="budget-note">Send your rate &mdash; $200 if you&rsquo;re staying at the VRBO, $60 if you&rsquo;re not &mdash; to @LindsayRichlen by <strong>September 11</strong>, one week before the weekend.</p>
+        <p class="card-meta">Venmo &middot; @LindsayRichlen &middot; due September 11</p>
+        <p class="btn-row btn-row--stack">
+          <a class="btn btn--block" href="https://venmo.com/LindsayRichlen?txn=pay&amp;amount=200&amp;note=Final%20Prost%20bach%20weekend" target="_blank" rel="noopener noreferrer">Pay $200 &mdash; staying at the VRBO</a>
+          <a class="btn btn--block" href="https://venmo.com/LindsayRichlen?txn=pay&amp;amount=60&amp;note=Final%20Prost%20bach%20weekend" target="_blank" rel="noopener noreferrer">Pay $60 &mdash; not staying</a>
+        </p>
+        <p class="budget-note">Both buttons open Venmo with the amount filled in &mdash; just hit pay. On a laptop, or if the buttons misbehave, send to <strong class="cost-figure">@LindsayRichlen</strong> (Lindsay Richlen) by <strong>September 11</strong>, one week before the weekend.</p>
       </article>
 
       <article class="card card--alert">
