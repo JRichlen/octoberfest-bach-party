@@ -1,0 +1,348 @@
+{
+ "method": "EXTRACTED from the document model and VISUALLY VERIFIED \u2014 these are real crops, not defaults.\n\nWHERE THE DATA LIVES (the previous attempt missed this): the crop is NOT on the element. Each portrait is an \"A?\":\"J\" shape element carrying a vector path in `.b[0]`, and the image fill hangs off `.b[0].B.B`:\n  .b[0].B.B.A = {\"A?\":\"d\",\"A\":\"<mediaId>\",\"B\":1}   <- media ref\n  .b[0].B.B.B = {\"B\":x, \"A\":y, \"D\":w, \"C\":h, \"E\":rotation}  <- IMAGE PLACEMENT RECT\nThat placement rect is expressed in the element's INTRINSIC viewBox space, which is `.a` = {\"B\":0,\"A\":0,\"D\":64,\"C\":64} on all 38 (a 64x64 box). The visible window is exactly that viewBox; the image rect is usually much larger than it and negatively offset (that's the zoom).\n\nCROP FORMULA:\n  cropX = (a.B - fill.B)/fill.D ; cropW = a.D/fill.D\n  cropY = (a.A - fill.A)/fill.C ; cropH = a.C/fill.C\n\nPARENT TRANSFORM: irrelevant to the crop, and that is the key correction. 20 of the 38 sit inside groups with a 0.9303 scale; that scale changes only the on-page slot SIZE, not the fill/viewBox ratio, because both numerator and denominator live in the same intrinsic space. Composing it in (as the failed attempt effectively did) is what threw crops onto fences and railings.\n\nWHY ASPECT 1.0 IS NOT A BUG: every crop comes out pixel-square (1.000). That was read last time as a symptom of misreading. It isn't \u2014 the card slot is 192.07 x 194.37 CSS px, i.e. aspect 0.988, essentially square, so a square crop is exactly what the model should yield. Independent correctness check that DOES hold: fill.D/fill.C equals the source file's true W/H to 3 decimals on all 38, so the placement rect is being read in the right space.\n\nROTATION \u2014 ONE OUTLIER: Alex Holmes (MAHSkPgGvGg) has fill.E = -90.0; all other 37 have E = 0.0 and no element-level rotation anywhere. His image must be rotated 90deg COUNTER-CLOCKWISE (CSS `transform: rotate(-90deg)`) before the crop applies. I de-rotated his rect back into unrotated source coordinates (source_x = 1 - v', source_y = u'), so his cropXPct/YPct/WPct/HPct below are in the raw file's coordinate system and are ONLY correct if you also apply the -90deg rotation. The schema has no rotation field, so this is the one entry that needs manual handling.\n\nVERIFICATION: I cropped all 38 source files by the extracted rects and looked at the result as a contact sheet (scratchpad/sheet_exact.png). 38/38 are correctly framed, centred faces. That is the evidence for \"high\" confidence, not the arithmetic.\n\nCRITICAL CAVEAT ON objectPosition \u2014 READ THIS: plain `object-fit: cover` CANNOT reproduce this framing. Cover only pans; it never zooms. The original crops are zoomed 1.07x to 8.23x past cover (median ~3x) because the sources are group shots, wedding photos and full-body pictures. I rendered the cover-only version too (scratchpad/sheet_cover.png) and it reproduces the previous failure exactly \u2014 softball diamond, wooden fence, stone railing, whole families. So the crop rect is the primary, load-bearing output.\n\nThe objectPosition values I return are the mathematically EXACT companions to the crop rect, and are valid only when paired with the zoom:\n  background-size: calc(100%/cropWPct) calc(100%/cropHPct);\n  background-position: <objectPosition>;         /* identical % semantics to object-position */\ni.e. objectPosition = cropX/(1-cropW), cropY/(1-cropH). Equivalent img form: absolutely position the img at width calc(100%/cropWPct), height calc(100%/cropHPct), left calc(-1*cropXPct*100%/cropWPct), top calc(-1*cropYPct*100%/cropHPct) inside an overflow:hidden slot of aspect-ratio 192.07/194.37.\n\nIf you use these percentages on an UNZOOMED cover image you will get the fence-and-softball result again. If you want a safe zoom-free fallback instead, use the cover-centred values I computed separately in scratchpad/final.json (field `objectPosition` there) \u2014 those keep the face in frame but lose the tight framing.\n\nCrop rect aspect (1.000) vs slot aspect (0.988) differs by 1.2%; cover will shave ~1.2% off the width, which is imperceptible.\n\nArtefacts: scratchpad/fills.json (raw payloads), crops.json, final.json, answer.json, sheet_exact.png, sheet_cover.png, extract_crop.py, crops.py, render2.py.",
+ "entries": [
+  {
+   "mediaId": "MAHSVQiQs9s",
+   "name": "Kailey Elgersma",
+   "cropXPct": 0.3463,
+   "cropYPct": 0.3017,
+   "cropWPct": 0.3465,
+   "cropHPct": 0.2329,
+   "objectPosition": "53% 39.3%"
+  },
+  {
+   "mediaId": "MAHSVbFwnhQ",
+   "name": "Karissa Fleming",
+   "cropXPct": 0.3544,
+   "cropYPct": 0.0957,
+   "cropWPct": 0.2765,
+   "cropHPct": 0.4148,
+   "objectPosition": "49% 16.3%"
+  },
+  {
+   "mediaId": "MAHSVRh4n7I",
+   "name": "Kendra Hatcher",
+   "cropXPct": 0.367,
+   "cropYPct": 0.2247,
+   "cropWPct": 0.3333,
+   "cropHPct": 0.25,
+   "objectPosition": "55% 30%"
+  },
+  {
+   "mediaId": "MAHSVUnlgAg",
+   "name": "Kenzie Nilles",
+   "cropXPct": 0.4651,
+   "cropYPct": 0.192,
+   "cropWPct": 0.2375,
+   "cropHPct": 0.1584,
+   "objectPosition": "61% 22.8%"
+  },
+  {
+   "mediaId": "MAHSVmoe-os",
+   "name": "Kim Martens",
+   "cropXPct": 0.4039,
+   "cropYPct": 0.1813,
+   "cropWPct": 0.2092,
+   "cropHPct": 0.2092,
+   "objectPosition": "51.1% 22.9%"
+  },
+  {
+   "mediaId": "MAHSVZxuTr0",
+   "name": "Megan Elgersma",
+   "cropXPct": 0,
+   "cropYPct": 0.0289,
+   "cropWPct": 0.9338,
+   "cropHPct": 0.7004,
+   "objectPosition": "0% 9.6%"
+  },
+  {
+   "mediaId": "MAHSVVW_XH0",
+   "name": "Tori Elgersma",
+   "cropXPct": 0.4144,
+   "cropYPct": 0.1432,
+   "cropWPct": 0.2204,
+   "cropHPct": 0.3306,
+   "objectPosition": "53.2% 21.4%"
+  },
+  {
+   "mediaId": "MAHSVhYtka4",
+   "name": "Amy Schroeder",
+   "cropXPct": 0.2469,
+   "cropYPct": 0.1725,
+   "cropWPct": 0.2871,
+   "cropHPct": 0.2871,
+   "objectPosition": "34.6% 24.2%"
+  },
+  {
+   "mediaId": "MAHSVbfWBc4",
+   "name": "Anessa Schoo",
+   "cropXPct": 0.3259,
+   "cropYPct": 0.4339,
+   "cropWPct": 0.4563,
+   "cropHPct": 0.4656,
+   "objectPosition": "59.9% 81.2%"
+  },
+  {
+   "mediaId": "MAHSVVjWNME",
+   "name": "Cindy Elgersma",
+   "cropXPct": 0.6086,
+   "cropYPct": 0.2758,
+   "cropWPct": 0.2391,
+   "cropHPct": 0.2299,
+   "objectPosition": "80% 35.8%"
+  },
+  {
+   "mediaId": "MAHSVXJ6FzM",
+   "name": "Damiana Perkins",
+   "cropXPct": 0.3776,
+   "cropYPct": 0.1775,
+   "cropWPct": 0.1215,
+   "cropHPct": 0.1215,
+   "objectPosition": "43% 20.2%"
+  },
+  {
+   "mediaId": "MAHSVQzkGpU",
+   "name": "Julie Richlen",
+   "cropXPct": 0.2065,
+   "cropYPct": 0.4306,
+   "cropWPct": 0.3071,
+   "cropHPct": 0.3071,
+   "objectPosition": "29.8% 62.1%"
+  },
+  {
+   "mediaId": "MAHSVQ_h63s",
+   "name": "Lindsay Richlen",
+   "cropXPct": 0.3102,
+   "cropYPct": 0.2273,
+   "cropWPct": 0.1589,
+   "cropHPct": 0.239,
+   "objectPosition": "36.9% 29.9%"
+  },
+  {
+   "mediaId": "MAHSVTjBe2M",
+   "name": "Lindsey Shannon",
+   "cropXPct": 0.3423,
+   "cropYPct": 0.131,
+   "cropWPct": 0.2779,
+   "cropHPct": 0.2085,
+   "objectPosition": "47.4% 16.5%"
+  },
+  {
+   "mediaId": "MAHSVTa7-80",
+   "name": "Liz Johnson",
+   "cropXPct": 0.5397,
+   "cropYPct": 0.2591,
+   "cropWPct": 0.2422,
+   "cropHPct": 0.2904,
+   "objectPosition": "71.2% 36.5%"
+  },
+  {
+   "mediaId": "MAHSVYBzdNE",
+   "name": "Margie Powers",
+   "cropXPct": 0.5308,
+   "cropYPct": 0.3779,
+   "cropWPct": 0.2138,
+   "cropHPct": 0.1586,
+   "objectPosition": "67.5% 44.9%"
+  },
+  {
+   "mediaId": "MAHSVV0hiFY",
+   "name": "Morgan elgersma",
+   "cropXPct": 0.2748,
+   "cropYPct": 0.3049,
+   "cropWPct": 0.1943,
+   "cropHPct": 0.1943,
+   "objectPosition": "34.1% 37.8%"
+  },
+  {
+   "mediaId": "MAHSVfevhU8",
+   "name": "Peggy Elgersma",
+   "cropXPct": 0.5098,
+   "cropYPct": 0.2682,
+   "cropWPct": 0.174,
+   "cropHPct": 0.1305,
+   "objectPosition": "61.7% 30.8%"
+  },
+  {
+   "mediaId": "MAHSVUU0SWM",
+   "name": "Rachel Gruetzmacher",
+   "cropXPct": 0.2688,
+   "cropYPct": 0.1953,
+   "cropWPct": 0.1667,
+   "cropHPct": 0.1667,
+   "objectPosition": "32.3% 23.4%"
+  },
+  {
+   "mediaId": "MAHSjxOyJSM",
+   "name": "Andrew Richlen",
+   "cropXPct": 0.3087,
+   "cropYPct": 0.0494,
+   "cropWPct": 0.4441,
+   "cropHPct": 0.3553,
+   "objectPosition": "55.5% 7.7%"
+  },
+  {
+   "mediaId": "MAHSkADjLgY",
+   "name": "Brendan Doyle",
+   "cropXPct": 0.286,
+   "cropYPct": 0.1986,
+   "cropWPct": 0.3999,
+   "cropHPct": 0.3391,
+   "objectPosition": "47.7% 30%"
+  },
+  {
+   "mediaId": "MAHSj8LJ_R8",
+   "name": "Dustin Elgerma",
+   "cropXPct": 0.4649,
+   "cropYPct": 0.2575,
+   "cropWPct": 0.2656,
+   "cropHPct": 0.1882,
+   "objectPosition": "63.3% 31.7%"
+  },
+  {
+   "mediaId": "MAHSkK1RJwI",
+   "name": "Jordan Richlen",
+   "cropXPct": 0.4736,
+   "cropYPct": 0.2476,
+   "cropWPct": 0.2645,
+   "cropHPct": 0.1764,
+   "objectPosition": "64.4% 30.1%"
+  },
+  {
+   "mediaId": "MAHSj-p-LkY",
+   "name": "Logan Powers",
+   "cropXPct": 0.3199,
+   "cropYPct": 0.117,
+   "cropWPct": 0.4272,
+   "cropHPct": 0.4947,
+   "objectPosition": "55.8% 23.1%"
+  },
+  {
+   "mediaId": "MAHSj2Z0aYE",
+   "name": "Quinten Wynia",
+   "cropXPct": 0,
+   "cropYPct": 0.1814,
+   "cropWPct": 0.9338,
+   "cropHPct": 0.618,
+   "objectPosition": "0% 47.5%"
+  },
+  {
+   "mediaId": "MAHSj0x1pZs",
+   "name": "Tim Cornelisen",
+   "cropXPct": 0.1527,
+   "cropYPct": 0.3375,
+   "cropWPct": 0.5233,
+   "cropHPct": 0.5218,
+   "objectPosition": "32% 70.6%"
+  },
+  {
+   "mediaId": "MAHSkPgGvGg",
+   "name": "Alex Holmes",
+   "cropXPct": 0.2061,
+   "cropYPct": 0,
+   "cropWPct": 0.4734,
+   "cropHPct": 0.4734,
+   "objectPosition": "39.1% 0%"
+  },
+  {
+   "mediaId": "MAHSj72JnYw",
+   "name": "Brian Cervantes",
+   "cropXPct": 0.129,
+   "cropYPct": 0.4852,
+   "cropWPct": 0.3359,
+   "cropHPct": 0.4479,
+   "objectPosition": "19.4% 87.9%"
+  },
+  {
+   "mediaId": "MAHSjz8VcoM",
+   "name": "Chris Nicolet",
+   "cropXPct": 0.3786,
+   "cropYPct": 0.1742,
+   "cropWPct": 0.2002,
+   "cropHPct": 0.2918,
+   "objectPosition": "47.3% 24.6%"
+  },
+  {
+   "mediaId": "MAHSj3dqrIE",
+   "name": "Jackson Agey",
+   "cropXPct": 0.3649,
+   "cropYPct": 0.355,
+   "cropWPct": 0.2416,
+   "cropHPct": 0.1116,
+   "objectPosition": "48.1% 40%"
+  },
+  {
+   "mediaId": "MAHSjyP2hNA",
+   "name": "Jamie Elgersma",
+   "cropXPct": 0.1753,
+   "cropYPct": 0,
+   "cropWPct": 0.4101,
+   "cropHPct": 0.556,
+   "objectPosition": "29.7% 0%"
+  },
+  {
+   "mediaId": "MAHSj7DP58k",
+   "name": "Kendel Richlen",
+   "cropXPct": 0.2808,
+   "cropYPct": 0.2232,
+   "cropWPct": 0.3207,
+   "cropHPct": 0.3531,
+   "objectPosition": "41.3% 34.5%"
+  },
+  {
+   "mediaId": "MAHSj-DxRYE",
+   "name": "Landon Baugh",
+   "cropXPct": 0.2899,
+   "cropYPct": 0.2983,
+   "cropWPct": 0.3485,
+   "cropHPct": 0.3549,
+   "objectPosition": "44.5% 46.2%"
+  },
+  {
+   "mediaId": "MAHSj4H2LNo",
+   "name": "Nick Brooks",
+   "cropXPct": 0.261,
+   "cropYPct": 0.2205,
+   "cropWPct": 0.412,
+   "cropHPct": 0.412,
+   "objectPosition": "44.4% 37.5%"
+  },
+  {
+   "mediaId": "MAHSj9sETUI",
+   "name": "Noah Haynes",
+   "cropXPct": 0.0805,
+   "cropYPct": 0.1922,
+   "cropWPct": 0.3955,
+   "cropHPct": 0.3955,
+   "objectPosition": "13.3% 31.8%"
+  },
+  {
+   "mediaId": "MAHSkI1ojXo",
+   "name": "Teddy Reinert",
+   "cropXPct": 0.2613,
+   "cropYPct": 0.1773,
+   "cropWPct": 0.3461,
+   "cropHPct": 0.3461,
+   "objectPosition": "40% 27.1%"
+  },
+  {
+   "mediaId": "MAHSjyDzakM",
+   "name": "Tyler Johnsrud",
+   "cropXPct": 0.0951,
+   "cropYPct": 0.0918,
+   "cropWPct": 0.5098,
+   "cropHPct": 0.3953,
+   "objectPosition": "19.4% 15.2%"
+  },
+  {
+   "mediaId": "MAHSj_RD2NU",
+   "name": "brady Richlen",
+   "cropXPct": 0.3279,
+   "cropYPct": 0.0853,
+   "cropWPct": 0.406,
+   "cropHPct": 0.406,
+   "objectPosition": "55.2% 14.4%"
+  }
+ ],
+ "confidence": "high"
+}

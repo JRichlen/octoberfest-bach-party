@@ -161,3 +161,86 @@ it will be spoken aloud.
 - Zapfhahn — the tap itself (TSAPF-hahn)
 - Currywurst — (KUH-ree-voorst) bratwurst, sliced, drowned in curry ketchup.
   The caterer's whole thing.
+
+---
+
+## RE-RIP OF THE INCUMBENT SITE — 2026-08-23 (supersedes earlier roster data)
+
+Source: `https://andrewandmegansbachpartyweekend.my.canva.site/`, parsed from the
+embedded `window['bootstrap']` document model.
+
+### Decoded Canva geometry schema
+On every element: **`A` = y, `B` = x, `C` = height, `D` = width.**
+Groups (`"A?":"H"`) hold children in `.c`, expressed in an intrinsic space whose size is
+`a` = intrinsic height, `b` = intrinsic width. Absolute child position =
+`parent + child * (parent.C/parent.a)` for y and `* (parent.D/parent.b)` for x.
+Both scales are equal to 1e-6 on every group.
+
+**Text has TWO serialisations** and both must be handled:
+1. tagged runs — `{"A?":"A","A":"text"}`
+2. compact form — `element.a.C = {"A":["text"], "B":[len], "C":[styles]}`
+
+Handling only (1) is what silently dropped five people from the earlier extraction.
+
+### Roster: 38 people, not 33 (19 ladies + 19 lads)
+Authoritative mapping is `docs/roster-truth.json`, derived purely from rendered
+coordinates: each photo is paired with the text block sitting directly beneath it
+(gap 11.0–17.8px, horizontal centre offset never >7.4px against a ~207px column pitch).
+Independently re-derived by a second pass and found byte-identical.
+
+**Nine cards store their photo OUTSIDE the group holding their name** — Kenzie Nilles,
+Lindsey Shannon, Quinten Wynia, Nick Brooks, Brendan Doyle, Logan Powers, Jordan Richlen,
+Alex Holmes, Teddy Reinert. Any index-zip of images against names misaligns exactly those
+nine. This is the defect that produced the previously-wrong mapping. **Do not re-derive
+by document order.**
+
+Previously missing entirely: **Jordan Richlen (Best man)**, Logan Powers, Brendan Doyle,
+Alex Holmes, Teddy Reinert.
+
+Source typos preserved in `roster-truth.json`, normalised for display in `index.html`:
+`Morgan elgersma`→Morgan Elgersma, `brady Richlen`→Brady Richlen,
+`Dustin Elgerma`→Dustin Elgersma.
+
+### Photo crops
+`docs/photo-framing.json`. The crop is **not** on the element — it is the image fill on
+the shape path at `.b[0].B.B.B` (`{B:x, A:y, D:w, C:h, E:rotation}`), read against the
+element viewBox `.a` (64×64 on all 38):
+`cropX = (a.B - fill.B)/fill.D`, `cropW = a.D/fill.D` (same for y/h).
+
+**The parent group's 0.9303 scale must NOT be composed in** — it changes the on-page slot
+size, not the fill/viewBox ratio. Composing it is what threw earlier crops onto fences and
+railings. Crops are zoomed **1.07×–8.23× past cover** (median ~3×), so `object-fit: cover`
+can never reproduce them; crops must be baked at build time.
+One outlier: **Alex Holmes** (`MAHSkPgGvGg`) has `fill.E = -90`; his rect is stored in raw
+file coordinates, so crop FIRST, then rotate **+90**.
+
+### Design system (the incumbent's own)
+- Backgrounds: `#fffdf8` hero · `#f4f0e6` cream (most sections) · `#6695d0` cornflower
+  bands (its Itinerary and its Stay)
+- Ink: `#13417d` navy (205 uses, dominant) · `#3d87c3` mid-blue accent (51 uses — the 2px
+  stroke on all 38 portraits) · `#eee2cd` cream accent on blue · `#304254` theme default
+- Fonts: **Obra Letra** (workhabit, Canva-only → substitute) · **UnifrakturMaguntia**
+  (every section title; on Google Fonts) · **Luxurious Script** (2 flourishes; on Google
+  Fonts) · Arimo (declared, never used)
+- Grid: 6 columns, left edges [64.8, 275.4, 487.0, 698.4, 905.4, 1112.3], pitch 209.6,
+  card 192.1 wide, photo 1:1, gutter 17.5. Bride and Groom get a free-floating featured
+  card 1.6× standard, pinned upper-right.
+
+**AA WARNING:** the incumbent's own blue band fails contrast — `#fffdf8` on `#6695d0` is
+3.05:1. Our rebuild deepens the band to `#4470ac` (4.97:1) and keeps `#6695d0` for
+decoration only.
+
+### Hidden second page (`page-2`, "Expenses") — never linked from the visible site
+VERBATIM:
+- "If staying at the vrbo: $200"
+- "IF not staying at the vrbo: $60"
+- "When out at a restaurants or a public space, purchase of foods and drinks are your responsibility."
+- "Meals and drinks at the house will be covered and paid for. There will be non-alcoholic
+  drink options for the weekend. You are welcome to BYOB if preferred."
+
+**NOT PUBLISHED — awaiting owner confirmation that these figures are current.**
+
+### Costume links
+The only two URLs in the entire document, and they match what we already ship:
+`B0D1CLJTYQ` (lederhosen) and `B0FN3NKFJS` (dirndl). The incumbent's "Link to VRBO"
+button has an EMPTY href — there is no VRBO URL to recover.
