@@ -867,8 +867,6 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 .stay-amenities > li{display:block;position:relative;padding-left:1.45rem}
 .stay-amenities > li::before{position:absolute;left:0;top:.5em;margin-top:0}
 .stay-amenities > li strong{display:block}
-.stay-pending dd{display:flex}
-.stay-pending dd .tbd{max-width:100%}
 .stay-warn{font-size:var(--step--1);color:var(--text-dim)}
 
 .roster-block + .roster-block{margin-top:var(--s-6)}
@@ -951,8 +949,10 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 .stein.pouring .stein-beer{transition:transform .9s cubic-bezier(.2,.7,.3,1)}
 .stein.pouring .stein-foam{transition:transform .9s cubic-bezier(.2,.7,.3,1)}
 .stein-count{
-  display:block;text-align:center;margin-top:.15rem;
-  font-size:var(--step--2);letter-spacing:.08em;color:var(--ink-soft);
+  display:block;text-align:center;margin-top:.15rem;padding:.1rem .35rem;
+  font-size:var(--step--2);letter-spacing:.08em;
+  color:var(--ink);background:var(--paper-hi);
+  border:1px solid var(--ink);border-radius:2px;
 }
 @media (max-width:29.99rem){
   .stein{top:auto;bottom:.6rem;right:.6rem;transform:scale(.85);transform-origin:bottom right}
@@ -1033,7 +1033,6 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 }
 .costume-or{font-size:var(--step--1);color:var(--text-dim)}
 .costume-alt-row{font-size:var(--step--1)}
-.costume-copy{font-size:var(--step--1);line-height:1.45;color:var(--ink-soft)}
 .costume-store{margin-top:var(--s-3)}
 .costume-honest{
   font-size:var(--step--2);line-height:1.5;color:var(--ink-soft);
@@ -1523,7 +1522,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 
       <article class="card card--raised stay-hero">
         <h3 class="card-title">The Barndominium</h3>
-        <p class="card-meta">VRBO &middot; Des Moines, Iowa</p>
+        <p class="card-meta">VRBO &middot; Carlisle, Iowa</p>
         <p>A farmhouse homestead retreat offering quiet, private country space while conveniently located near downtown Des Moines, IA.</p>
         <div class="chip-row">
           <span class="chip chip--amber">Sleeps 17</span>
@@ -1772,7 +1771,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
             <span class="roster-monogram" aria-hidden="true">TC</span>
           </span>
           <span class="roster-name">Tim Cornelisen</span>
-          <span class="roster-role">Groomsmen</span>
+          <span class="roster-role">Groomsman</span>
         </li>
         <li class="roster-card">
           <span class="roster-media">
@@ -1780,7 +1779,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
             <span class="roster-monogram" aria-hidden="true">DE</span>
           </span>
           <span class="roster-name">Dustin Elgersma</span>
-          <span class="roster-role">Groomsmen</span>
+          <span class="roster-role">Groomsman</span>
         </li>
         <li class="roster-card">
           <span class="roster-media">
@@ -1788,7 +1787,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
             <span class="roster-monogram" aria-hidden="true">QW</span>
           </span>
           <span class="roster-name">Quinten Wynia</span>
-          <span class="roster-role">Groomsmen</span>
+          <span class="roster-role">Groomsman</span>
         </li>
         <li class="roster-card">
           <span class="roster-media">
@@ -1876,7 +1875,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
             <span class="roster-monogram" aria-hidden="true">LP</span>
           </span>
           <span class="roster-name">Logan Powers</span>
-          <span class="roster-role">Groomsmen</span>
+          <span class="roster-role">Groomsman</span>
         </li>
         <li class="roster-card">
           <span class="roster-media">
@@ -1884,7 +1883,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
             <span class="roster-monogram" aria-hidden="true">BD</span>
           </span>
           <span class="roster-name">Brendan Doyle</span>
-          <span class="roster-role">Groomsmen</span>
+          <span class="roster-role">Groomsman</span>
         </li>
         <li class="roster-card">
           <span class="roster-media">
@@ -1900,7 +1899,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
             <span class="roster-monogram" aria-hidden="true">TR</span>
           </span>
           <span class="roster-name">Teddy Reinert</span>
-          <span class="roster-role">Groomsmen</span>
+          <span class="roster-role">Groomsman</span>
         </li>
       </ul>
     </div>
@@ -1916,7 +1915,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
       <span class="section-num">06</span>
       <p class="section-kicker">What it costs, honestly</p>
       <h2 class="section-title" id="budget-title">Budget &amp; Venmo</h2>
-      <p class="section-lede">Two flat rates cover the house, meals and drinks at the house. Public outings stay on your own card, and the Venmo details are the one thing still pending.</p>
+      <p class="section-lede">Two flat rates cover the house, meals and drinks at the house. Public outings stay on your own card. Venmo is live below &mdash; pay by September 11.</p>
     </header>
 
     <div class="stack-lg">
@@ -2091,7 +2090,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
 
     </dl>
 
-    <p class="section-lede german-outro">That&rsquo;s the whole vocabulary &mdash; fifteen words, every one of them glossed and spelled out above. Nobody is going to test you. Learn <span class="de">Prost</span> and you&rsquo;ll get through the weekend on charm.</p>
+    <p class="section-lede german-outro">That&rsquo;s the whole vocabulary &mdash; fourteen words, every one of them glossed and spelled out above. Nobody is going to test you. Learn <span class="de">Prost</span> and you&rsquo;ll get through the weekend on charm.</p>
   </div>
 </section>
 
