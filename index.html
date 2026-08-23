@@ -1564,7 +1564,8 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
         <p class="stay-address">5650 SE 56th St, Carlisle, IA 50047</p>
         <p class="dim">Carlisle &mdash; just southeast of Des Moines.</p>
         <p class="btn-row">
-          <a class="btn" href="https://maps.google.com/?q=5650+SE+56th+St,+Carlisle,+IA+50047" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+          <a class="btn" href="https://www.airbnb.com/rooms/43245114" target="_blank" rel="noopener noreferrer">See the listing (Airbnb)</a>
+          <a class="btn btn--ghost" href="https://maps.google.com/?q=5650+SE+56th+St,+Carlisle,+IA+50047" target="_blank" rel="noopener noreferrer">Google Maps</a>
           <a class="btn btn--ghost" href="https://maps.apple.com/?q=5650+SE+56th+St,+Carlisle,+IA+50047" target="_blank" rel="noopener noreferrer">Apple Maps</a>
         </p>
         <p class="dim"><strong class="cost-figure">$200</strong> staying &middot; <strong class="cost-figure">$60</strong> not staying &mdash; <a href="#budget">details in Budget &amp; Venmo</a></p>
@@ -2148,11 +2149,15 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var mass = 1, pouring = false, ticking = false;
     var SIP_SCREENS = 2.25; /* screen-heights of scroll per stein */
-    var drunkPx = 0; /* scroll position where the current stein was poured */
+    /* Drinking tracks DISTANCE TRAVELLED, not position — up-scrolls drink
+       too, and the stein never jams at the bottom of the page: any motion
+       keeps draining, and an empty stein refills wherever you are. */
+    var traveled = 0;
+    var lastY = window.scrollY;
 
     function level(){
       var span = Math.max(1, window.innerHeight * SIP_SCREENS);
-      var l = 1 - ((window.scrollY - drunkPx) / span);
+      var l = 1 - (traveled / span);
       return Math.max(0, Math.min(1, l));
     }
     function render(){
@@ -2164,7 +2169,7 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
       if(l <= 0){
         pouring = true;
         mass += 1;
-        drunkPx = window.scrollY; /* new stein starts full from here */
+        traveled = 0; /* new stein starts full from here */
         if(countEl){
           countEl.textContent = 'Ma\u00df #' + mass;
           countEl.hidden = false;
@@ -2186,6 +2191,9 @@ a.chip,button.chip,label.chip{min-height:var(--tap);padding-inline:.75rem;cursor
       }
     }
     window.addEventListener('scroll', function(){
+      var y = window.scrollY;
+      traveled += Math.abs(y - lastY);
+      lastY = y;
       if(!ticking){ ticking = true; requestAnimationFrame(render); }
     }, {passive:true});
     render();
