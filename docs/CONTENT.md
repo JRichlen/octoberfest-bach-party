@@ -70,7 +70,7 @@ Intro notes, all three required:
 - 12–4 PM — **Downtown Bar Crawl**: lunch at Lua Brewing (1525 High St), Big Grove Taproom (555 17th St), Exile Brewing (1514 Walnut St). Park once.
 - 4:00 PM — VRBO check-in. Shower, change into flannel & jeans.
 - 6:00 PM — Dinner at Rube's, 3309 Ute Ave, Waukee. Grill your own. Sober drivers only.
-- 8:00 PM on — Dive bars.
+- 8:00 PM on — Bars. (Revised 2026-08-30 per Andrew: was "Dive bars".)
 - Whenever — Home. Beer Olympics starts tomorrow.
 
 **The Ladies**
@@ -104,6 +104,7 @@ Intro notes, all three required:
 | Sunday morning | Cozy clothes | Cozy clothes |
 
 - Costume links (SETTLED — recovered from the incumbent site itself): lads https://www.amazon.com/dp/B0D1CLJTYQ (Spooktacular Creations, dark brown) · ladies https://www.amazon.com/dp/B0FN3NKFJS (Mepase 5-pc blue dirndl set). Both verified live 2026-08-21.
+- Alternative shirt options (added 2026-08-30 from the group chat): lads faux-lederhosen tee https://a.co/d/09N0KxIW (GRAJTCIN) · ladies dirndl-print tee https://a.co/d/070gcq1D (CLOFANWIN). Short links kept as shared — they point at the product pages where guests pick their own size.
 
 ## Things to Bring (six items, verbatim in substance)
 1. Lawn chairs / blankets
