@@ -247,6 +247,8 @@ VERBATIM:
 **NOT PUBLISHED — awaiting owner confirmation that these figures are current.**
 
 ### Costume links
-The only two URLs in the entire document, and they match what we already ship:
-`B0D1CLJTYQ` (lederhosen) and `B0FN3NKFJS` (dirndl). The incumbent's "Link to VRBO"
-button has an EMPTY href — there is no VRBO URL to recover.
+The only two URLs in the entire document: `B0D1CLJTYQ` (lederhosen) and `B0FN3NKFJS` (dirndl).
+The dirndl URL is still what we ship. **The lederhosen one is not** — the guys' button was
+repointed 2026-08-30 to the link Andrew shared (https://a.co/d/01bNZBHA); see the costume-links
+note under Weekend Attire. `B0D1CLJTYQ` is a recovered value, not a current one — do not restore
+it. The incumbent's "Link to VRBO" button has an EMPTY href — there is no VRBO URL to recover.
