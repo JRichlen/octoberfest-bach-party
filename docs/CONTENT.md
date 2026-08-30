@@ -103,7 +103,12 @@ Intro notes, all three required:
 | Bonfire | Cozy clothes | Cozy clothes |
 | Sunday morning | Cozy clothes | Cozy clothes |
 
-- Costume links (SETTLED — recovered from the incumbent site itself): lads https://www.amazon.com/dp/B0D1CLJTYQ (Spooktacular Creations, dark brown) · ladies https://www.amazon.com/dp/B0FN3NKFJS (Mepase 5-pc blue dirndl set). Both verified live 2026-08-21.
+- Costume links: lads https://a.co/d/01bNZBHA (Spooktacular Creations, dark brown) · ladies https://www.amazon.com/dp/B0FN3NKFJS (Mepase 5-pc blue dirndl set).
+  The lads' link was changed 2026-08-30 to the one Andrew shared in the group chat, replacing
+  the recovered `B0D1CLJTYQ`. NOT VERIFIED to be the same listing — a.co shorteners hit Amazon's
+  bot-wall and will not resolve from a sandbox, so treat the two as possibly-different ASINs.
+  Use the owner's link; do not "restore" the ASIN URL on the assumption they match.
+  The dirndl link is the recovered one, verified live 2026-08-21.
 - Alternative shirt options (added 2026-08-30 from the group chat): lads faux-lederhosen tee https://a.co/d/09N0KxIW (GRAJTCIN) · ladies dirndl-print tee https://a.co/d/070gcq1D (CLOFANWIN). Short links kept as shared — they point at the product pages where guests pick their own size.
 
 ## Things to Bring (six items, verbatim in substance)
@@ -242,6 +247,8 @@ VERBATIM:
 **NOT PUBLISHED — awaiting owner confirmation that these figures are current.**
 
 ### Costume links
-The only two URLs in the entire document, and they match what we already ship:
-`B0D1CLJTYQ` (lederhosen) and `B0FN3NKFJS` (dirndl). The incumbent's "Link to VRBO"
-button has an EMPTY href — there is no VRBO URL to recover.
+The only two URLs in the entire document: `B0D1CLJTYQ` (lederhosen) and `B0FN3NKFJS` (dirndl).
+The dirndl URL is still what we ship. **The lederhosen one is not** — the guys' button was
+repointed 2026-08-30 to the link Andrew shared (https://a.co/d/01bNZBHA); see the costume-links
+note under Weekend Attire. `B0D1CLJTYQ` is a recovered value, not a current one — do not restore
+it. The incumbent's "Link to VRBO" button has an EMPTY href — there is no VRBO URL to recover.
